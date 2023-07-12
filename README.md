@@ -1,4 +1,4 @@
-# raylib-rpg
+# raylib-cpp-rpg
 This repository is a C++ remake of old `raylib-rpg` (that was originally built using ANSI C)
 
 ## Build
