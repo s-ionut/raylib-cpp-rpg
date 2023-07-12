@@ -9,7 +9,7 @@
 int screenWidth = 800;
 int screenHeight = 450;
 
-// Main Enry Point
+// Main Entry Point
 int main()
 {
     Application app("raylib-rpg", screenWidth, screenHeight);
