@@ -4,10 +4,12 @@
     #include <emscripten/emscripten.h>
 #endif
 
-class Scene
-{
-    public:
-        Scene();
-        ~Scene();
-    private:
-};
+namespace Core{
+    class Scene
+    {
+        public:
+            Scene();
+            ~Scene();
+        private:
+    };
+} // Core

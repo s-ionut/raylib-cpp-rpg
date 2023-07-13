@@ -1,5 +1,7 @@
 #include "App.hpp"
 
+using namespace Core;
+
 Application::Application(std::string window_name, int width, int height):
     _window_name(window_name),
     _width(width),
