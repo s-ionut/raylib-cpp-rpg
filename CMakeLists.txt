@@ -37,6 +37,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 11)
 target_link_libraries(${PROJECT_NAME} PUBLIC raylib raylib_cpp)
 
 aux_source_directory(core/app SOURCE_FILES)
+aux_source_directory(core/scene SOURCE_FILES)
 
 target_sources(${PROJECT_NAME} PRIVATE ${SOURCE_FILES})
 

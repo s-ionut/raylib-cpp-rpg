@@ -4,12 +4,14 @@
     #include <emscripten/emscripten.h>
 #endif
 
+#include "scene/sceneManager.hpp"
+
 class Application
 {
     public:
     Application(std::string _window_name, int _width, int _height);
     ~Application();
-    
+
     void Execute();
 
     private:
@@ -18,6 +20,7 @@ class Application
     // void handleInput();
 
     raylib::Window _window;
+    Scene _scene;
     std::string _window_name = "Application";
     int _width = 800;
     int _height = 600;
