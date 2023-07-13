@@ -28,23 +28,19 @@ if (NOT raylib_cpp_FOUND)
     FetchContent_MakeAvailable(raylib_cpp)
 endif()
 
-set(SOURCES
-    main.cpp
-    core/app/App.cpp
-)
-
 set(HEADER_DIRS
-    core/app    
+    core
 )
 
-add_executable(${PROJECT_NAME} ${SOURCES})
+add_executable(${PROJECT_NAME} main.cpp)
 set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 11)
 target_link_libraries(${PROJECT_NAME} PUBLIC raylib raylib_cpp)
 
-target_include_directories(${PROJECT_NAME}
-    PRIVATE    
-        ${HEADER_DIRS}
-)
+aux_source_directory(core/app SOURCE_FILES)
+
+target_sources(${PROJECT_NAME} PRIVATE ${SOURCE_FILES})
+
+target_include_directories(${PROJECT_NAME} PRIVATE ${HEADER_DIRS})
 
 # Web Configurations
 if (${PLATFORM} STREQUAL "Web")

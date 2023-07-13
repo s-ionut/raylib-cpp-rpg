@@ -4,7 +4,7 @@
     #include <emscripten/emscripten.h>
 #endif
 
-#include "App.hpp"
+#include "app/App.hpp"
 
 int screenWidth = 800;
 int screenHeight = 450;
