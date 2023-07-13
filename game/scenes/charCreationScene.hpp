@@ -1,11 +1,11 @@
 #ifndef _CHAR_CREATION_SCENE_HPP
 #define _CHAR_CREATION_SCENE_HPP
 
-#include "scene.hpp"
+#include "core/scene/scene.hpp"
 
-namespace core{
+namespace game{
     namespace scene{
-        class CharCreationScene: public Scene
+        class CharCreationScene: public core::scene::Scene
         {
             public:
             CharCreationScene();
@@ -14,6 +14,6 @@ namespace core{
             virtual void Draw();
         };
     } // scene
-} // core
+} // game
 
 #endif // _CHAR_CREATION_SCENE_HPP

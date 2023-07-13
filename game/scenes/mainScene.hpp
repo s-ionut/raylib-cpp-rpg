@@ -1,11 +1,11 @@
 #ifndef _MAIN_SCENE_HPP
 #define _MAIN_SCENE_HPP
 
-#include "scene.hpp"
+#include "core/scene/scene.hpp"
 
-namespace core{
+namespace game{
     namespace scene{
-        class MainScene: public Scene
+        class MainScene: public core::scene::Scene
         {
             public:
             MainScene();
@@ -14,6 +14,6 @@ namespace core{
             virtual void Draw();
         };
     } // scene
-} // core
+} // game
 
 #endif // _MAIN_SCENE_HPP

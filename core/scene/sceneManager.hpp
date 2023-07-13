@@ -1,8 +1,8 @@
 #ifndef _SCENE_MANAGER_HPP
 #define _SCENE_MANAGER_HPP
 
-#include "mainScene.hpp"
-#include "charCreationScene.hpp"
+#include "game/scenes/mainScene.hpp"
+#include "game/scenes/charCreationScene.hpp"
 
 namespace core{
     namespace scene{
@@ -15,8 +15,8 @@ namespace core{
                 private:
                     void Manage();
                     void InitScene();
-                    static MainScene _mainScene;
-                    static CharCreationScene _charCreationScene;
+                    static game::scene::MainScene _mainScene;
+                    static game::scene::CharCreationScene _charCreationScene;
                     static Scene* _scene;
             };
     } // scene

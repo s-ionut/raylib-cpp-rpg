@@ -26,7 +26,9 @@ if (NOT raylib_cpp_FOUND)
 endif()
 
 set(HEADER_DIRS
+    .
     core
+    game
 )
 
 add_executable(${PROJECT_NAME} main.cpp)
@@ -35,6 +37,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC raylib raylib_cpp)
 
 aux_source_directory(core/app SOURCE_FILES)
 aux_source_directory(core/scene SOURCE_FILES)
+aux_source_directory(game/scenes SOURCE_FILES)
 
 target_sources(${PROJECT_NAME} PRIVATE ${SOURCE_FILES})
 

@@ -1,27 +1,27 @@
-#include "mainScene.hpp"
+#include "charCreationScene.hpp"
 
-using namespace core::scene;
+using namespace game::scene;
 
-MainScene::MainScene()
+CharCreationScene::CharCreationScene()
 {
     /// TODO: Implement
 }
 
-void MainScene::Update()
+void CharCreationScene::Update()
 {
     //----------------------------------------------------------------------------------
     /// TODO: Update your variables here
     //----------------------------------------------------------------------------------
 }
 
-void MainScene::Draw()
+void CharCreationScene::Draw()
 {
     //----------------------------------------------------------------------------------
     BeginDrawing();
 
         ClearBackground(RAYWHITE);
 
-        DrawText("raylib-rpg MainScene!", 160, 200, 20, LIGHTGRAY);
+        DrawText("raylib-rpg CharCreationScene!", 160, 200, 20, LIGHTGRAY);
 
     EndDrawing();
     //----------------------------------------------------------------------------------

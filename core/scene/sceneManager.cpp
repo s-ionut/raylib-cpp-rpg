@@ -2,8 +2,8 @@
 
 using namespace core::scene;
 
-MainScene SceneManager::_mainScene;
-CharCreationScene SceneManager::_charCreationScene;
+game::scene::MainScene SceneManager::_mainScene;
+game::scene::CharCreationScene SceneManager::_charCreationScene;
 Scene* SceneManager::_scene = nullptr;
 
 SceneManager::SceneManager()
