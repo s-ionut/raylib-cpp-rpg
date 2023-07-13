@@ -31,13 +31,3 @@ void Application::Execute()
         _scene->Draw();
     }
 };
-
-// Update
-void Application::Update()
-{
-};
-
-// Draw
-void Application::Draw()
-{ 
-};

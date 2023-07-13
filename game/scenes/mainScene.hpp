@@ -8,10 +8,10 @@ namespace game{
         class MainScene: public core::scene::Scene
         {
             public:
-            MainScene();
-            virtual ~MainScene() {};
-            virtual void Update();
-            virtual void Draw();
+                MainScene();
+                virtual ~MainScene() {};
+                virtual void Update();
+                virtual void Draw();
         };
     } // scene
 } // game

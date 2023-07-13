@@ -8,10 +8,10 @@ namespace game{
         class CharCreationScene: public core::scene::Scene
         {
             public:
-            CharCreationScene();
-            virtual ~CharCreationScene() {};
-            virtual void Update();
-            virtual void Draw();
+                CharCreationScene();
+                virtual ~CharCreationScene() {};
+                virtual void Update();
+                virtual void Draw();
         };
     } // scene
 } // game
