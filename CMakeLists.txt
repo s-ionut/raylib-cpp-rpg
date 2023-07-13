@@ -32,7 +32,7 @@ set(HEADER_DIRS
     core
 )
 
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} main.cpp core/scene/mainScene.cpp core/scene/charCreationScene.cpp)
 set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 11)
 target_link_libraries(${PROJECT_NAME} PUBLIC raylib raylib_cpp)
 

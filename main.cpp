@@ -12,7 +12,7 @@ int screenHeight = 450;
 // Main Entry Point
 int main()
 {
-    Core::Application app("raylib-rpg", screenWidth, screenHeight);
+    core::Application app("raylib-rpg", screenWidth, screenHeight);
 
     app.Execute();
 

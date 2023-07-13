@@ -1,13 +1,41 @@
 #include "sceneManager.hpp"
 
-using namespace Core;
+using namespace core::scene;
 
-Scene::Scene()
+MainScene SceneManager::_mainScene;
+CharCreationScene SceneManager::_charCreationScene;
+Scene* SceneManager::_scene = nullptr;
+
+SceneManager::SceneManager()
 {
-    /// TODO: fill it
+    InitScene();
 };
 
-Scene::~Scene()
+SceneManager::~SceneManager()
 {
-    /// TODO: fill it
+    /// TODO: Implement
+};
+
+void SceneManager::InitScene()
+{
+    _scene = &_mainScene;
+};
+
+void SceneManager::Manage()
+{
+    if (IsKeyPressed(KEY_A))
+    {
+        _scene = &_charCreationScene;
+    }
+    else if (IsKeyPressed(KEY_B))
+    {
+        _scene = &_mainScene;
+    }
+};
+
+Scene* SceneManager::GetScene()
+{
+    Manage();
+
+    return _scene;
 };

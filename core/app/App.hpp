@@ -1,3 +1,6 @@
+#ifndef _APP_HPP
+#define _APP_HPP
+
 #include "raylib-cpp.hpp"
 
 #if defined(PLATFORM_WEB)
@@ -6,7 +9,7 @@
 
 #include "scene/sceneManager.hpp"
 
-namespace Core{
+namespace core{
     class Application
     {
         public:
@@ -21,11 +24,14 @@ namespace Core{
         // void handleInput();
 
         raylib::Window _window;
-        Scene _scene;
+        scene::Scene* _scene;
+        scene::SceneManager _scene_manager;
         std::string _window_name = "Application";
         int _width = 800;
         int _height = 600;
 
         int _targeted_fps = 60;
     };
-} // Core
+} // core
+
+#endif // _APP_HPP

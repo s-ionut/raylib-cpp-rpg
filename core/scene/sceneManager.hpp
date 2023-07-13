@@ -1,15 +1,25 @@
-#include "raylib-cpp.hpp"
+#ifndef _SCENE_MANAGER_HPP
+#define _SCENE_MANAGER_HPP
 
-#if defined(PLATFORM_WEB)
-    #include <emscripten/emscripten.h>
-#endif
+#include "mainScene.hpp"
+#include "charCreationScene.hpp"
 
-namespace Core{
-    class Scene
-    {
-        public:
-            Scene();
-            ~Scene();
-        private:
-    };
-} // Core
+namespace core{
+    namespace scene{
+            class SceneManager
+            {
+                public:
+                    SceneManager();
+                    ~SceneManager();
+                    Scene* GetScene();
+                private:
+                    void Manage();
+                    void InitScene();
+                    static MainScene _mainScene;
+                    static CharCreationScene _charCreationScene;
+                    static Scene* _scene;
+            };
+    } // scene
+} // core
+
+#endif // _SCENE_MANAGER_HPP
