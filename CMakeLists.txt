@@ -1,7 +1,4 @@
 cmake_minimum_required(VERSION 3.5)
-set(CMAKE_C_COMPILER "gcc")
-set(CMAKE_CXX_COMPILER "g++")
-
 project(raylib-rpg)
 
 # raylib
@@ -32,7 +29,7 @@ set(HEADER_DIRS
     core
 )
 
-add_executable(${PROJECT_NAME} main.cpp core/scene/mainScene.cpp core/scene/charCreationScene.cpp)
+add_executable(${PROJECT_NAME} main.cpp)
 set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 11)
 target_link_libraries(${PROJECT_NAME} PUBLIC raylib raylib_cpp)
 
