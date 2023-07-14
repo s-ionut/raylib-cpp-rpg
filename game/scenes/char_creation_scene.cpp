@@ -1,4 +1,4 @@
-#include "charCreationScene.hpp"
+#include "char_creation_scene.hpp"
 
 using namespace game::scene;
 
@@ -21,7 +21,7 @@ void CharCreationScene::Draw()
 
         ClearBackground(RAYWHITE);
 
-        DrawText("raylib-rpg CharCreationScene!", 160, 200, 20, LIGHTGRAY);
+        raylib::DrawText("raylib-rpg CharCreationScene!", 160, 200, 20, LIGHTGRAY);
 
     EndDrawing();
     //----------------------------------------------------------------------------------

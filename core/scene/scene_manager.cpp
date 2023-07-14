@@ -1,4 +1,4 @@
-#include "sceneManager.hpp"
+#include "scene_manager.hpp"
 
 using namespace core::scene;
 

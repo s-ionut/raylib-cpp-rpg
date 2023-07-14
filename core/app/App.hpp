@@ -7,7 +7,7 @@
     #include <emscripten/emscripten.h>
 #endif
 
-#include "scene/sceneManager.hpp"
+#include "scene/scene_manager.hpp"
 
 namespace core{
     class Application

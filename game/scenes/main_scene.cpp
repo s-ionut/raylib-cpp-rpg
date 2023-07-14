@@ -1,4 +1,4 @@
-#include "mainScene.hpp"
+#include "main_scene.hpp"
 
 using namespace game::scene;
 
@@ -21,7 +21,7 @@ void MainScene::Draw()
 
         ClearBackground(RAYWHITE);
 
-        DrawText("raylib-rpg MainScene!", 160, 200, 20, LIGHTGRAY);
+        raylib::DrawText("raylib-rpg MainScene!", 160, 200, 20, LIGHTGRAY);
 
     EndDrawing();
     //----------------------------------------------------------------------------------

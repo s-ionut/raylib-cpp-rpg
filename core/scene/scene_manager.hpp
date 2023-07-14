@@ -1,8 +1,8 @@
 #ifndef _SCENE_MANAGER_HPP
 #define _SCENE_MANAGER_HPP
 
-#include "game/scenes/mainScene.hpp"
-#include "game/scenes/charCreationScene.hpp"
+#include "game/scenes/main_scene.hpp"
+#include "game/scenes/char_creation_scene.hpp"
 
 namespace core{
     namespace scene{
