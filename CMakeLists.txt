@@ -38,6 +38,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC raylib raylib_cpp)
 # Core source files
 aux_source_directory(core/app SOURCE_FILES)
 aux_source_directory(core/scene SOURCE_FILES)
+aux_source_directory(core/gui SOURCE_FILES)
 
 # Game source files
 aux_source_directory(game/scenes SOURCE_FILES)
