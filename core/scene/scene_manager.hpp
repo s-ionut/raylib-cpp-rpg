@@ -19,7 +19,7 @@ namespace core{
                     static game::scene::CharCreationScene _charCreationScene;
                     static Scene* _scene;
             };
-    } // scene
-} // core
+    } // mamespace scene
+} // namespace core
 
 #endif // _SCENE_MANAGER_HPP

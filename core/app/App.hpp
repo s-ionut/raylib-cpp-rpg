@@ -28,6 +28,6 @@ namespace core{
 
             int _targeted_fps = 60;
     };
-} // core
+} // namespace core
 
 #endif // _APP_HPP

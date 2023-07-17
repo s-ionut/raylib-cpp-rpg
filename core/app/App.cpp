@@ -10,7 +10,7 @@ Application::Application(std::string window_name, int width, int height):
     _scene_manager()
 {
     #if defined(PLATFORM_WEB)
-      emscripten_set_main_loop(Update, 0, 1);
+      emscripten_set_main_loop(Execute, 0, 1);
     #else
       SetTargetFPS(_targeted_fps);
     #endif

@@ -13,7 +13,7 @@ namespace game{
                 virtual void Update();
                 virtual void Draw();
         };
-    } // scene
-} // game
+    } // namespace scene
+} // namespace game
 
 #endif // _MAIN_SCENE_HPP
