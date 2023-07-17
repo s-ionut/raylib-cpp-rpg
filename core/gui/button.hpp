@@ -21,7 +21,7 @@ namespace core {
                 virtual void Update();
                 virtual void Draw();
             
-            public:
+            protected:
                 std::string _texturePath;    // Button texture file path
                 std::string _fxPath;         // Button sound file path
                 std::string _fontPath;       // Button font file path

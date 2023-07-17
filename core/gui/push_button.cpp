@@ -11,7 +11,7 @@ PushButton::PushButton():
 PushButton::PushButton(std::string texturePath, std::string fxPath, std::string fontPath):
     Button(texturePath, fxPath, fontPath)
 {
-
+    
 };
 
 PushButton::~PushButton()
