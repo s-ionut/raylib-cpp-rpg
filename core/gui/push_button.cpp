@@ -1,5 +1,7 @@
 #include "push_button.hpp"
 
+using namespace core::gui;
+
 PushButton::PushButton():
     Button()
 {

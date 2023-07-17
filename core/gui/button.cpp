@@ -1,5 +1,7 @@
 #include "button.hpp"
 
+using namespace core::gui;
+
 Button::Button()
 {
 
