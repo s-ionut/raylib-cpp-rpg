@@ -5,7 +5,7 @@
 
 namespace core {
     namespace gui {
-        enum class PushButtonState
+        enum class ButtonState
         {
             NOT_PRESSED = 0,
             MOUSE_HOVER,
@@ -30,7 +30,7 @@ namespace core {
                 Sound _fx;	                // Button sound
                 Font _font;                 // Button font
 
-                PushButtonState _state;     // Button state: 0-NOT_PRESSED, 1-MOUSE_HOVER, 2-PRESSED
+                ButtonState _state;         // Button state: 0-NOT_PRESSED, 1-MOUSE_HOVER, 2-PRESSED
         };
     } // namespace gui
 } // namespace core
