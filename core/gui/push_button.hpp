@@ -9,7 +9,7 @@ namespace core {
         {
             public:
                 PushButton();
-                PushButton(std::string texturePath, std::string fxPath, std::string fontPath);
+                PushButton(std::string texture_path, std::string fx_path, std::string font_path);
                 virtual ~PushButton() override; 
                 virtual void Update() override;
                 virtual void Draw() override;
@@ -17,7 +17,7 @@ namespace core {
             private:
                 bool _action;				// Button action should be activated
                 std::string _text;          // Button display text
-                int _textOffset;            // Text Y offset of the button
+                int _text_offset;            // Text Y offset of the button
 
                 void Move(raylib::Vector2 updated_position);
                 void CheckButtonPressed();

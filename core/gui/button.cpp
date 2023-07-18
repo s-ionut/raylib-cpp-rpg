@@ -18,27 +18,27 @@ Button::~Button()
     delete _font;
 };
 
-Button::Button(std::string texturePath, std::string fxPath, std::string fontPath):
-    _texturePath(texturePath),
-    _fxPath(fxPath),
-     _fontPath(fontPath)
+Button::Button(std::string texture_path, std::string fx_path, std::string font_path):
+    _texture_path(texture_path),
+    _fx_path(fx_path),
+     _font_path(font_path)
 {
     try {
-        _texture->Load(_texturePath);
+        _texture->Load(_texture_path);
     }
     catch (const raylib::RaylibException& error) {
         TraceLog(LOG_WARNING, "Failed to load texture: %s", error.what());
     }
 
     try {
-        _fx->Load(_fxPath);
+        _fx->Load(_fx_path);
     }
     catch (const raylib::RaylibException& error) {
         TraceLog(LOG_WARNING, "Failed to load sound: %s", error.what());
     }
 
     try {
-        _font->Load(_fontPath);
+        _font->Load(_font_path);
     }
     catch (const raylib::RaylibException& error) {
         TraceLog(LOG_WARNING, "Failed to load font: %s", error.what());
@@ -57,13 +57,13 @@ raylib::Texture Button::GetDefaultTexture()
 void Button::LoadCommonButtonSettings()
 {
     _NUM_FRAMES = 3;
-	_frameHeight = _texture->height / (float)_NUM_FRAMES;
+	_frame_height = _texture->height / (float)_NUM_FRAMES;
 
-    _sourceRec = raylib::Rectangle(.0f, .0f, (float)_texture->width, (float)_frameHeight);
+    _source_rec = raylib::Rectangle(.0f, .0f, (float)_texture->width, (float)_frame_height);
     _bounds = raylib::Rectangle(GetScreenWidth()  / 2.0f - _texture->width / 2.0f,
 							    GetScreenHeight() / 2.0f - _texture->height / _NUM_FRAMES / 2.0f,
 							    (float)_texture->width,
-							    (float)_frameHeight);
+							    (float)_frame_height);
 
 	_state = ButtonState::NOT_PRESSED;
 };

@@ -8,8 +8,8 @@ PushButton::PushButton():
     _action = false;
 };
 
-PushButton::PushButton(std::string texturePath, std::string fxPath, std::string fontPath):
-    Button(texturePath, fxPath, fontPath)
+PushButton::PushButton(std::string texture_path, std::string fx_path, std::string font_path):
+    Button(texture_path, fx_path, font_path)
 {
     _action = false;
 };
@@ -35,14 +35,14 @@ void PushButton::Draw()
 	float textYPos, textXPos;
 
 	// Get the button texture source coordinates
-	_sourceRec.y = static_cast<int>(_state) * _frameHeight;
+	_source_rec.y = static_cast<int>(_state) * _frame_height;
 	
 	// Draw the button texture
-    _texture->Draw(_sourceRec, raylib::Vector2(_bounds.x, _bounds.y), raylib::Color::White());
+    _texture->Draw(_source_rec, raylib::Vector2(_bounds.x, _bounds.y), raylib::Color::White());
 
 	// Render buttons to H:center / V:center by default
 	textXPos = (_bounds.x + (_bounds.width / 2)) - raylib::MeasureText(_text, 20) / 2.0f;
-	textYPos = (_bounds.y + (_bounds.height / 2)) - 20.0f / 2 + _textOffset;
+	textYPos = (_bounds.y + (_bounds.height / 2)) - 20.0f / 2 + _text_offset;
 
 	// Draw the text on the button texture
 	//raylib::DrawTextEx(_font.font, btn->text, (Vector2) { textXPos, textYPos }, btn->font->fontSize, btn->font->fontSpacing, btn->font->color);

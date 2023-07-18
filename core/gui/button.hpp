@@ -16,15 +16,15 @@ namespace core {
         {
             public:
                 Button();
-                Button(std::string texturePath, std::string fxPath, std::string fontPath);
+                Button(std::string texture_path, std::string fx_path, std::string font_path);
                 virtual ~Button();
                 virtual void Update() {};
                 virtual void Draw() {};
             
             protected:
-                std::string _texturePath;    // Button texture file path
-                std::string _fxPath;         // Button sound file path
-                std::string _fontPath;       // Button font file path
+                std::string _texture_path;    // Button texture file path
+                std::string _fx_path;         // Button sound file path
+                std::string _font_path;       // Button font file path
 
                 raylib::Texture* _texture;           // Button texture
                 raylib::Sound* _fx;	                // Button sound
@@ -32,9 +32,9 @@ namespace core {
 
                 ButtonState _state;         // Button state: 0-NOT_PRESSED, 1-MOUSE_HOVER, 2-PRESSED
                 int _NUM_FRAMES;            // Number of frames in the texture
-                float _frameHeight;         // Height of current texture frame
+                float _frame_height;         // Height of current texture frame
                 
-                raylib::Rectangle _sourceRec;       // Button frame rectangle for drawing
+                raylib::Rectangle _source_rec;       // Button frame rectangle for drawing
                 raylib::Rectangle _bounds;          // Button bounds on screen
 
             private:
