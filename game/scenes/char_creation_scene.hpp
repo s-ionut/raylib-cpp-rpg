@@ -2,6 +2,7 @@
 #define _CHAR_CREATION_SCENE_HPP
 
 #include "core/scene/scene.hpp"
+#include "core/gui/push_button.hpp"
 
 namespace game{
     namespace scene{
@@ -12,6 +13,9 @@ namespace game{
                 virtual ~CharCreationScene() {};
                 virtual void Update();
                 virtual void Draw();
+
+            private:
+                core::gui::PushButton* button;
         };
     } // namespace scene
 } // namespace game

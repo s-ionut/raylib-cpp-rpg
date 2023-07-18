@@ -20,6 +20,7 @@ namespace core{
 
         private:
             raylib::Window _window;
+            raylib::AudioDevice _audio_device;
             scene::Scene* _scene;
             scene::SceneManager _scene_manager;
             std::string _window_name = "Application";
