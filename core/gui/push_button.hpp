@@ -17,7 +17,7 @@ namespace core {
                 void Move(raylib::Vector2 updated_position);
 
             private:
-                bool _action;				// Button action should be activated
+                bool _action;               // Button action should be activated
                 std::string _text;          // Button display text
                 int _text_offset;           // Text Y offset of the button
 
