@@ -22,20 +22,20 @@ namespace core {
                 virtual void Draw() {};
             
             protected:
-                std::string _texture_path;    // Button texture file path
-                std::string _fx_path;         // Button sound file path
-                std::string _font_path;       // Button font file path
+                std::string _texture_path;      // Button texture file path
+                std::string _fx_path;           // Button sound file path
+                std::string _font_path;         // Button font file path
 
-                raylib::Texture* _texture;           // Button texture
-                raylib::Sound* _fx;	                // Button sound
-                raylib::Font* _font;                 // Button font
+                raylib::Texture* _texture;      // Button texture
+                raylib::Sound* _fx;	            // Button sound
+                raylib::Font* _font;            // Button font
 
-                ButtonState _state;         // Button state: 0-NOT_PRESSED, 1-MOUSE_HOVER, 2-PRESSED
-                int _NUM_FRAMES;            // Number of frames in the texture
-                float _frame_height;         // Height of current texture frame
+                ButtonState _state;             // Button state: 0-NOT_PRESSED, 1-MOUSE_HOVER, 2-PRESSED
+                int _NUM_FRAMES;                // Number of frames in the texture
+                float _frame_height;            // Height of current texture frame
                 
-                raylib::Rectangle _source_rec;       // Button frame rectangle for drawing
-                raylib::Rectangle _bounds;          // Button bounds on screen
+                raylib::Rectangle _source_rec;  // Button frame rectangle for drawing
+                raylib::Rectangle _bounds;      // Button bounds on screen
 
             private:
                 void LoadCommonButtonSettings();

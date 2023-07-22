@@ -19,15 +19,15 @@ namespace core{
             void Execute();
 
         private:
-            raylib::Window _window;
-            raylib::AudioDevice _audio_device;
-            scene::Scene* _scene;
-            scene::SceneManager _scene_manager;
-            std::string _window_name = "Application";
-            int _width = 800;
-            int _height = 600;
+            raylib::Window _window;                     // Context window
+            raylib::AudioDevice _audio_device;          // Audio device
+            scene::Scene* _scene;                       // Scene to display
+            scene::SceneManager _scene_manager;         // Scene manager to switch scenes
+            std::string _window_name = "Application";   // Window name
+            int _width = 800;                           // Window width
+            int _height = 600;                          // Window height
 
-            int _targeted_fps = 60;
+            int _targeted_fps = 60;                     // Targeted FPS
     };
 } // namespace core
 
