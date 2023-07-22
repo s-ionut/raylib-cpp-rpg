@@ -27,7 +27,7 @@ namespace core {
                 std::string _font_path;         // Button font file path
 
                 raylib::Texture* _texture;      // Button texture
-                raylib::Sound* _fx;	            // Button sound
+                raylib::Sound* _fx;             // Button sound
                 raylib::Font* _font;            // Button font
 
                 ButtonState _state;             // Button state: 0-NOT_PRESSED, 1-MOUSE_HOVER, 2-PRESSED
