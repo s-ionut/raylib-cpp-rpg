@@ -56,14 +56,10 @@ raylib::Texture Button::GetDefaultTexture()
 
 void Button::LoadCommonButtonSettings()
 {
-    _NUM_FRAMES = 3;
+    _NUM_FRAMES = 1;
 	_frame_height = _texture->height / (float)_NUM_FRAMES;
 
     _source_rec = raylib::Rectangle(.0f, .0f, (float)_texture->width, (float)_frame_height);
-    _bounds = raylib::Rectangle(GetScreenWidth()  / 2.0f - _texture->width / 2.0f,
-							    GetScreenHeight() / 2.0f - _texture->height / _NUM_FRAMES / 2.0f,
-							    (float)_texture->width,
-							    (float)_frame_height);
 
 	_state = ButtonState::NOT_PRESSED;
 };
