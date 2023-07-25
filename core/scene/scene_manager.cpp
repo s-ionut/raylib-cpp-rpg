@@ -2,10 +2,6 @@
 
 using namespace core::scene;
 
-game::scene::MainScene SceneManager::_mainScene;
-game::scene::CharCreationScene SceneManager::_charCreationScene;
-Scene* SceneManager::_scene = nullptr;
-
 SceneManager::SceneManager()
 {
     InitScene();
@@ -13,29 +9,37 @@ SceneManager::SceneManager()
 
 SceneManager::~SceneManager()
 {
-    /// TODO: Implement
+    delete _scene;
 };
 
 void SceneManager::InitScene()
 {
-    _scene = &_mainScene;
+    _scene = new game::scene::CharCreationScene();
 };
 
-void SceneManager::Manage()
+Scene* SceneManager::Manage()
 {
     if (IsKeyPressed(KEY_A))
     {
-        _scene = &_charCreationScene;
+        return new game::scene::CharCreationScene();
     }
     else if (IsKeyPressed(KEY_B))
     {
-        _scene = &_mainScene;
+        return new game::scene::MainScene();
     }
+
+    return nullptr;
 };
 
 Scene* SceneManager::GetScene()
 {
-    Manage();
+    Scene* currentScene = Manage();
+
+    if (currentScene != nullptr)
+    {
+        delete _scene;
+        _scene = currentScene;
+    }
 
     return _scene;
 };

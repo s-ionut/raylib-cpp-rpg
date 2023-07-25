@@ -3,7 +3,7 @@
 
 #include "core/scene/scene.hpp"
 #include "core/gui/core_gui.hpp"
-
+#include <string>
 namespace game{
     namespace scene{
         class CharCreationScene: public core::scene::Scene
@@ -15,6 +15,8 @@ namespace game{
                 virtual void Draw();
 
             private:
+                int count = 0;
+                std::string display_text;
                 core::gui::PushButton* button;
         };
     } // namespace scene

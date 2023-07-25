@@ -13,11 +13,9 @@ namespace core{
                     ~SceneManager();
                     Scene* GetScene();
                 private:
-                    void Manage();
+                    Scene* Manage();
                     void InitScene();
-                    static game::scene::MainScene _mainScene;                       // Main gameplay scene
-                    static game::scene::CharCreationScene _charCreationScene;       // Character creation screen
-                    static Scene* _scene;                                           // Current scene to display
+                    Scene* _scene = nullptr;                                           // Current scene to display
             };
     } // mamespace scene
 } // namespace core
