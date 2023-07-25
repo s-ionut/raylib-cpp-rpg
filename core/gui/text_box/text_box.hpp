@@ -15,13 +15,13 @@ namespace core {
                 virtual void Draw() {};
             
             protected:
-                std::string _texture_path;      // Button texture file path
-                std::string _fx_path;           // Button sound file path
-                std::string _font_path;         // Button font file path
+                std::string _texture_path;      // Text Box texture file path
+                std::string _fx_path;           // Text Box sound file path
+                std::string _font_path;         // Text Box font file path
 
-                raylib::Texture* _texture;      // Button texture
-                raylib::Sound* _fx;             // Button sound
-                raylib::Font* _font;            // Button font
+                raylib::Texture* _texture;      // Text Box texture
+                raylib::Sound* _fx;             // Text Box sound
+                raylib::Font* _font;            // Text Box font
 
             private:
                 raylib::Texture GetDefaultTexture();
