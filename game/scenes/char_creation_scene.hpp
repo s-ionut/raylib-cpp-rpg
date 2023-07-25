@@ -2,7 +2,7 @@
 #define _CHAR_CREATION_SCENE_HPP
 
 #include "core/scene/scene.hpp"
-#include "core/gui/push_button.hpp"
+#include "core/gui/core_gui.hpp"
 
 namespace game{
     namespace scene{
