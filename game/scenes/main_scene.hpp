@@ -12,9 +12,9 @@ namespace game{
             public:
                 MainScene();
                 virtual ~MainScene() {};
-                virtual void Update();
-                virtual void Draw();
-                core::scene::Scene* GetScene();
+                virtual void Update() override;
+                virtual void Draw() override;
+                virtual core::scene::Scene* GetScene() override;
             
             private:
                 core::scene::Scene* _scene;

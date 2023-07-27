@@ -2,10 +2,10 @@
 #define _CHAR_CREATION_SCENE_HPP
 
 #include "core/scene/scene.hpp"
+#include "core/gui/core_gui.hpp"
 
 #include "main_scene.hpp"
 
-#include "core/gui/core_gui.hpp"
 #include <string>
 namespace game{
     namespace scene{
@@ -14,9 +14,9 @@ namespace game{
             public:
                 CharCreationScene();
                 virtual ~CharCreationScene() {};
-                virtual void Update();
-                virtual void Draw();
-                core::scene::Scene* GetScene();
+                virtual void Update() override;
+                virtual void Draw() override;
+                virtual core::scene::Scene* GetScene() override;
 
             private:
                 core::scene::Scene* _scene;
