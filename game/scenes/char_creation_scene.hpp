@@ -2,6 +2,9 @@
 #define _CHAR_CREATION_SCENE_HPP
 
 #include "core/scene/scene.hpp"
+
+#include "main_scene.hpp"
+
 #include "core/gui/core_gui.hpp"
 #include <string>
 namespace game{
@@ -13,6 +16,7 @@ namespace game{
                 virtual ~CharCreationScene() {};
                 virtual void Update();
                 virtual void Draw();
+                virtual core::scene::Scene* GetScene();
 
             private:
                 int count = 0;

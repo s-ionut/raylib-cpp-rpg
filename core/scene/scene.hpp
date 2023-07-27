@@ -15,6 +15,7 @@ namespace core{
                 virtual ~Scene() {};
                 virtual void Update() {};
                 virtual void Draw() {};
+                virtual Scene* GetScene() {};
         };
     } // scene
 } // core

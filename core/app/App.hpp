@@ -8,6 +8,7 @@
 #endif
 
 #include "scene/scene_manager.hpp"
+#include "renderer/renderer.hpp"
 
 namespace core{
     class Application
@@ -24,6 +25,7 @@ namespace core{
             scene::Scene* _scene;                       // Scene to display
             scene::SceneManager _scene_manager;         // Scene manager to switch scenes
             std::string _window_name = "Application";   // Window name
+            renderer::Renderer _renderer;               // Renderer to display scenes
             int _width = 800;                           // Window width
             int _height = 600;                          // Window height
 

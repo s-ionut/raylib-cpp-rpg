@@ -54,7 +54,7 @@ void PushButton::Draw()
     _font->DrawText(_text, text_pos, 10, 1, raylib::Color::Red());
 };
 
-void PushButton::CheckButtonPressed()
+bool PushButton::ButtonPressed()
 {
     raylib::Mouse mouse;
     raylib::Vector2 position = mouse.GetPosition();
@@ -81,6 +81,8 @@ void PushButton::CheckButtonPressed()
 	// If the mouse button has been released, button has been pressed and an action will be queued
 	if (mouse.IsButtonReleased(MOUSE_BUTTON_LEFT))
         _action = true;
+
+    return _action;
 }
 
 void PushButton::Move(raylib::Vector2 updated_position)

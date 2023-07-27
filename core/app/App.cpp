@@ -7,7 +7,8 @@ Application::Application(std::string window_name, int width, int height):
     _width(width),
     _height(height),
     _window(width, height, window_name),
-    _scene_manager()
+    _scene_manager(),
+    _renderer()
 {
     #if defined(PLATFORM_WEB)
       emscripten_set_main_loop(Execute, 0, 1);
@@ -26,8 +27,7 @@ void Application::Execute()
 {
     while (!_window.ShouldClose())    // Detect window close button or ESC key
     {
-        _scene = _scene_manager.GetScene();
-        _scene->Update();
-        _scene->Draw();
+        _renderer->Update();
+        _renderer->Draw();
     }
 };

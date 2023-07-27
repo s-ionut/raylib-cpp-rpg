@@ -3,6 +3,8 @@
 
 #include "core/scene/scene.hpp"
 
+#include "char_creation_scene.hpp"
+
 namespace game{
     namespace scene{
         class IntroScene: public core::scene::Scene
@@ -12,6 +14,10 @@ namespace game{
                 virtual ~IntroScene() {};
                 virtual void Update();
                 virtual void Draw();
+                core::scene::Scene* GetScene();
+            
+            private:
+                core::scene::Scene* _scene;
         };
     } // namespace scene
 } // namespace game

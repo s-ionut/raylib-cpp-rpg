@@ -4,25 +4,24 @@ using namespace game::scene;
 
 MainScene::MainScene()
 {
-    /// TODO: Implement
+    _scene = nullptr;
 }
 
 void MainScene::Update()
 {
-    //----------------------------------------------------------------------------------
-    /// TODO: Update your variables here
-    //----------------------------------------------------------------------------------
+    if (IsKeyPressed(A))
+    {
+        delete _scene;
+        _scene = new CharCreationScene();
+    }
 }
 
 void MainScene::Draw()
 {
-    //----------------------------------------------------------------------------------
-    BeginDrawing();
+    raylib::DrawText("raylib-rpg MainScene!", 160, 200, 20, LIGHTGRAY);
+}
 
-        ClearBackground(RAYWHITE);
-
-        raylib::DrawText("raylib-rpg MainScene!", 160, 200, 20, LIGHTGRAY);
-
-    EndDrawing();
-    //----------------------------------------------------------------------------------
+core::scene::Scene* IntroScene::GetScene()
+{
+    return _scene;
 }
