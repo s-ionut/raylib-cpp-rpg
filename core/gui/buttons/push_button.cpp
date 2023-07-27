@@ -8,6 +8,9 @@ PushButton::PushButton():
     _action = false;
     _text = "BUTTON";
     _text_offset = 0;
+
+    
+    Move(raylib::Vector2(GetScreenWidth(),GetScreenHeight()));
 };
 
 PushButton::PushButton(std::string texture_path, std::string fx_path, std::string font_path):
@@ -25,15 +28,6 @@ PushButton::~PushButton()
 
 void PushButton::Update()
 {
-    Move(raylib::Vector2(GetScreenWidth(),GetScreenHeight()));
-
-    _action = false;
-    CheckButtonPressed();
-    if (_action)
-    {
-        // Do something with the FX;
-        // Change the scene
-    }
 };
 
 void PushButton::Draw()
@@ -59,12 +53,14 @@ bool PushButton::ButtonPressed()
     raylib::Mouse mouse;
     raylib::Vector2 position = mouse.GetPosition();
 
+    _action = false;
+
 	// If the mouse positon doesn't collide with the button
 	if (!_bounds.CheckCollision(position))
 	{
 		// Do nothing
 		_state = ButtonState::NOT_PRESSED;
-		return;
+		return false;
 	}
 
 	// If it collides and the mouse button has been pressed, act accordingly

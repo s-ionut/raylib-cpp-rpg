@@ -14,6 +14,7 @@ Renderer::~Renderer()
 
 void Renderer::Update()
 {
+    GetScene();
     _scene->Update();
 };
 
@@ -29,7 +30,7 @@ void Renderer::Draw()
     //----------------------------------------------------------------------------------
 };
 
-scene::Scene* Renderer::GetScene()
+void Renderer::GetScene()
 {
     scene::Scene* scene = _scene->GetScene();
 
@@ -37,7 +38,5 @@ scene::Scene* Renderer::GetScene()
     {
         delete _scene;
         _scene = scene;
-    }    
-
-    return _scene;
+    }
 };

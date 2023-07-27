@@ -16,9 +16,10 @@ namespace game{
                 virtual ~CharCreationScene() {};
                 virtual void Update();
                 virtual void Draw();
-                virtual core::scene::Scene* GetScene();
+                core::scene::Scene* GetScene();
 
             private:
+                core::scene::Scene* _scene;
                 int count = 0;
                 std::string display_text;
                 core::gui::PushButton* button;

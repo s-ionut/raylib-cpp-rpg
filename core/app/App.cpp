@@ -27,7 +27,7 @@ void Application::Execute()
 {
     while (!_window.ShouldClose())    // Detect window close button or ESC key
     {
-        _renderer->Update();
-        _renderer->Draw();
+        _renderer.Update();
+        _renderer.Draw();
     }
 };
