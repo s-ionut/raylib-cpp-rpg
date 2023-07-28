@@ -22,7 +22,6 @@ namespace core{
             raylib::Window _window;                     // Context window
             raylib::AudioDevice _audio_device;          // Audio device
             scene::Scene* _scene;                       // Scene to display
-            scene::SceneManager _scene_manager;         // Scene manager to switch scenes
             std::string _window_name = "Application";   // Window name
             renderer::Renderer _renderer;               // Renderer to display scenes
             int _width = 800;                           // Window width

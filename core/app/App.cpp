@@ -7,7 +7,6 @@ Application::Application(std::string window_name, int width, int height):
     _width(width),
     _height(height),
     _window(width, height, window_name),
-    _scene_manager(),
     _renderer()
 {
     #if defined(PLATFORM_WEB)

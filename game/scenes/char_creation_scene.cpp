@@ -4,8 +4,7 @@ using namespace game::scene;
 
 CharCreationScene::CharCreationScene()
 {
-    /// TODO: Implement
-    button = new core::gui::PushButton();
+    button = new core::gui::PushButton("CHARACTER CREATION SCREEN");
     _scene = nullptr;
 };
 

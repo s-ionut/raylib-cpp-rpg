@@ -10,8 +10,20 @@ PushButton::PushButton():
     _text_offset = 0;
 
     
-    Move(raylib::Vector2(GetScreenWidth(),GetScreenHeight()));
+    Move(raylib::Vector2((float)GetScreenWidth(),(float)GetScreenHeight()));
 };
+
+PushButton::PushButton(std::string button_text):
+    Button()
+{
+    _action = false;
+    _text = button_text;
+    _text_offset = 0;
+
+    
+    Move(raylib::Vector2((float)GetScreenWidth(),(float)GetScreenHeight()));
+};
+
 
 PushButton::PushButton(std::string texture_path, std::string fx_path, std::string font_path):
     Button(texture_path, fx_path, font_path)
@@ -87,4 +99,9 @@ void PushButton::Move(raylib::Vector2 updated_position)
     raylib::Vector2 size = raylib::Vector2((float)_texture->width, _frame_height);
 
     _bounds = raylib::Rectangle(position_to_update, size);
+};
+
+void PushButton::ChangeText(std::string text)
+{
+    _text = text;
 };
