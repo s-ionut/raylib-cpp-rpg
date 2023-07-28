@@ -91,7 +91,7 @@ bool PushButton::ButtonPressed()
         _action = true;
 
     return _action;
-}
+};
 
 void PushButton::Move(raylib::Vector2 updated_position)
 {   

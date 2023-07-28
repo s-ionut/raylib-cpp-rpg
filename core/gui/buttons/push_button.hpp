@@ -11,9 +11,9 @@ namespace core {
                 PushButton();
                 PushButton(std::string button_text);
                 PushButton(std::string texture_path, std::string fx_path, std::string font_path);
-                ~PushButton(); 
-                void Update();
-                void Draw();
+                virtual ~PushButton() override; 
+                virtual void Update() override;
+                virtual void Draw() override;
                 bool ButtonPressed();
                 void ChangeText(std::string text);
 
