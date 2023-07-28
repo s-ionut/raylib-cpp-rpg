@@ -7,7 +7,6 @@
     #include <emscripten/emscripten.h>
 #endif
 
-#include "scene/scene_manager.hpp"
 #include "renderer/renderer.hpp"
 
 namespace core{
