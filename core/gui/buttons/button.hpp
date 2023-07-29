@@ -16,6 +16,7 @@ namespace core {
         {
             public:
                 Button();
+                Button(std::string name);
                 Button(std::string texture_path, std::string fx_path, std::string font_path);
                 virtual ~Button();
                 virtual void Update() {};
@@ -40,7 +41,7 @@ namespace core {
             private:
                 void LoadCommonButtonSettings();
 
-                raylib::Texture GetDefaultTexture();
+                raylib::Texture GetDefaultTexture(std::string text);
         };
     } // namespace gui
 } // namespace core

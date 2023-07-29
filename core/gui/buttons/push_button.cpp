@@ -14,7 +14,7 @@ PushButton::PushButton():
 };
 
 PushButton::PushButton(std::string button_text):
-    Button()
+    Button(button_text)
 {
     _action = false;
     _text = button_text;
@@ -53,8 +53,8 @@ void PushButton::Draw()
     _texture->Draw(_source_rec, raylib::Vector2(_bounds.x, _bounds.y), raylib::Color::White());
 
 	// Render buttons to H:center / V:center by default
-	text_pos.x = (_bounds.x + (_bounds.width / 2)) - raylib::MeasureText(_text, 10) / 2.0f;
-	text_pos.y = (_bounds.y + (_bounds.height / 2)) - 20.0f / 2 + _text_offset;
+	text_pos.x = (_bounds.x + (_bounds.width / 2)) - (_font->MeasureText(_text, 10, 1)).x / 2.0f;
+	text_pos.y = (_bounds.y + (_bounds.height / 2)) - (_font->MeasureText(_text, 10, 1)).y / 2.0f;
 
 	// Draw the text on the button texture
     _font->DrawText(_text, text_pos, 10, 1, raylib::Color::Red());
