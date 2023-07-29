@@ -51,6 +51,10 @@ raylib::Texture Button::GetDefaultTexture()
 {
     // Create basic texture with nothing in it, just to not throw an error
     raylib::Texture default_texture(1, 128, 128);
+    const int barHeight = 50;
+    const int barWidth = 100;
+    Color colors[] = {DARKGRAY, LIGHTGRAY, WHITE};
+    Image image = GenImageColor(3 * barWidth, 3 * barHeight, BLACK);
     return default_texture;
 };
 
