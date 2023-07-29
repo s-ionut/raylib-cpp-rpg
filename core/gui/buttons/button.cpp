@@ -59,7 +59,6 @@ Button::Button(std::string texture_path, std::string fx_path, std::string font_p
 raylib::Texture Button::GetDefaultTexture(std::string text)
 {
     // Create basic texture with nothing in it, just to not throw an error
-    //raylib::Texture default_texture(1, 128, 128);
     Vector2 textSize = _font->MeasureText(text, 10, 1);
     const int barHeight = textSize.y + 40;
     const int barWidth = textSize.x + 10;
@@ -71,13 +70,11 @@ raylib::Texture Button::GetDefaultTexture(std::string text)
         ImageDrawRectangleRec(&image, rec, colors[i]);
     }
 
-    Texture2D texture = LoadTextureFromImage(image);
+    Texture2D default_texture = LoadTextureFromImage(image);
 
     UnloadImage(image);
 
-    //default_texture = texture;
-
-    return texture;
+    return default_texture;
 };
 
 void Button::LoadCommonButtonSettings()
