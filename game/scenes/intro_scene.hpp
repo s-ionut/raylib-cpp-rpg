@@ -1,8 +1,13 @@
 #pragma once
 
+// core includes
 #include "core/scene/scene.hpp"
 
+// game includes
 #include "char_creation_scene.hpp"
+
+// system includes
+#include "core/etc/system_includes.h"
 
 namespace game{
     namespace scene{

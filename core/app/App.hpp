@@ -1,11 +1,13 @@
 #pragma once
 
+// raylib specific
 #include "raylib-cpp.hpp"
 
 #if defined(PLATFORM_WEB)
     #include <emscripten/emscripten.h>
 #endif
 
+// core specific
 #include "renderer/renderer.hpp"
 
 namespace core{

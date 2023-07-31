@@ -1,11 +1,15 @@
 #pragma once
 
+// core specific
 #include "core/scene/scene.hpp"
 #include "core/gui/core_gui.hpp"
 
+// game specific
 #include "main_scene.hpp"
 
-#include <string>
+// system specific
+#include "core/etc/system_includes.h"
+
 namespace game{
     namespace scene{
         class CharCreationScene: public core::scene::Scene

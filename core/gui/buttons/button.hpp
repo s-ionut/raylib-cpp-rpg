@@ -1,5 +1,6 @@
 #pragma once
 
+// raylib specific
 #include "raylib-cpp.hpp"
 
 namespace core {
