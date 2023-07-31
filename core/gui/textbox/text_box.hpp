@@ -1,5 +1,4 @@
-#ifndef _TEXT_BOX_HPP
-#define _TEXT_BOX_HPP
+#pragma once
 
 #include "raylib-cpp.hpp"
 
@@ -28,5 +27,3 @@ namespace core {
         };
     } // namespace gui
 } // namespace core
-
-#endif // _TEXT_BOX_HPP

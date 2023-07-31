@@ -1,5 +1,4 @@
-#ifndef _APP_HPP
-#define _APP_HPP
+#pragma once
 
 #include "raylib-cpp.hpp"
 
@@ -30,5 +29,3 @@ namespace core{
             int _targeted_fps = 60;                     // Targeted FPS
     };
 } // namespace core
-
-#endif // _APP_HPP

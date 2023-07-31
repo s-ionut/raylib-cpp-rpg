@@ -1,5 +1,4 @@
-#ifndef _RENDERER_HPP
-#define _RENDERER_HPP
+#pragma once
 
 #include "raylib-cpp.hpp"
 #include "scene/scene.hpp"
@@ -24,5 +23,3 @@ namespace core {
         };
     } // namespace renderer
 } // namespace core
-
-#endif // _RENDERER_HPP

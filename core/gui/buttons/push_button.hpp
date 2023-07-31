@@ -1,5 +1,4 @@
-#ifndef _PUSH_BUTTON_HPP
-#define _PUSH_BUTTON_HPP
+#pragma once
 
 #include "button.hpp"
 
@@ -26,5 +25,3 @@ namespace core {
         };
     } // namespace gui
 } // namespace core
-
-#endif // _PUSH_BUTTON_HPP

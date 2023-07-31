@@ -1,5 +1,4 @@
-#ifndef _CHAR_CREATION_SCENE_HPP
-#define _CHAR_CREATION_SCENE_HPP
+#pragma once
 
 #include "core/scene/scene.hpp"
 #include "core/gui/core_gui.hpp"
@@ -26,5 +25,3 @@ namespace game{
         };
     } // namespace scene
 } // namespace game
-
-#endif // _CHAR_CREATION_SCENE_HPP

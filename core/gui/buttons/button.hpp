@@ -1,5 +1,4 @@
-#ifndef _BUTTON_HPP
-#define _BUTTON_HPP
+#pragma once
 
 #include "raylib-cpp.hpp"
 
@@ -45,5 +44,3 @@ namespace core {
         };
     } // namespace gui
 } // namespace core
-
-#endif // _BUTTON_HPP

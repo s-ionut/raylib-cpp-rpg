@@ -1,5 +1,4 @@
-#ifndef _INTRO_SCENE_HPP
-#define _INTRO_SCENE_HPP
+#pragma once
 
 #include "core/scene/scene.hpp"
 
@@ -21,5 +20,3 @@ namespace game{
         };
     } // namespace scene
 } // namespace game
-
-#endif // _INTRO_SCENE_HPP

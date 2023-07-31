@@ -1,5 +1,4 @@
-#ifndef _SCENE_HPP
-#define _SCENE_HPP
+#pragma once
 
 #include "raylib-cpp.hpp"
 
@@ -19,5 +18,3 @@ namespace core{
         };
     } // scene
 } // core
-
-#endif // _SCENE_HPP

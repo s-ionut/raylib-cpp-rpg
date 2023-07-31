@@ -1,5 +1,4 @@
-#ifndef _SCENE_MANAGER_HPP
-#define _SCENE_MANAGER_HPP
+#pragma once
 
 #include "game/scenes/main_scene.hpp"
 #include "game/scenes/char_creation_scene.hpp"
@@ -19,5 +18,3 @@ namespace core{
             };
     } // mamespace scene
 } // namespace core
-
-#endif // _SCENE_MANAGER_HPP
