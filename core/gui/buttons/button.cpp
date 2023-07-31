@@ -6,7 +6,7 @@ Button::Button()
 {
     _fx = std::make_shared<raylib::Sound>();
     _font = std::make_shared<raylib::Font>();
-	_texture = std::make_shared<raylib::Texture>(GetDefaultTexture("BUTTON"));
+    _texture = std::make_shared<raylib::Texture>(GetDefaultTexture("BUTTON"));
 
 	LoadCommonButtonSettings();
 };
