@@ -25,7 +25,7 @@ Button::~Button() { };
 Button::Button(std::string texture_path, std::string fx_path, std::string font_path):
     _texture_path(texture_path),
     _fx_path(fx_path),
-     _font_path(font_path)
+    _font_path(font_path)
 {
     try {
         _texture->Load(_texture_path);
