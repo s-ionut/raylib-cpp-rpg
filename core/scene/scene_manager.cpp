@@ -7,37 +7,33 @@ SceneManager::SceneManager()
     InitScene();
 };
 
-SceneManager::~SceneManager()
-{
-    delete _scene;
-};
+SceneManager::~SceneManager() { };
 
 void SceneManager::InitScene()
 {
-    _scene = new game::scene::CharCreationScene();
+    _scene = std::make_shared<game::scene::CharCreationScene>();
 };
 
-Scene* SceneManager::Manage()
+std::shared_ptr<Scene> SceneManager::Manage()
 {
     if (IsKeyPressed(KEY_A))
     {
-        return new game::scene::CharCreationScene();
+        return std::make_shared<game::scene::CharCreationScene>();
     }
     else if (IsKeyPressed(KEY_B))
     {
-        return new game::scene::MainScene();
+        return std::make_shared<game::scene::MainScene>();
     }
 
     return nullptr;
 };
 
-Scene* SceneManager::GetScene()
+std::shared_ptr<Scene> SceneManager::GetScene()
 {
-    Scene* currentScene = Manage();
+    std::shared_ptr<Scene> currentScene = Manage();
 
     if (currentScene != nullptr)
     {
-        delete _scene;
         _scene = currentScene;
     }
 

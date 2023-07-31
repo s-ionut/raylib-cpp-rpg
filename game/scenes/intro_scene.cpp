@@ -10,8 +10,7 @@ IntroScene::IntroScene()
 void IntroScene::Update()
 {
     // Do something interesting in the intro
-    delete _scene;
-    _scene = new CharCreationScene();
+    _scene = std::make_shared<CharCreationScene>();
 };
 
 void IntroScene::Draw()
@@ -19,7 +18,7 @@ void IntroScene::Draw()
     raylib::DrawText("raylib-rpg IntroScene!", 160, 200, 20, LIGHTGRAY);
 };
 
-core::scene::Scene* IntroScene::GetScene()
+std::shared_ptr<core::scene::Scene> IntroScene::GetScene()
 {
     return _scene;
 };

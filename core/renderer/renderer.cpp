@@ -4,13 +4,10 @@ using namespace core::renderer;
 
 Renderer::Renderer()
 {
-    _scene = new game::scene::IntroScene();
+    _scene = std::make_shared<game::scene::IntroScene>();
 };
 
-Renderer::~Renderer()
-{
-    delete _scene;
-};
+Renderer::~Renderer() { };
 
 void Renderer::Update()
 {
@@ -32,11 +29,10 @@ void Renderer::Draw()
 
 void Renderer::GetScene()
 {
-    scene::Scene* scene = _scene->GetScene();
+    std::shared_ptr<scene::Scene> scene = _scene->GetScene();
 
     if(scene != nullptr)
     {
-        delete _scene;
         _scene = scene;
     }
 };

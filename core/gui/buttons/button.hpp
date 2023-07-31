@@ -3,6 +3,9 @@
 // raylib specific
 #include "raylib-cpp.hpp"
 
+// system specific
+#include "etc/system_includes.h"
+
 namespace core {
     namespace gui {
         enum class ButtonState
@@ -27,9 +30,9 @@ namespace core {
                 std::string _fx_path;           // Button sound file path
                 std::string _font_path;         // Button font file path
 
-                raylib::Texture* _texture;      // Button texture
-                raylib::Sound* _fx;             // Button sound
-                raylib::Font* _font;            // Button font
+                std::shared_ptr<raylib::Texture> _texture;      // Button texture
+                std::shared_ptr<raylib::Sound> _fx;             // Button sound
+                std::shared_ptr<raylib::Font> _font;            // Button font
 
                 ButtonState _state;             // Button state: 0-NOT_PRESSED, 1-MOUSE_HOVER, 2-PRESSED
                 int _NUM_FRAMES;                // Number of frames in the texture

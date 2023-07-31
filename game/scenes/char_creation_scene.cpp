@@ -4,7 +4,7 @@ using namespace game::scene;
 
 CharCreationScene::CharCreationScene()
 {
-    button = new core::gui::PushButton("CHARACTER CREATION SCREEN");
+    button = std::make_shared<core::gui::PushButton>("CHARACTER CREATION SCREEN");
     _scene = nullptr;
 };
 
@@ -12,8 +12,7 @@ void CharCreationScene::Update()
 {
     if (button->ButtonPressed())
     {
-        delete _scene;
-        _scene = new MainScene();
+        _scene = std::make_shared<MainScene>();
     }
 
     count++ ;
@@ -26,7 +25,7 @@ void CharCreationScene::Draw()
     raylib::DrawText(display_text, 160, 200, 20, LIGHTGRAY);
 };
 
-core::scene::Scene* CharCreationScene::GetScene()
+std::shared_ptr<core::scene::Scene> CharCreationScene::GetScene()
 {
     return _scene;
 };

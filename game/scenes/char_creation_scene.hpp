@@ -19,13 +19,13 @@ namespace game{
                 virtual ~CharCreationScene() {};
                 virtual void Update() override;
                 virtual void Draw() override;
-                virtual core::scene::Scene* GetScene() override;
+                virtual std::shared_ptr<core::scene::Scene> GetScene() override;
 
             private:
-                core::scene::Scene* _scene;
+                std::shared_ptr<core::scene::Scene> _scene;
+                std::shared_ptr<core::gui::PushButton> button;
                 int count = 0;
                 std::string display_text;
-                core::gui::PushButton* button;
         };
     } // namespace scene
 } // namespace game

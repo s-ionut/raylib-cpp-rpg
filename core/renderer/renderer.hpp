@@ -23,7 +23,7 @@ namespace core {
                 void Draw();
             
             private:
-                scene::Scene* _scene;
+                std::shared_ptr<scene::Scene> _scene;
                 void GetScene();
 
         };

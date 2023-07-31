@@ -14,11 +14,11 @@ namespace core{
                 public:
                     SceneManager();
                     ~SceneManager();
-                    Scene* GetScene();
+                    std::shared_ptr<Scene> GetScene();
                 private:
-                    Scene* Manage();
+                    std::shared_ptr<Scene> Manage();
                     void InitScene();
-                    Scene* _scene = nullptr;                                           // Current scene to display
+                    std::shared_ptr<Scene> _scene = nullptr;        // Current scene to display
             };
     } // mamespace scene
 } // namespace core

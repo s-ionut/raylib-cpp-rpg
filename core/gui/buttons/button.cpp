@@ -4,28 +4,23 @@ using namespace core::gui;
 
 Button::Button()
 {
-    _fx = new raylib::Sound();
-    _font = new raylib::Font();
-	_texture = new raylib::Texture(GetDefaultTexture("BUTTON"));
+    _fx = std::make_shared<raylib::Sound>();
+    _font = std::make_shared<raylib::Font>();
+	_texture = std::make_shared<raylib::Texture>(GetDefaultTexture("BUTTON"));
 
 	LoadCommonButtonSettings();
 };
 
 Button::Button(std::string name)
 {
-    _fx = new raylib::Sound();
-    _font = new raylib::Font();
-    _texture = new raylib::Texture(GetDefaultTexture(name));
+    _fx = std::make_shared<raylib::Sound>();
+    _font = std::make_shared<raylib::Font>();
+    _texture = std::make_shared<raylib::Texture>(GetDefaultTexture(name));
 
 	LoadCommonButtonSettings();
 }
 
-Button::~Button()
-{
-    delete _texture;
-    delete _fx;
-    delete _font;
-};
+Button::~Button() { };
 
 Button::Button(std::string texture_path, std::string fx_path, std::string font_path):
     _texture_path(texture_path),
