@@ -10,8 +10,8 @@
 // system specific
 #include "core/etc/system_includes.h"
 
-namespace game{
-    namespace scene{
+namespace game {
+    namespace scene {
         class CharCreationScene: public core::scene::Scene
         {
             public:

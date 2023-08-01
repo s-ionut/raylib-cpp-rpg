@@ -10,8 +10,8 @@
 // system specific
 #include "etc/system_includes.h"
 
-namespace core{
-    namespace scene{
+namespace core {
+    namespace scene {
         class Scene
         {
             public:

@@ -10,7 +10,7 @@
 // core specific
 #include "renderer/renderer.hpp"
 
-namespace core{
+namespace core {
     class Application
     {
         public:
