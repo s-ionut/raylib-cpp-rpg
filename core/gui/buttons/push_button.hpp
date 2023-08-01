@@ -2,6 +2,7 @@
 
 // core specific
 #include "button.hpp"
+#include "time/timer.hpp"
 
 // system specific
 #include "etc/system_includes.h"
@@ -24,6 +25,7 @@ namespace core {
                 bool _action;               // Button action should be activated
                 std::string _text;          // Button display text
                 int _text_offset;           // Text Y offset of the button
+                time::Timer _timer;        // Basic timer
 
                 void Move(raylib::Vector2 updated_position);
         };

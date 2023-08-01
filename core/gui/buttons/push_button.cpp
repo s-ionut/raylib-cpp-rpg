@@ -3,7 +3,8 @@
 using namespace core::gui;
 
 PushButton::PushButton():
-    Button()
+    Button(),
+    _timer()
 {
     _action = false;
     _text = "BUTTON";
@@ -14,7 +15,8 @@ PushButton::PushButton():
 };
 
 PushButton::PushButton(std::string button_text):
-    Button(button_text)
+    Button(button_text),
+    _timer()
 {
     _action = false;
     _text = button_text;
@@ -26,7 +28,8 @@ PushButton::PushButton(std::string button_text):
 
 
 PushButton::PushButton(std::string texture_path, std::string fx_path, std::string font_path):
-    Button(texture_path, fx_path, font_path)
+    Button(texture_path, fx_path, font_path),
+    _timer()
 {
     _action = false;
     _text = "BUTTON";
@@ -78,7 +81,6 @@ bool PushButton::ButtonPressed()
 	// If it collides and the mouse button has been pressed, act accordingly
 	if (mouse.IsButtonPressed(MOUSE_BUTTON_LEFT))
     {
-        
         _state = ButtonState::PRESSED;
     }
     else
@@ -88,7 +90,9 @@ bool PushButton::ButtonPressed()
 
 	// If the mouse button has been released, button has been pressed and an action will be queued
 	if (mouse.IsButtonReleased(MOUSE_BUTTON_LEFT))
+    {
         _action = true;
+    }
 
     return _action;
 };
