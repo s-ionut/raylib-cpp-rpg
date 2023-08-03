@@ -1,6 +1,5 @@
 #include "font.hpp"
 
-// use only `core` namespace to avoid ambiguity warnings :)
 using namespace core::text;
 
 CFont::CFont()

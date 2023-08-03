@@ -102,7 +102,8 @@ void PushButton::Move(raylib::Vector2 updated_position)
     raylib::Vector2 position_to_update = raylib::Vector2(updated_position.x / 2.0f - _texture->width / 2.0f, updated_position.y / 2.0f - _texture->height / _NUM_FRAMES / 2.0f);
     raylib::Vector2 size = raylib::Vector2((float)_texture->width, _frame_height);
 
-    _bounds = raylib::Rectangle(position_to_update, size);
+    _bounds.SetPosition(position_to_update);
+    _bounds.SetSize(size);
 };
 
 void PushButton::ChangeText(std::string text)

@@ -1,7 +1,9 @@
 #pragma once
 
+// raylib specific
 #include "raylib-cpp.hpp"
 
+// system specific
 #include "etc/system_includes.h"
 
 namespace core {
