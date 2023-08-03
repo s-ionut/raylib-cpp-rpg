@@ -5,7 +5,7 @@ using namespace core::gui;
 Button::Button()
 {
     _fx = std::make_shared<raylib::Sound>();
-    _font = std::make_shared<raylib::Font>();
+    _font = std::make_shared<text::CFont>();
     _texture = std::make_shared<raylib::Texture>(GetDefaultTexture("BUTTON"));
 
 	LoadCommonButtonSettings();
@@ -14,7 +14,7 @@ Button::Button()
 Button::Button(std::string name)
 {
     _fx = std::make_shared<raylib::Sound>();
-    _font = std::make_shared<raylib::Font>();
+    _font = std::make_shared<text::CFont>();
     _texture = std::make_shared<raylib::Texture>(GetDefaultTexture(name));
 
 	LoadCommonButtonSettings();
@@ -41,12 +41,7 @@ Button::Button(std::string texture_path, std::string fx_path, std::string font_p
         TraceLog(LOG_WARNING, "Failed to load sound: %s", error.what());
     }
 
-    try {
-        _font->Load(_font_path);
-    }
-    catch (const raylib::RaylibException& error) {
-        TraceLog(LOG_WARNING, "Failed to load font: %s", error.what());
-    }
+    _font = std::make_shared<text::CFont>(_font_path);
 
 	LoadCommonButtonSettings();
 };
@@ -54,7 +49,7 @@ Button::Button(std::string texture_path, std::string fx_path, std::string font_p
 raylib::Texture Button::GetDefaultTexture(std::string text)
 {
     // Create basic texture with nothing in it, just to not throw an error
-    Vector2 textSize = _font->MeasureText(text, 10, 1);
+    Vector2 textSize = _font->MeasureText(text, _font->get_font_size(), _font->get_font_spacing());
     const int barHeight = textSize.y + 40;
     const int barWidth = textSize.x + 10;
     Color colors[] = {DARKGRAY, LIGHTGRAY, WHITE};

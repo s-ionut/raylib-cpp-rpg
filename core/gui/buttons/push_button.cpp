@@ -56,11 +56,11 @@ void PushButton::Draw()
     _texture->Draw(_source_rec, raylib::Vector2(_bounds.x, _bounds.y), raylib::Color::White());
 
 	// Render buttons to H:center / V:center by default
-	text_pos.x = (_bounds.x + (_bounds.width / 2)) - (_font->MeasureText(_text, 10, 1)).x / 2.0f;
-	text_pos.y = (_bounds.y + (_bounds.height / 2)) - (_font->MeasureText(_text, 10, 1)).y / 2.0f;
+	text_pos.x = (_bounds.x + (_bounds.width / 2)) - (_font->MeasureText(_text, _font->get_font_size(), _font->get_font_spacing())).x / 2.0f;
+	text_pos.y = (_bounds.y + (_bounds.height / 2)) - (_font->MeasureText(_text, _font->get_font_size(), _font->get_font_spacing())).y / 2.0f;
 
 	// Draw the text on the button texture
-    _font->DrawText(_text, text_pos, 10, 1, raylib::Color::Red());
+    _font->DrawText(_text, text_pos, _font->get_font_size(), _font->get_font_spacing(), raylib::Color::Red());
 };
 
 bool PushButton::ButtonPressed()

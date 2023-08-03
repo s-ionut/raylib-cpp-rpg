@@ -3,6 +3,9 @@
 // raylib specific
 #include "raylib-cpp.hpp"
 
+//core specific
+#include "text/font.hpp"
+
 // system specific
 #include "etc/system_includes.h"
 
@@ -32,7 +35,7 @@ namespace core {
 
                 std::shared_ptr<raylib::Texture> _texture;      // Button texture
                 std::shared_ptr<raylib::Sound> _fx;             // Button sound
-                std::shared_ptr<raylib::Font> _font;            // Button font
+                std::shared_ptr<text::CFont> _font;             // Button font
 
                 ButtonState _state;             // Button state: 0-NOT_PRESSED, 1-MOUSE_HOVER, 2-PRESSED
                 int _NUM_FRAMES;                // Number of frames in the texture
