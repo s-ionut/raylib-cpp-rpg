@@ -28,6 +28,7 @@ namespace core {
                 ~TextBox();
                 void Update();
                 void Draw();
+                void Move(raylib::Vector2 updated_position);
             
             private:
                 std::string _texture_path;      // Text Box texture file path
@@ -55,7 +56,6 @@ namespace core {
                 bool IsActive();
                 void CursorBlink();
                 void SetOutputText();
-                void Move(raylib::Vector2 updated_position);
         };
     } // namespace gui
 } // namespace core

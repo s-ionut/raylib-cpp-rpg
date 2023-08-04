@@ -71,6 +71,11 @@ void TextBox::Update()
                 _input_text.pop_back();
         }
 
+        if (IsKeyPressed(KEY_ENTER))
+        {
+            std::cout << _input_text << std::endl;
+        }
+
         CursorBlink();
     }
 
@@ -165,8 +170,8 @@ raylib::Texture TextBox::GetDefaultTexture()
     std::vector<Color> colors = {BLUE, SKYBLUE};
     Image image = GenImageColor(bar_width, colors.size() * bar_height, BLACK);
 
-    for (int i = 0; i < colors.size(); ++i) {
-        Rectangle rec = {0, i * bar_height, static_cast<float>(bar_width), static_cast<float>(bar_height)};
+    for (size_t i = 0; i < colors.size(); ++i) {
+        Rectangle rec = {0, static_cast<float>(i) * bar_height, static_cast<float>(bar_width), static_cast<float>(bar_height)};
         ImageDrawRectangleRec(&image, rec, colors[i]);
     }
 
