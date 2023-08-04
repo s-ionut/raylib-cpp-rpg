@@ -11,7 +11,7 @@ PushButton::PushButton():
     _text_offset = 0;
 
     
-    Move(raylib::Vector2((float)GetScreenWidth(),(float)GetScreenHeight()));
+    Move(raylib::Vector2(static_cast<float>(GetScreenWidth()),static_cast<float>(GetScreenHeight())));
 };
 
 PushButton::PushButton(std::string button_text):
@@ -23,7 +23,7 @@ PushButton::PushButton(std::string button_text):
     _text_offset = 0;
 
     
-    Move(raylib::Vector2((float)GetScreenWidth(),(float)GetScreenHeight()));
+    Move(raylib::Vector2(static_cast<float>(GetScreenWidth()),static_cast<float>(GetScreenHeight())));
 };
 
 
@@ -100,7 +100,7 @@ bool PushButton::ButtonPressed()
 void PushButton::Move(raylib::Vector2 updated_position)
 {   
     raylib::Vector2 position_to_update = raylib::Vector2(updated_position.x / 2.0f - _texture->width / 2.0f, updated_position.y / 2.0f - _texture->height / _NUM_FRAMES / 2.0f);
-    raylib::Vector2 size = raylib::Vector2((float)_texture->width, _frame_height);
+    raylib::Vector2 size = raylib::Vector2(static_cast<float>(_texture->width), _frame_height);
 
     _bounds.SetPosition(position_to_update);
     _bounds.SetSize(size);

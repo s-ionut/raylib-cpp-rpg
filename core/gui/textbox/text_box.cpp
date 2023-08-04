@@ -10,7 +10,7 @@ TextBox::TextBox(): _timer()
 
     LoadCommonTextBoxSettings();
 
-    Move(raylib::Vector2((float)GetScreenWidth(),(float)GetScreenHeight()));
+    Move(raylib::Vector2(static_cast<float>(GetScreenWidth()),static_cast<float>(GetScreenHeight())));
 };
 
 TextBox::~TextBox() { };
@@ -156,7 +156,7 @@ void TextBox::SetOutputText()
 void TextBox::Move(raylib::Vector2 updated_position)
 {
     raylib::Vector2 position_to_update = raylib::Vector2(updated_position.x / 2.0f - _texture->width / 2.0f, updated_position.y / 2.0f - _texture->height / 2.0f);
-    raylib::Vector2 size = raylib::Vector2((float)_texture->width, _frame_height);
+    raylib::Vector2 size = raylib::Vector2(static_cast<float>(_texture->width), _frame_height);
 
     _bounds.SetPosition(position_to_update);
     _bounds.SetSize(size);
@@ -185,9 +185,9 @@ raylib::Texture TextBox::GetDefaultTexture()
 void TextBox::LoadCommonTextBoxSettings()
 {
     _NUM_FRAMES = static_cast<int>(TextBoxState::COUNT);
-	_frame_height = _texture->height / (float)_NUM_FRAMES;
+	_frame_height = _texture->height / static_cast<float>(_NUM_FRAMES);
 
-    _source_rec = raylib::Rectangle(.0f, .0f, (float)_texture->width, (float)_frame_height);
+    _source_rec = raylib::Rectangle(.0f, .0f, static_cast<float>(_texture->width), static_cast<float>(_frame_height));
 
 	_state = TextBoxState::NOT_ACTIVE;
     

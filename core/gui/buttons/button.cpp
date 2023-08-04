@@ -70,9 +70,9 @@ raylib::Texture Button::GetDefaultTexture(std::string text)
 void Button::LoadCommonButtonSettings()
 {
     _NUM_FRAMES = static_cast<int>(ButtonState::COUNT);
-	_frame_height = _texture->height / (float)_NUM_FRAMES;
+	_frame_height = _texture->height / static_cast<float>(_NUM_FRAMES);
 
-    _source_rec = raylib::Rectangle(.0f, .0f, (float)_texture->width, (float)_frame_height);
+    _source_rec = raylib::Rectangle(.0f, .0f, static_cast<float>(_texture->width), static_cast<float>(_frame_height));
 
 	_state = ButtonState::NOT_PRESSED;
 };
