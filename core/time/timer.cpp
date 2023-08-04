@@ -23,7 +23,7 @@ bool Timer::HasTimePassedMS(double milliseconds)
     
     std::chrono::duration<double, std::milli> time_passed = std::chrono::duration_cast<std::chrono::milliseconds>(_end_time - _start_time);
 
-    std::cout << "Time passed: " << time_passed.count() << std::endl;
+    // std::cout << "Time passed: " << time_passed.count() << std::endl;
 
     if (time_passed.count() >= milliseconds)
     {
