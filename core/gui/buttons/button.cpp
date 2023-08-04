@@ -52,10 +52,10 @@ raylib::Texture Button::GetDefaultTexture(std::string text)
     Vector2 textSize = _font->MeasureText(text, _font->get_font_size(), _font->get_font_spacing());
     const int barHeight = textSize.y + 40;
     const int barWidth = textSize.x + 10;
-    Color colors[] = {DARKGRAY, LIGHTGRAY, WHITE};
-    Image image = GenImageColor(barWidth, 3 * barHeight, BLACK);
+    std::vector<Color> colors = {DARKGRAY, LIGHTGRAY, WHITE};
+    Image image = GenImageColor(barWidth, colors.size() * barHeight, BLACK);
 
-    for (int i = 0; i < 3; ++i) {
+    for (int i = 0; i < colors.size(); ++i) {
         Rectangle rec = {0, i * barHeight, static_cast<float>(barWidth), static_cast<float>(barHeight)};
         ImageDrawRectangleRec(&image, rec, colors[i]);
     }
