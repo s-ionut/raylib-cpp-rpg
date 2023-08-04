@@ -15,7 +15,8 @@ namespace core {
         {
             NOT_PRESSED = 0,
             MOUSE_HOVER,
-            PRESSED
+            PRESSED,
+            COUNT
         };
 
         class Button

@@ -5,12 +5,21 @@
 
 // core specific
 #include "text/font.hpp"
+#include "time/timer.hpp"
 
 // system specific
 #include "etc/system_includes.h"
 
 namespace core {
     namespace gui {
+
+        enum class TextBoxState
+        {
+            NOT_ACTIVE = 0,
+            ACTIVE,
+            COUNT
+        };
+
         class TextBox
         {
             public:
@@ -20,7 +29,7 @@ namespace core {
                 void Update();
                 void Draw();
             
-            protected:
+            private:
                 std::string _texture_path;      // Text Box texture file path
                 std::string _fx_path;           // Text Box sound file path
                 std::string _font_path;         // Text Box font file path
@@ -34,9 +43,19 @@ namespace core {
 
                 raylib::Rectangle _source_rec;  // Button frame rectangle for drawing
                 raylib::Rectangle _bounds;      // Button bounds on screen
+                TextBoxState _state;            // Checks if has been activated or not
+                
+                int _NUM_FRAMES;                // Number of frames in the texture
+                float _frame_height;            // Height of current texture frame
 
-            private:
+                time::Timer _timer;             // Timer for drawing inside textbox
+
                 raylib::Texture GetDefaultTexture();
+                void LoadCommonTextBoxSettings();
+                bool IsActive();
+                void CursorBlink();
+                void SetOutputText();
+                void Move(raylib::Vector2 updated_position);
         };
     } // namespace gui
 } // namespace core
