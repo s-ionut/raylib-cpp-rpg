@@ -105,7 +105,6 @@ bool TextBox::IsActive()
     raylib::Mouse mouse;
     raylib::Vector2 position = mouse.GetPosition();
 
-	// If the mouse positon doesn't collide with the button
 	if (!_bounds.CheckCollision(position))
 	{
         if (mouse.IsButtonPressed(MOUSE_BUTTON_LEFT))
@@ -168,10 +167,11 @@ raylib::Texture TextBox::GetDefaultTexture()
     const int bar_height = 30;
     const int bar_width = 130;
     std::vector<Color> colors = {BLUE, SKYBLUE};
-    Image image = GenImageColor(bar_width, colors.size() * bar_height, BLACK);
+    Image image = GenImageColor(bar_width, static_cast<int>(colors.size()) * bar_height, BLACK);
 
-    for (size_t i = 0; i < colors.size(); ++i) {
-        Rectangle rec = {0, static_cast<float>(i) * bar_height, static_cast<float>(bar_width), static_cast<float>(bar_height)};
+    for (size_t i = 0; i < colors.size(); ++i)
+    {
+        Rectangle rec = {0, static_cast<float>(i * bar_height), static_cast<float>(bar_width), static_cast<float>(bar_height)};
         ImageDrawRectangleRec(&image, rec, colors[i]);
     }
 
