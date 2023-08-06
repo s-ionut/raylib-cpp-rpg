@@ -4,7 +4,7 @@
 #include "raylib-cpp.hpp"
 
 //core specific
-#include "text/font.hpp"
+#include "gui/text/font.hpp"
 
 // system specific
 #include "etc/system_includes.h"

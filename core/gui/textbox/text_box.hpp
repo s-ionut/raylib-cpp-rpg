@@ -4,7 +4,7 @@
 #include "raylib-cpp.hpp"
 
 // core specific
-#include "text/font.hpp"
+#include "gui/text/font.hpp"
 #include "time/timer.hpp"
 
 // system specific
