@@ -3,13 +3,13 @@
 // system specific
 #include "etc/system_includes.h"
 
-namespace core {
+namespace game {
     namespace entity {
         class Entity
         {
             public:
                 Entity();
-                ~Entity();
+                ~Entity() {};
 
                 void Update();
             private:
@@ -56,4 +56,4 @@ namespace core {
                 int GetCurrExp() const;
         };
     } // namespace entity
-} // namespce core
+} // namespce game

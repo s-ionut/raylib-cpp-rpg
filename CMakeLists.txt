@@ -41,13 +41,13 @@ aux_source_directory(core/scene SOURCE_FILES)
 aux_source_directory(core/time SOURCE_FILES)
 aux_source_directory(core/renderer SOURCE_FILES)
 aux_source_directory(core/entity SOURCE_FILES)
-aux_source_directory(core/managers SOURCE_FILES)
 aux_source_directory(core/gui/buttons SOURCE_FILES)
 aux_source_directory(core/gui/textbox SOURCE_FILES)
 aux_source_directory(core/gui/text SOURCE_FILES)
 
 # Game source files
 aux_source_directory(game/scenes SOURCE_FILES)
+aux_source_directory(game/managers SOURCE_FILES)
 
 target_sources(${PROJECT_NAME} PRIVATE ${SOURCE_FILES})
 

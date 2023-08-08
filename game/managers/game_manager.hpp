@@ -1,14 +1,19 @@
 #pragma once
 
 // system specific
-#include "etc/system_includes.h"
+#include "core/etc/system_includes.h"
 
-namespace core {
+// game specific
+#include "game/entity/character.hpp"
+
+namespace game {
     namespace manager {
+        using PlayerUID = unsigned int;
+
         class GameManager {
             private:
                 ///TODO: map a UID to a Character object
-                std::map<int, std::string> players;
+                std::map<PlayerUID, entity::Character> players;
                 GameManager() {}
 
                 GameManager(const GameManager&) = delete;
@@ -22,4 +27,4 @@ namespace core {
                 };
         };
     } // namespace manager
-} // namespace core
+} // namespace game

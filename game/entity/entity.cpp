@@ -1,6 +1,6 @@
 #include "entity.hpp"
 
-using namespace core::entity;
+using namespace game::entity;
 
 Entity::Entity()
 {
