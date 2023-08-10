@@ -8,6 +8,19 @@ TextBox::TextBox(): _timer()
     _font = std::make_shared<text::CFont>();
 	_texture = std::make_shared<raylib::Texture>(GetDefaultTexture());
 
+    _input_text = "placeholder";
+    LoadCommonTextBoxSettings();
+
+    Move(raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f));
+};
+
+TextBox::TextBox(std::string text): _timer()
+{
+    _fx = std::make_shared<raylib::Sound>();
+    _font = std::make_shared<text::CFont>();
+	_texture = std::make_shared<raylib::Texture>(GetDefaultTexture());
+
+    _input_text = text;
     LoadCommonTextBoxSettings();
 
     Move(raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f));
@@ -190,6 +203,4 @@ void TextBox::LoadCommonTextBoxSettings()
     _source_rec = raylib::Rectangle(.0f, .0f, static_cast<float>(_texture->width), static_cast<float>(_frame_height));
 
 	_state = TextBoxState::NOT_ACTIVE;
-    
-    _input_text = "username";
 };

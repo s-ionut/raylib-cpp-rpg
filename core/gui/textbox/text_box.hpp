@@ -24,6 +24,7 @@ namespace core {
         {
             public:
                 TextBox();
+                TextBox(std::string text);
                 TextBox(std::string texture_path, std::string fx_path, std::string font_path);
                 ~TextBox();
                 void Update();
