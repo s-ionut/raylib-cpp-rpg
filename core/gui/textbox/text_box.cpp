@@ -10,7 +10,7 @@ TextBox::TextBox(): _timer()
 
     LoadCommonTextBoxSettings();
 
-    Move(raylib::Vector2(static_cast<float>(GetScreenWidth()),static_cast<float>(GetScreenHeight())));
+    Move(raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f));
 };
 
 TextBox::~TextBox() { };
@@ -154,7 +154,7 @@ void TextBox::SetOutputText()
 
 void TextBox::Move(raylib::Vector2 updated_position)
 {
-    raylib::Vector2 position_to_update = raylib::Vector2(updated_position.x / 2.0f - _texture->width / 2.0f, updated_position.y / 2.0f - _texture->height / 2.0f);
+    raylib::Vector2 position_to_update = raylib::Vector2(updated_position.x - _texture->width / 2.0f, updated_position.y - _texture->height / 2.0f);
     raylib::Vector2 size = raylib::Vector2(static_cast<float>(_texture->width), _frame_height);
 
     _bounds.SetPosition(position_to_update);
