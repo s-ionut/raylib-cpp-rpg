@@ -4,24 +4,26 @@
 #include "core/scene/scene.hpp"
 
 // game includes
-#include "login_scene.hpp"
+#include "char_creation_scene.hpp"
 
 // system includes
 #include "core/etc/system_includes.h"
 
 namespace game {
     namespace scene {
-        class IntroScene: public core::scene::Scene
+        class LoginScene: public core::scene::Scene
         {
             public:
-                IntroScene();
-                virtual ~IntroScene() {};
+                LoginScene();
+                virtual ~LoginScene() {};
                 virtual void Update() override;
                 virtual void Draw() override;
                 virtual std::shared_ptr<core::scene::Scene> GetScene() override;
             
             private:
                 std::shared_ptr<core::scene::Scene> _scene;
+                std::unique_ptr<core::gui::TextBox> _username_box;
+                std::unique_ptr<core::gui::TextBox> _pass_box;
         };
     } // namespace scene
 } // namespace game

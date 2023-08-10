@@ -10,7 +10,7 @@ IntroScene::IntroScene()
 void IntroScene::Update()
 {
     // Do something interesting in the intro
-    _scene = std::make_shared<CharCreationScene>();
+    _scene = std::make_shared<LoginScene>();
 };
 
 void IntroScene::Draw()
