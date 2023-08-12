@@ -20,6 +20,7 @@ namespace core {
                 virtual void Draw() override;
                 bool ButtonPressed();
                 void ChangeText(std::string text);
+                void Move(raylib::Vector2 updated_position);
 
             private:
                 bool _action;               // Button action should be activated
@@ -27,7 +28,6 @@ namespace core {
                 int _text_offset;           // Text Y offset of the button
                 time::Timer _timer;         // Basic timer
 
-                void Move(raylib::Vector2 updated_position);
         };
     } // namespace gui
 } // namespace core
