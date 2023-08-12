@@ -2,6 +2,7 @@
 
 // core includes
 #include "core/scene/scene.hpp"
+#include "core/gui/core_gui.hpp"
 
 // game includes
 #include "char_creation_scene.hpp"
@@ -24,6 +25,9 @@ namespace game {
                 std::shared_ptr<core::scene::Scene> _scene;
                 std::unique_ptr<core::gui::TextBox> _username_box;
                 std::unique_ptr<core::gui::TextBox> _pass_box;
+
+                std::unique_ptr<core::gui::PushButton> _login_button;
+                std::unique_ptr<core::gui::PushButton> _exit_button;
         };
     } // namespace scene
 } // namespace game

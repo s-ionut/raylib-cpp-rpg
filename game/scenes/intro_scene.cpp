@@ -2,7 +2,7 @@
 
 using namespace game::scene;
 
-IntroScene::IntroScene()
+IntroScene::IntroScene() : _timer()
 {
     _scene = nullptr;
 };
@@ -10,7 +10,10 @@ IntroScene::IntroScene()
 void IntroScene::Update()
 {
     // Do something interesting in the intro
-    _scene = std::make_shared<LoginScene>();
+    if(_timer.HasTimePassedMS(2000))
+    {
+        _scene = std::make_shared<LoginScene>();
+    }
 };
 
 void IntroScene::Draw()

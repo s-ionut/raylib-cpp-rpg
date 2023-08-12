@@ -2,6 +2,7 @@
 
 // core includes
 #include "core/scene/scene.hpp"
+#include "core/time/timer.hpp"
 
 // game includes
 #include "login_scene.hpp"
@@ -22,6 +23,7 @@ namespace game {
             
             private:
                 std::shared_ptr<core::scene::Scene> _scene;
+                core::time::Timer _timer;
         };
     } // namespace scene
 } // namespace game
