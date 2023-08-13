@@ -123,6 +123,7 @@ bool TextBox::IsActive()
         if (mouse.IsButtonPressed(MOUSE_BUTTON_LEFT))
         {
             _state = TextBoxState::NOT_ACTIVE;
+            CursorBlink();
         }
     }
     else
@@ -138,7 +139,7 @@ bool TextBox::IsActive()
 
 void TextBox::CursorBlink()
 {
-    if(!_timer.HasTimePassedMS(400)) return;
+    if(_state == TextBoxState::ACTIVE && !_timer.HasTimePassedMS(400)) return;
 
     if (_output_text.back() != '|')
     {
@@ -193,6 +194,12 @@ raylib::Texture TextBox::GetDefaultTexture()
     UnloadImage(image);
 
     return default_texture;
+};
+
+
+std::string TextBox::GetText()
+{
+    return _input_text;
 };
 
 void TextBox::LoadCommonTextBoxSettings()

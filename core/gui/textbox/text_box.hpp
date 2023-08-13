@@ -30,6 +30,7 @@ namespace core {
                 void Update();
                 void Draw();
                 void Move(raylib::Vector2 updated_position);
+                std::string GetText();
             
             private:
                 std::string _texture_path;      // Text Box texture file path
