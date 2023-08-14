@@ -123,7 +123,6 @@ bool TextBox::IsActive()
         if (mouse.IsButtonPressed(MOUSE_BUTTON_LEFT))
         {
             _state = TextBoxState::NOT_ACTIVE;
-            CursorBlink();
         }
     }
     else

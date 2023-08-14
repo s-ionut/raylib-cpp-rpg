@@ -21,6 +21,7 @@ namespace core {
                 ~Renderer();
                 void Update();
                 void Draw();
+                bool Shutdown();
             
             private:
                 std::shared_ptr<scene::Scene> _scene;

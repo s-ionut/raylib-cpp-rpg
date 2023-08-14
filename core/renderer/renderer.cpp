@@ -27,6 +27,11 @@ void Renderer::Draw()
     //----------------------------------------------------------------------------------
 };
 
+bool Renderer::Shutdown()
+{
+    return _scene->Shutdown();
+}
+
 void Renderer::GetScene()
 {
     std::shared_ptr<scene::Scene> scene = _scene->GetScene();
