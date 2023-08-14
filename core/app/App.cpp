@@ -14,6 +14,9 @@ Application::Application(std::string window_name, int width, int height):
     #else
       SetTargetFPS(_targeted_fps);
     #endif
+
+    // Disable ESC key for exiting the program
+    SetExitKey(KEY_NULL);
 };
 
 Application::~Application()
@@ -24,7 +27,7 @@ Application::~Application()
 // Main game loop
 void Application::Execute()
 {
-    while (!_window.ShouldClose())    // Detect window close button or ESC key
+    while (!_window.ShouldClose())    // Detect window close button
     {
         if(_renderer.Shutdown())
         {
