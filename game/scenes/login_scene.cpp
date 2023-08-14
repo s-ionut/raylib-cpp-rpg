@@ -7,8 +7,8 @@ LoginScene::LoginScene()
     _scene = nullptr;
     _username_box = std::make_unique<core::gui::TextBox>("Username");
     _pass_box = std::make_unique<core::gui::TextBox>("Password");
-    _login_button = std::make_unique<core::gui::PushButton>("Login");
-    _exit_button = std::make_unique<core::gui::PushButton>("Exit");
+    _login_button = std::make_unique<core::gui::PushButton>("    Login    ");
+    _exit_button = std::make_unique<core::gui::PushButton>("    Exit    ");
 
     _username_box->Move(raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f - 40));
     _pass_box->Move(raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f));

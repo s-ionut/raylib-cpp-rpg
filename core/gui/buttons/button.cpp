@@ -50,7 +50,7 @@ raylib::Texture Button::GetDefaultTexture(std::string text)
 {
     // Create basic texture with nothing in it, just to not throw an error
     Vector2 textSize = _font->MeasureText(text, _font->get_font_size(), _font->get_font_spacing());
-    const int barHeight = static_cast<int>(textSize.y) + 40;
+    const int barHeight = static_cast<int>(textSize.y) + 20;
     const int barWidth = static_cast<int>(textSize.x) + 10;
     std::vector<Color> colors = {DARKGRAY, LIGHTGRAY, WHITE};
     Image image = GenImageColor(barWidth, static_cast<int>(colors.size()) * barHeight, BLACK);
