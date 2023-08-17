@@ -44,6 +44,7 @@ aux_source_directory(core/entity SOURCE_FILES)
 aux_source_directory(core/gui/buttons SOURCE_FILES)
 aux_source_directory(core/gui/textbox SOURCE_FILES)
 aux_source_directory(core/gui/text SOURCE_FILES)
+aux_source_directory(core/gui/images SOURCE_FILES)
 
 # Game source files
 aux_source_directory(game/scenes SOURCE_FILES)
