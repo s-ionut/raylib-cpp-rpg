@@ -24,6 +24,7 @@ namespace game {
             private:
                 std::shared_ptr<core::scene::Scene> _scene;
                 std::shared_ptr<core::gui::PushButton> button;
+                std::shared_ptr<core::gui::CImage> _image;
                 int count = 0;
                 std::string display_text;
         };
