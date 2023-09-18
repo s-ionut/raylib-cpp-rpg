@@ -13,6 +13,7 @@ namespace core {
             public:
                 CImage() = delete;
                 CImage(std::string image_path, raylib::Vector2 position, raylib::Vector2 size);
+                CImage(raylib::Texture2D* image, raylib::Vector2 position, raylib::Vector2 size);
                 ~CImage();
                 void Draw();
 

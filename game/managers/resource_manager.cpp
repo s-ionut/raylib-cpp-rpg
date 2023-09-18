@@ -69,10 +69,3 @@ ResourceManager* ResourceManager::GetInstance()
     }
     return _instance;
 };
-
-template <typename T>
-T* ResourceManager::GetResource(const std::string& resourceName) {
-    // This is just a placeholder
-    std::cout << "Trying to get the " << resourceName << " resource" << std::endl;
-    return nullptr;
-};

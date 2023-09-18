@@ -15,6 +15,14 @@ CImage::CImage(std::string image_path, raylib::Vector2 position, raylib::Vector2
     
 };
 
+CImage::CImage(raylib::Texture2D* image, raylib::Vector2 position, raylib::Vector2 size)
+{
+    _image.reset(image);
+
+    _rectangle.SetPosition(_position);
+    _rectangle.SetSize(_size);   
+};
+
 CImage::~CImage() { };
 
 void CImage::Draw()

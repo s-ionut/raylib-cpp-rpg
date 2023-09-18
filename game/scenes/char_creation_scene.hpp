@@ -6,6 +6,7 @@
 
 // game specific
 #include "main_scene.hpp"
+#include "managers/resource_manager.hpp"
 
 // system specific
 #include "core/etc/system_includes.h"
