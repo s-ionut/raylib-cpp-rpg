@@ -29,12 +29,12 @@ void Application::Execute()
 {
     while (!_window.ShouldClose())    // Detect window close button
     {
-        if(_renderer.Shutdown())
-        {
-          _window.Close();
-        }
-        
-        _renderer.Update();
-        _renderer.Draw();
+      if(_renderer.Shutdown())
+      {
+        _window.Close();
+      }
+      
+      _renderer.Update();
+      _renderer.Draw();
     }
 };
