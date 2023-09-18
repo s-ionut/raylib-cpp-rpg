@@ -10,6 +10,9 @@
 // core specific
 #include "renderer/renderer.hpp"
 
+// game specific
+#include "game/managers/resource_manager.hpp"
+
 namespace core {
     class Application
     {

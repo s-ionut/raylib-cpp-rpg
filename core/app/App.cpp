@@ -9,14 +9,14 @@ Application::Application(std::string window_name, int width, int height):
     _window(width, height, window_name),
     _renderer()
 {
-    #if defined(PLATFORM_WEB)
-      emscripten_set_main_loop(Execute, 0, 1);
-    #else
-      SetTargetFPS(_targeted_fps);
-    #endif
+  #if defined(PLATFORM_WEB)
+    emscripten_set_main_loop(Execute, 0, 1);
+  #else
+    SetTargetFPS(_targeted_fps);
+  #endif
 
-    // Disable ESC key for exiting the program
-    SetExitKey(KEY_NULL);
+  // Disable ESC key for exiting the program
+  SetExitKey(KEY_NULL);
 };
 
 Application::~Application()
@@ -27,14 +27,16 @@ Application::~Application()
 // Main game loop
 void Application::Execute()
 {
-    while (!_window.ShouldClose())    // Detect window close button
+  auto manager = game::manager::ResourceManager::GetInstance("../game/resources");
+
+  while (!_window.ShouldClose())    // Detect window close button
+  {
+    if(_renderer.Shutdown())
     {
-      if(_renderer.Shutdown())
-      {
-        _window.Close();
-      }
-      
-      _renderer.Update();
-      _renderer.Draw();
+      _window.Close();
     }
+    
+    _renderer.Update();
+    _renderer.Draw();
+  }
 };
