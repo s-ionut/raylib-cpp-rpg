@@ -8,7 +8,7 @@ CharCreationScene::CharCreationScene()
 
     button = std::make_shared<core::gui::PushButton>("CHARACTER CREATION SCREEN");
     //_image = std::make_shared<core::gui::CImage>("/../game/resources/avatars/characters/00_avatar.png", raylib::Vector2(GetScreenWidth()/2 - 50,GetScreenHeight()/2 - 140), raylib::Vector2(100,100));
-    _image = std::make_shared<core::gui::CImage>(_resource->GetResource<raylib::Texture2D>("avatars/characters/00_avatar.png"), raylib::Vector2(GetScreenWidth()/2 - 50,GetScreenHeight()/2 - 140), raylib::Vector2(100,100));
+    _image = std::make_shared<core::gui::CImage>(_resource->GetResource<raylib::Texture2D>("00_avatar.png"), raylib::Vector2(GetScreenWidth()/2.0f - 50,GetScreenHeight()/2.0f - 140), raylib::Vector2(100,100));
     _scene = nullptr;
 };
 

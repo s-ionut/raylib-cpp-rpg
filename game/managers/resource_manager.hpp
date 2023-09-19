@@ -12,12 +12,14 @@ namespace game {
 
                 // Directory tracking
                 std::set<std::string> _currentFiles;
-                std::string _directory;
+                std::filesystem::path _directory;
                 std::map<std::string, std::any> _storage;
 
                 ResourceManager(const std::string& dir);
                 void UpdateFileList();
                 void StartPeriodicCheck();
+                void RecursiveScanDirectory(const std::filesystem::path& directory, std::set<std::string>& files) const;
+                const std::string findResourceInPaths(const std::string& resourceName);
 
             public:
                 // Singleton get instance method
@@ -27,35 +29,35 @@ namespace game {
                 template <typename T>
                 T* GetResource(const std::string& resourceName)
                 {
-                    std::cout << "Trying to get the " << resourceName << " resource" << std::endl;
+                    std::string pathInFiles = findResourceInPaths(resourceName);
 
-                    if (_currentFiles.find(resourceName) == _currentFiles.end())
+                    if (pathInFiles.empty())
                     {
                         return nullptr;    
                     }
 
-                    if (_storage.find(resourceName) != _storage.end())
+                    if (_storage.find(pathInFiles) != _storage.end())
                     {
-                        return std::any_cast<T*>(_storage[resourceName]);
+                        return std::any_cast<T*>(_storage[pathInFiles]);
                     }
 
                     T* resource = nullptr;
 
                     if constexpr (std::is_same_v<T, raylib::Texture2D>)
                     {
-                        resource = new raylib::Texture2D(resourceName);//LoadTexture2D(resourceName);
+                        resource = new raylib::Texture2D(pathInFiles);
                     }
                     else if constexpr (std::is_same_v<T, int>)
                     {
-                        //resource = LoadSound(resourceName);
+                        //resource = LoadSound(pathInFiles);
                     }
                     else if constexpr (std::is_same_v<T, std::string>)
                     {
-                        //resource = LoadImage(resourceName);
+                        //resource = LoadImage(pathInFiles);
                     }
 
                     if (resource) {
-                        _storage[resourceName] = resource;
+                        _storage[pathInFiles] = resource;
                     }
 
                     return resource;

@@ -19,7 +19,7 @@ namespace core {
 
             private:
                 std::string _image_path;
-                std::shared_ptr<raylib::Texture2D> _image;
+                raylib::Texture2D _image;
                 raylib::Vector2 _position;
                 raylib::Vector2 _size;
                 raylib::Rectangle _rectangle;
