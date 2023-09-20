@@ -6,6 +6,7 @@
 
 // game specific
 #include "main_scene.hpp"
+#include "login_scene.hpp"
 #include "managers/resource_manager.hpp"
 
 // system specific
@@ -24,10 +25,17 @@ namespace game {
 
             private:
                 std::shared_ptr<core::scene::Scene> _scene;
-                std::shared_ptr<core::gui::PushButton> button;
-                std::shared_ptr<core::gui::CImage> _image;
-                int count = 0;
-                std::string display_text;
+                std::unique_ptr<core::gui::PushButton> _confirm_button;
+                std::unique_ptr<core::gui::PushButton> _back_button;
+                std::unique_ptr<core::gui::PushButton> _next_avatar_button;
+                std::unique_ptr<core::gui::PushButton> _prev_avatar_button;
+                std::unique_ptr<core::gui::PushButton> _next_class_button;
+                std::unique_ptr<core::gui::PushButton> _prev_class_button;
+                std::unique_ptr<core::gui::TextBox> _name_box;
+                std::unique_ptr<core::gui::CImage> _avatar;
+
+                std::vector<raylib::Texture2D*> _avatars;
+                uint8_t _avatar_index = 0;
         };
     } // namespace scene
 } // namespace game
