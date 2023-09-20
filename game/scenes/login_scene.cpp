@@ -18,7 +18,6 @@ LoginScene::LoginScene()
 
 void LoginScene::Update()
 {
-    // Do something interesting in the intro
     if (_login_button->ButtonPressed())
     {
         _scene = std::make_shared<CharCreationScene>();
