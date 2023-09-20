@@ -31,6 +31,12 @@ CImage::CImage(raylib::Texture2D* image, raylib::Vector2 position, raylib::Vecto
     _rectangle.SetSize(_size);   
 };
 
+
+void CImage::UpdateImage(raylib::Texture2D* image)
+{
+    _image.Load(*image);
+};
+
 CImage::~CImage() { };
 
 void CImage::Draw()
