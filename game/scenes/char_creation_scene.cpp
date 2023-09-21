@@ -4,6 +4,7 @@ using namespace game::scene;
 
 CharCreationScene::CharCreationScene()
 {
+    // TEMP - NEED TO USE THE ClassType enum class
     _class_names.push_back("Warrior");
     _class_names.push_back("Assassin");
     _class_names.push_back("Sura");
