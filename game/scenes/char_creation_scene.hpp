@@ -8,9 +8,11 @@
 #include "main_scene.hpp"
 #include "login_scene.hpp"
 #include "managers/resource_manager.hpp"
+#include "entity/character.hpp"
 
 // system specific
 #include "core/etc/system_includes.h"
+
 
 namespace game {
     namespace scene {
@@ -35,7 +37,10 @@ namespace game {
                 std::unique_ptr<core::gui::CImage> _avatar;
 
                 std::vector<raylib::Texture2D*> _avatars;
+                std::vector<std::string> _class_names;
                 uint8_t _avatar_index = 0;
+                uint8_t _class_index = 0;
+                int _temp_text_size = 0;
         };
     } // namespace scene
 } // namespace game

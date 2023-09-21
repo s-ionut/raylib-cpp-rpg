@@ -4,6 +4,11 @@ using namespace game::scene;
 
 CharCreationScene::CharCreationScene()
 {
+    _class_names.push_back("Warrior");
+    _class_names.push_back("Assassin");
+    _class_names.push_back("Sura");
+    _class_names.push_back("Mage");
+
     auto _resource = game::manager::ResourceManager::GetInstance();
 
     _avatars.push_back(_resource->GetResource<raylib::Texture2D>("00_avatar.png"));
@@ -59,14 +64,16 @@ void CharCreationScene::Update()
     }
     if(_next_class_button->ButtonPressed())
     {
-        std::cout << "chosen X class\n";
+        _class_index = ++_class_index % static_cast<int>(entity::ClassType::COUNT);
     }
     if(_prev_class_button->ButtonPressed())
     {
-        std::cout << "chosen X class\n";
+        _class_index = --_class_index % static_cast<int>(entity::ClassType::COUNT);
     }
 
     _name_box->Update();
+
+    _temp_text_size = GetScreenWidth() / 2.0f - (MeasureText(_class_names[_class_index].c_str(), 1) / 2);
 
 };
 
@@ -81,6 +88,8 @@ void CharCreationScene::Draw()
     _next_class_button->Draw();
     _prev_class_button->Draw();
     _avatar->Draw();
+
+    raylib::DrawText(_class_names[_class_index], _temp_text_size, GetScreenHeight()/2.0f, 10, BLACK);
 };
 
 std::shared_ptr<core::scene::Scene> CharCreationScene::GetScene()
