@@ -55,23 +55,23 @@ namespace game {
                 int GetMaxExp() const;
                 int GetCurrExp() const;
 
-                std::string SetName() const;
+                std::string SetName(const std::string name);
 
-                int SetMaxHP() const;
-                int SetMaxMana() const;
-                int SetCurrHP() const;
-                int SetCurrMana() const;
+                void SetMaxHP(const int max_hp);
+                void SetMaxMana(const int max_mana);
+                void SetCurrHP(const int curr_hp);
+                void SetCurrMana(const int curr_mana);
 
-                int SetAttack() const;
-                int SetDefense() const;
+                void SetAttack(const int attack);
+                void SetDefense(const int defense);
                 
-                int SetSTR() const;
-                int SetINT() const;
-                int SetDEX() const;
+                void SetSTR(const int str);
+                void SetINT(const int intl);
+                void SetDEX(const int dex);
                 
-                int SetLevel() const;
-                int SetMaxExp() const;
-                int SetCurrExp() const;
+                void SetLevel(const int level);
+                void SetMaxExp(const int max_exp);
+                void SetCurrExp(const int curr_exp);
         };
     } // namespace entity
 } // namespce game
