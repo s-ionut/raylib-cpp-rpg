@@ -5,6 +5,7 @@
 
 namespace game {
     namespace entity {
+
         enum class ClassType
         {
             WARRIOR = 0,
@@ -19,6 +20,13 @@ namespace game {
             public:
                 Character();
                 ~Character() {};
+                
+                void SetClass(ClassType class);
+
+            private:
+                void InitChar();
+
+                ClassType _class;
         };
     } // namespace entity
 } // namespace game
