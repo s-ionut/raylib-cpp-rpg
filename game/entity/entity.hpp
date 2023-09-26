@@ -12,7 +12,7 @@ namespace game {
                 ~Entity() {};
 
                 void Update();
-            private:
+            protected:
                 std::string _name;
 
                 int _max_hp;
@@ -54,6 +54,24 @@ namespace game {
                 int GetLevel() const;
                 int GetMaxExp() const;
                 int GetCurrExp() const;
+
+                std::string SetName() const;
+
+                int SetMaxHP() const;
+                int SetMaxMana() const;
+                int SetCurrHP() const;
+                int SetCurrMana() const;
+
+                int SetAttack() const;
+                int SetDefense() const;
+                
+                int SetSTR() const;
+                int SetINT() const;
+                int SetDEX() const;
+                
+                int SetLevel() const;
+                int SetMaxExp() const;
+                int SetCurrExp() const;
         };
     } // namespace entity
 } // namespce game
