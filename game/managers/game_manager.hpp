@@ -23,6 +23,7 @@ namespace game {
 
             public:
                 static GameManager& getInstance();
+                entity::Character* GetPlayer(PlayerUID pid);
         };
     } // namespace manager
 } // namespace game
