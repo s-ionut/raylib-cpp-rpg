@@ -12,19 +12,22 @@ namespace game {
 
         class GameManager {
             private:
+                static GameManager* _instance;
+
                 ///TODO: map a UID to a Character object
-                std::map<PlayerUID, entity::Character> players;
-                GameManager() {}
+                std::map<PlayerUID, entity::Character*> _players;
+                GameManager();
+                ~GameManager();
+
+                void UpdatePlayers();
 
                 GameManager(const GameManager&) = delete;
                 GameManager& operator=(const GameManager&) = delete;
 
             public:
-                static GameManager& GameManager::getInstance()
-                {
-                    static GameManager instance;
-                    return instance;
-                };
+                static GameManager* getInstance();
+                entity::Character* GetPlayer(PlayerUID pid);
+                bool DeletePlayer(PlayerUID pid);
         };
     } // namespace manager
 } // namespace game

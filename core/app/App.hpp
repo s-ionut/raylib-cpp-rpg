@@ -12,6 +12,7 @@
 
 // game specific
 #include "game/managers/resource_manager.hpp"
+#include "game/managers/game_manager.hpp"
 
 namespace core {
     class Application

@@ -49,6 +49,7 @@ aux_source_directory(core/gui/images SOURCE_FILES)
 # Game source files
 aux_source_directory(game/scenes SOURCE_FILES)
 aux_source_directory(game/managers SOURCE_FILES)
+aux_source_directory(game/entity SOURCE_FILES)
 
 target_sources(${PROJECT_NAME} PRIVATE ${SOURCE_FILES})
 
