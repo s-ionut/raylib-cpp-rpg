@@ -34,7 +34,7 @@ namespace game {
                 int GetMaxExp() const;
                 int GetCurrExp() const;
 
-                std::string SetName(const std::string name);
+                void SetName(const std::string name);
 
                 void SetMaxHP(const int max_hp);
                 void SetMaxMana(const int max_mana);

@@ -104,7 +104,7 @@ int Entity::GetCurrExp() const
     return _curr_exp;
 };
 
-std::string Entity::SetName(const std::string name)
+void Entity::SetName(const std::string name)
 {
     _name = name;
 };

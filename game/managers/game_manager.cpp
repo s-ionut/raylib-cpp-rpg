@@ -2,6 +2,8 @@
 
 using namespace game::manager;
 
+GameManager* GameManager::_instance = nullptr;
+
 GameManager::GameManager()
 {
     UpdatePlayers();

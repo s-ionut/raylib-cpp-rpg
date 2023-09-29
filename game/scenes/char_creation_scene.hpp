@@ -8,6 +8,7 @@
 #include "main_scene.hpp"
 #include "login_scene.hpp"
 #include "managers/resource_manager.hpp"
+#include "managers/game_manager.hpp"
 #include "entity/character.hpp"
 
 // system specific
