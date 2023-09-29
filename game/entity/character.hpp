@@ -14,6 +14,7 @@ namespace game {
             MAGE,
             COUNT
         };
+        ClassType getClassTypeByIndex(int index);
 
         class Character : public Entity
         {
@@ -21,12 +22,13 @@ namespace game {
                 Character();
                 ~Character() {};
                 
-                void SetClass(ClassType class);
+                void SetClass(ClassType classType);
 
             private:
                 void InitChar();
+                void SetStats(std::string name, int attack, int defense, int max_hp, int max_mana, int str, int intl, int dex, int level, int max_exp);
 
-                ClassType _class;
+                ClassType _class = ClassType::WARRIOR;
         };
     } // namespace entity
 } // namespace game

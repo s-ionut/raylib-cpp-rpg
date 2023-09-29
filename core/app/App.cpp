@@ -27,7 +27,8 @@ Application::~Application()
 // Main game loop
 void Application::Execute()
 {
-  auto manager = game::manager::ResourceManager::GetInstance("..\\game\\resources");
+  auto resourceManager = game::manager::ResourceManager::GetInstance("..\\game\\resources");
+  auto gameManager = game::manager::GameManager::getInstance();
 
   while (!_window.ShouldClose())    // Detect window close button
   {

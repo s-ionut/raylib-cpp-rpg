@@ -18,12 +18,15 @@ LoginScene::LoginScene()
 
 void LoginScene::Update()
 {
+    auto game_manager = game::manager::GameManager::getInstance();
+
     if (_login_button->ButtonPressed())
     {
         _scene = std::make_shared<CharCreationScene>();
         /// TODO: check login data from database, print for now
         std::cout << "Username: " << _username_box->GetText() << std::endl;
         std::cout << "Password: " << _pass_box->GetText() << std::endl;
+        game_manager->GetPlayer(1);
     }
 
     if(_exit_button->ButtonPressed())

@@ -45,6 +45,8 @@ CharCreationScene::CharCreationScene()
 
 void CharCreationScene::Update()
 {
+    
+    auto game_manager = game::manager::GameManager::getInstance();
     if (_confirm_button->ButtonPressed())
     {
         _scene = std::make_shared<MainScene>();
@@ -73,6 +75,10 @@ void CharCreationScene::Update()
     }
 
     _name_box->Update();
+    
+    auto character = game_manager->GetPlayer(1);
+
+    character->SetClass(game::entity::getClassTypeByIndex(_class_index));
 
     _temp_text_size = GetScreenWidth() / 2.0f - (MeasureText(_class_names[_class_index].c_str(), 1) / 2);
 
