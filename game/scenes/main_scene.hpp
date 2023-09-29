@@ -6,6 +6,8 @@
 
 // game includes
 #include "char_creation_scene.hpp"
+#include "managers/game_manager.hpp"
+#include "entity/character.hpp"
 
 // system includes
 #include "core/etc/system_includes.h"
@@ -24,6 +26,8 @@ namespace game {
             private:
                 std::shared_ptr<core::scene::Scene> _scene;
                 std::unique_ptr<core::gui::TextBox> _textbox;
+
+                entity::Character* _character;
         };
     } // namespace scene
 } // namespace game

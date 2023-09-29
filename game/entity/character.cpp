@@ -16,6 +16,7 @@ ClassType game::entity::getClassTypeByIndex(int index)
 Character::Character()
 {
     InitChar();
+    SetName("NO_NAME");
 };
 
 void Character::SetClass(ClassType classType)
@@ -28,26 +29,24 @@ void Character::InitChar()
 {
     if(_class == ClassType::WARRIOR)
     {
-        SetStats("WARRIOR", 150, 150, 100, 50, 15, 5, 10, 1, 10);
+        SetStats(150, 150, 100, 50, 15, 5, 10, 1, 10);
     }
     else if(_class == ClassType::ASSASSIN)
     {
-        SetStats("ASSASSIN", 200, 50, 100, 50, 10, 5, 15, 1, 10);
+        SetStats(200, 50, 100, 50, 10, 5, 15, 1, 10);
     }
     else if(_class == ClassType::SURA)
     {
-        SetStats("SURA", 150, 100, 100, 50, 10, 10, 5, 1, 10);
+        SetStats(150, 100, 100, 50, 10, 10, 5, 1, 10);
     }
     else if(_class == ClassType::MAGE)
     {
-        SetStats("MAGE", 100, 30, 100, 50, 5, 20, 5, 1, 10);
+        SetStats(100, 30, 100, 50, 5, 20, 5, 1, 10);
     }
 };
 
-void Character::SetStats(std::string name, int attack, int defense, int max_hp, int max_mana, int str, int intl, int dex, int level, int max_exp)
-{                
-    SetName(name);
-
+void Character::SetStats(int attack, int defense, int max_hp, int max_mana, int str, int intl, int dex, int level, int max_exp)
+{
     SetMaxHP(max_hp);
     SetMaxMana(max_mana);
 

@@ -11,6 +11,10 @@ GameManager::GameManager()
 
 GameManager* GameManager::getInstance()
 {
+    if (_instance == nullptr)
+    {
+        _instance = new GameManager();
+    }
     return _instance;
 };
 
@@ -35,7 +39,7 @@ game::entity::Character* GameManager::GetPlayer(PlayerUID pid)
     {
         return std::any_cast<game::entity::Character*>(_players[pid]);
     }
-
+    
     game::entity::Character* resource = new game::entity::Character();
 
     if (resource)

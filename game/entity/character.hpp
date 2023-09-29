@@ -26,7 +26,7 @@ namespace game {
 
             private:
                 void InitChar();
-                void SetStats(std::string name, int attack, int defense, int max_hp, int max_mana, int str, int intl, int dex, int level, int max_exp);
+                void SetStats(int attack, int defense, int max_hp, int max_mana, int str, int intl, int dex, int level, int max_exp);
 
                 ClassType _class = ClassType::WARRIOR;
         };

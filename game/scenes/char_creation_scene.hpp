@@ -42,6 +42,8 @@ namespace game {
                 uint8_t _avatar_index = 0;
                 uint8_t _class_index = 0;
                 int _temp_text_size = 0;
+
+                entity::Character* _character;
         };
     } // namespace scene
 } // namespace game

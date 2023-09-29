@@ -13,9 +13,6 @@ namespace game {
 
                 void Update();
 
-            protected:
-                void LevelUp();
-
                 std::string GetName() const;
 
                 int GetMaxHP() const;
@@ -33,7 +30,6 @@ namespace game {
                 int GetLevel() const;
                 int GetMaxExp() const;
                 int GetCurrExp() const;
-
                 void SetName(const std::string name);
 
                 void SetMaxHP(const int max_hp);
@@ -51,7 +47,9 @@ namespace game {
                 void SetLevel(const int level);
                 void SetMaxExp(const int max_exp);
                 void SetCurrExp(const int curr_exp);
-            
+            protected:
+                void LevelUp();
+                
             private:
                 virtual void CalcAttack() {};
                 virtual void CalcDefense() {};
