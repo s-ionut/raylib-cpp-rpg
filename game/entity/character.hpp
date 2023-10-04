@@ -19,7 +19,7 @@ namespace game {
         class Character : public Entity
         {
             public:
-                Character();
+                Character(ClassType classType);
                 ~Character() {};
                 
                 void SetClass(ClassType classType);

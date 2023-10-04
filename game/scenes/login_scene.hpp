@@ -6,6 +6,7 @@
 
 // game includes
 #include "char_creation_scene.hpp"
+#include "main_scene.hpp"
 #include "managers/game_manager.hpp"
 
 // system includes

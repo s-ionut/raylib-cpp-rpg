@@ -35,19 +35,44 @@ void GameManager::UpdatePlayers()
 
 game::entity::Character* GameManager::GetPlayer(PlayerUID pid)
 {
-    if (_players.find(pid) != _players.end())
+    if (CheckPlayer(pid))
     {
         return std::any_cast<game::entity::Character*>(_players[pid]);
     }
     
-    game::entity::Character* resource = new game::entity::Character();
+    // game::entity::Character* resource = new game::entity::Character();
+
+    // if (resource)
+    // {
+    //     _players[pid] = resource;
+    // }
+
+    return nullptr;
+};
+
+bool GameManager::SetPlayer(PlayerUID pid, entity::ClassType class_type)
+{
+    if (CheckPlayer(pid))
+    {
+        return false;
+    }
+    
+    game::entity::Character* resource = new game::entity::Character(class_type);
 
     if (resource)
     {
         _players[pid] = resource;
     }
+};
 
-    return resource;
+bool GameManager::CheckPlayer(PlayerUID pid)
+{
+    if (_players.find(pid) != _players.end())
+    {
+        return true;
+    }
+
+    return false;
 };
 
 bool GameManager::DeletePlayer(PlayerUID pid)

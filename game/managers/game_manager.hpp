@@ -27,6 +27,8 @@ namespace game {
             public:
                 static GameManager* getInstance();
                 entity::Character* GetPlayer(PlayerUID pid);
+                bool SetPlayer(PlayerUID pid, entity::ClassType class_type);
+                bool CheckPlayer(PlayerUID pid);
                 bool DeletePlayer(PlayerUID pid);
         };
     } // namespace manager

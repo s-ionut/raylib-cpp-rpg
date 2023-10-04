@@ -13,16 +13,11 @@ ClassType game::entity::getClassTypeByIndex(int index)
     }
 };
 
-Character::Character()
-{
-    InitChar();
-    SetName("NO_NAME");
-};
-
-void Character::SetClass(ClassType classType)
+Character::Character(ClassType classType)
 {
     _class = classType;
     InitChar();
+    SetName("NO_NAME");
 };
 
 void Character::InitChar()
