@@ -16,18 +16,18 @@ namespace game {
                 std::map<std::string, std::any> _storage;
 
                 ResourceManager(const std::string& dir);
-                void UpdateFileList();
-                void StartPeriodicCheck();
-                void RecursiveScanDirectory(const std::filesystem::path& directory, std::set<std::string>& files) const;
+                void updateFileList();
+                void startPeriodicCheck();
+                void recursiveScanDirectory(const std::filesystem::path& directory, std::set<std::string>& files) const;
                 const std::string findResourceInPaths(const std::string& resourceName);
 
             public:
                 // Singleton get instance method
-                static ResourceManager* GetInstance(const std::string& dir);
-                static ResourceManager* GetInstance();
+                static ResourceManager* getInstance(const std::string& dir);
+                static ResourceManager* getInstance();
 
                 template <typename T>
-                T* GetResource(const std::string& resourceName)
+                T* getResource(const std::string& resourceName)
                 {
                     std::string pathInFiles = findResourceInPaths(resourceName);
 

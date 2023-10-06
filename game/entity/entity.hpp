@@ -13,47 +13,47 @@ namespace game {
 
                 void Update();
 
-                std::string GetName() const;
+                std::string getName() const;
 
-                int GetMaxHP() const;
-                int GetMaxMana() const;
-                int GetCurrHP() const;
-                int GetCurrMana() const;
+                int getMaxHP() const;
+                int getMaxMana() const;
+                int getCurrHP() const;
+                int getCurrMana() const;
 
-                int GetAttack() const;
-                int GetDefense() const;
+                int getAttack() const;
+                int getDefense() const;
                 
-                int GetSTR() const;
-                int GetINT() const;
-                int GetDEX() const;
+                int getSTR() const;
+                int getINT() const;
+                int getDEX() const;
                 
-                int GetLevel() const;
-                int GetMaxExp() const;
-                int GetCurrExp() const;
-                void SetName(const std::string name);
+                int getLevel() const;
+                int getMaxExp() const;
+                int getCurrExp() const;
+                void setName(const std::string name);
 
-                void SetMaxHP(const int max_hp);
-                void SetMaxMana(const int max_mana);
-                void SetCurrHP(const int curr_hp);
-                void SetCurrMana(const int curr_mana);
+                void setMaxHP(const int max_hp);
+                void setMaxMana(const int max_mana);
+                void setCurrHP(const int curr_hp);
+                void setCurrMana(const int curr_mana);
 
-                void SetAttack(const int attack);
-                void SetDefense(const int defense);
+                void setAttack(const int attack);
+                void setDefense(const int defense);
                 
-                void SetSTR(const int str);
-                void SetINT(const int intl);
-                void SetDEX(const int dex);
+                void setSTR(const int str);
+                void setINT(const int intl);
+                void setDEX(const int dex);
                 
-                void SetLevel(const int level);
-                void SetMaxExp(const int max_exp);
-                void SetCurrExp(const int curr_exp);
+                void setLevel(const int level);
+                void setMaxExp(const int max_exp);
+                void setCurrExp(const int curr_exp);
             protected:
-                void LevelUp();
+                void levelUp();
                 
             private:
-                virtual void CalcAttack() {};
-                virtual void CalcDefense() {};
-                void CalcExp(int given_exp);
+                virtual void calcAttack() {};
+                virtual void calcDefense() {};
+                void calcExp(int given_exp);
                 
                 std::string _name;
 

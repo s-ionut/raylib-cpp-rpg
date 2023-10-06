@@ -18,9 +18,9 @@ namespace core {
                 virtual ~PushButton() override; 
                 virtual void Update() override;
                 virtual void Draw() override;
-                bool ButtonPressed();
-                void ChangeText(std::string text);
-                void Move(raylib::Vector2 updated_position);
+                bool buttonPressed();
+                void changeText(std::string text);
+                void move(raylib::Vector2 updated_position);
 
             private:
                 bool _action;               // Button action should be activated

@@ -6,24 +6,24 @@ TextBox::TextBox(): _timer()
 {
     _fx = std::make_shared<raylib::Sound>();
     _font = std::make_shared<text::CFont>();
-	_texture = std::make_shared<raylib::Texture>(GetDefaultTexture());
+	_texture = std::make_shared<raylib::Texture>(getDefaultTexture());
 
     _input_text = "placeholder";
-    LoadCommonTextBoxSettings();
+    loadCommonTextBoxSettings();
 
-    Move(raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f));
+    move(raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f));
 };
 
 TextBox::TextBox(std::string text): _timer()
 {
     _fx = std::make_shared<raylib::Sound>();
     _font = std::make_shared<text::CFont>();
-	_texture = std::make_shared<raylib::Texture>(GetDefaultTexture());
+	_texture = std::make_shared<raylib::Texture>(getDefaultTexture());
 
     _input_text = text;
-    LoadCommonTextBoxSettings();
+    loadCommonTextBoxSettings();
 
-    Move(raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f));
+    move(raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f));
 };
 
 TextBox::~TextBox() { };
@@ -55,13 +55,13 @@ TextBox::TextBox(std::string texture_path, std::string fx_path, std::string font
         TraceLog(LOG_WARNING, "Failed to load font: %s", error.what());
     }
 
-    LoadCommonTextBoxSettings();
+    loadCommonTextBoxSettings();
 };
 
 void TextBox::Update()
 {
 
-    if(IsActive())
+    if(isActive())
     {
         // Get char pressed (unicode character) on the queue
         int key = GetCharPressed();
@@ -89,10 +89,10 @@ void TextBox::Update()
             std::cout << _input_text << std::endl;
         }
 
-        CursorBlink();
+        cursorBlink();
     }
 
-    SetOutputText();
+    setOutputText();
 };
 
 void TextBox::Draw()
@@ -106,14 +106,14 @@ void TextBox::Draw()
     _texture->Draw(_source_rec, raylib::Vector2(_bounds.x, _bounds.y), raylib::Color::White());
 
 	// Render text to H:center / V:center by default
-	text_pos.x = (_bounds.x + (_bounds.width / 2)) - (_font->MeasureText(_output_text, _font->get_font_size(), _font->get_font_spacing())).x / 2.0f;
-	text_pos.y = (_bounds.y + (_bounds.height / 2)) - (_font->MeasureText(_output_text, _font->get_font_size(), _font->get_font_spacing())).y / 2.0f;
+	text_pos.x = (_bounds.x + (_bounds.width / 2)) - (_font->MeasureText(_output_text, _font->getFontSize(), _font->getFontSpacing())).x / 2.0f;
+	text_pos.y = (_bounds.y + (_bounds.height / 2)) - (_font->MeasureText(_output_text, _font->getFontSize(), _font->getFontSpacing())).y / 2.0f;
 
 	// Draw the text on the button texture
-    _font->DrawText(_output_text, text_pos, _font->get_font_size(), _font->get_font_spacing(), raylib::Color::Red());
+    _font->DrawText(_output_text, text_pos, _font->getFontSize(), _font->getFontSpacing(), raylib::Color::Red());
 };
 
-bool TextBox::IsActive()
+bool TextBox::isActive()
 {
     raylib::Mouse mouse;
     raylib::Vector2 position = mouse.GetPosition();
@@ -136,9 +136,9 @@ bool TextBox::IsActive()
     return ( _state == TextBoxState::ACTIVE);
 };
 
-void TextBox::CursorBlink()
+void TextBox::cursorBlink()
 {
-    if(_state == TextBoxState::ACTIVE && !_timer.HasTimePassedMS(400)) return;
+    if(_state == TextBoxState::ACTIVE && !_timer.hasTimePassedMS(400)) return;
 
     if (_output_text.back() != '|')
     {
@@ -149,10 +149,10 @@ void TextBox::CursorBlink()
         _output_text.pop_back();
     }
 
-    _timer.Refresh();
+    _timer.refresh();
 };
 
-void TextBox::SetOutputText()
+void TextBox::setOutputText()
 {
     if(_output_text.size() && _output_text.back() == '|')
         _output_text = _input_text + "|";
@@ -165,7 +165,7 @@ void TextBox::SetOutputText()
     }
 };
 
-void TextBox::Move(raylib::Vector2 updated_position)
+void TextBox::move(raylib::Vector2 updated_position)
 {
     raylib::Vector2 position_to_update = raylib::Vector2(updated_position.x - _texture->width / 2.0f, updated_position.y - _texture->height / 2.0f);
     raylib::Vector2 size = raylib::Vector2(static_cast<float>(_texture->width), _frame_height);
@@ -174,7 +174,7 @@ void TextBox::Move(raylib::Vector2 updated_position)
     _bounds.SetSize(size);
 };
 
-raylib::Texture TextBox::GetDefaultTexture()
+raylib::Texture TextBox::getDefaultTexture()
 {
     // Create basic texture with nothing in it, just to not throw an error
     const int bar_height = 30;
@@ -196,12 +196,12 @@ raylib::Texture TextBox::GetDefaultTexture()
 };
 
 
-std::string TextBox::GetText()
+std::string TextBox::getText()
 {
     return _input_text;
 };
 
-void TextBox::LoadCommonTextBoxSettings()
+void TextBox::loadCommonTextBoxSettings()
 {
     _NUM_FRAMES = static_cast<int>(TextBoxState::COUNT);
 	_frame_height = _texture->height / static_cast<float>(_NUM_FRAMES);

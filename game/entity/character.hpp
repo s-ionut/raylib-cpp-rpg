@@ -22,11 +22,11 @@ namespace game {
                 Character(ClassType classType);
                 ~Character() {};
                 
-                void SetClass(ClassType classType);
+                void setClass(ClassType classType);
 
             private:
-                void InitChar();
-                void SetStats(int attack, int defense, int max_hp, int max_mana, int str, int intl, int dex, int level, int max_exp);
+                void initChar();
+                void setStats(int attack, int defense, int max_hp, int max_mana, int str, int intl, int dex, int level, int max_exp);
 
                 ClassType _class = ClassType::WARRIOR;
         };

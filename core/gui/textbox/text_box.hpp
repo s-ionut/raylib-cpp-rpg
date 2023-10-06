@@ -29,8 +29,8 @@ namespace core {
                 ~TextBox();
                 void Update();
                 void Draw();
-                void Move(raylib::Vector2 updated_position);
-                std::string GetText();
+                void move(raylib::Vector2 updated_position);
+                std::string getText();
             
             private:
                 std::string _texture_path;      // Text Box texture file path
@@ -53,11 +53,11 @@ namespace core {
 
                 time::Timer _timer;             // Timer for drawing inside textbox
 
-                raylib::Texture GetDefaultTexture();
-                void LoadCommonTextBoxSettings();
-                bool IsActive();
-                void CursorBlink();
-                void SetOutputText();
+                raylib::Texture getDefaultTexture();
+                void loadCommonTextBoxSettings();
+                bool isActive();
+                void cursorBlink();
+                void setOutputText();
         };
     } // namespace gui
 } // namespace core

@@ -10,7 +10,7 @@ IntroScene::IntroScene() : _timer()
 void IntroScene::Update()
 {
     // Do something interesting in the intro
-    if(_timer.HasTimePassedMS(2000))
+    if(_timer.hasTimePassedMS(2000))
     {
         _scene = std::make_shared<LoginScene>();
     }

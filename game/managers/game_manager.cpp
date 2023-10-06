@@ -6,7 +6,7 @@ GameManager* GameManager::_instance = nullptr;
 
 GameManager::GameManager()
 {
-    UpdatePlayers();
+    updatePlayers();
 };
 
 GameManager* GameManager::getInstance()
@@ -27,15 +27,15 @@ GameManager::~GameManager()
     _players.clear();
 };
 
-void GameManager::UpdatePlayers()
+void GameManager::updatePlayers()
 {
     //gonna have to update either from a savefile
     //either from a database (maybe multiplayer :D)
 };
 
-game::entity::Character* GameManager::GetPlayer(PlayerUID pid)
+game::entity::Character* GameManager::getPlayer(PlayerUID pid)
 {
-    if (CheckPlayer(pid))
+    if (checkPlayer(pid))
     {
         return std::any_cast<game::entity::Character*>(_players[pid]);
     }
@@ -50,9 +50,9 @@ game::entity::Character* GameManager::GetPlayer(PlayerUID pid)
     return nullptr;
 };
 
-bool GameManager::SetPlayer(PlayerUID pid, entity::ClassType class_type)
+bool GameManager::setPlayer(PlayerUID pid, entity::ClassType class_type)
 {
-    if (CheckPlayer(pid))
+    if (checkPlayer(pid))
     {
         return false;
     }
@@ -65,7 +65,7 @@ bool GameManager::SetPlayer(PlayerUID pid, entity::ClassType class_type)
     }
 };
 
-bool GameManager::CheckPlayer(PlayerUID pid)
+bool GameManager::checkPlayer(PlayerUID pid)
 {
     if (_players.find(pid) != _players.end())
     {
@@ -75,7 +75,7 @@ bool GameManager::CheckPlayer(PlayerUID pid)
     return false;
 };
 
-bool GameManager::DeletePlayer(PlayerUID pid)
+bool GameManager::deletePlayer(PlayerUID pid)
 {
     auto it = _players.find(pid);
     if (it != _players.end())

@@ -11,8 +11,8 @@ namespace core {
             public:
                 Timer();
                 ~Timer();
-                bool HasTimePassedMS(double milliseconds);
-                void Refresh();
+                bool hasTimePassedMS(double milliseconds);
+                void refresh();
             
             private:
                 std::chrono::time_point<std::chrono::system_clock> _start_time;
