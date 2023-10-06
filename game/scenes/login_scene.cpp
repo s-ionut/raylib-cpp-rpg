@@ -25,7 +25,7 @@ void LoginScene::Update()
         /// TODO: check login data from database, print for now
         std::cout << "Username: " << _username_box->getText() << std::endl;
         std::cout << "Password: " << _pass_box->getText() << std::endl;
-        if (game_manager->checkPlayer(1))
+        if (!game_manager->checkPlayer(1))
         {
             _scene = std::make_shared<CharCreationScene>();
         }

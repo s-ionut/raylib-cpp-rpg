@@ -9,7 +9,9 @@ MainScene::MainScene()
     _textbox = std::make_unique<core::gui::TextBox>();
     
     auto game_manager = game::manager::GameManager::getInstance();
+    std::cout << "lol1\n";
     _character = game_manager->getPlayer(1);
+    std::cout << "lol2\n";
 }
 
 MainScene::~MainScene()

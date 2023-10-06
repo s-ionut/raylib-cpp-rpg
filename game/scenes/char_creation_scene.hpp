@@ -3,6 +3,7 @@
 // core specific
 #include "core/scene/scene.hpp"
 #include "core/gui/core_gui.hpp"
+#include "core/gui/text/font.hpp"
 
 // game specific
 #include "main_scene.hpp"
@@ -36,12 +37,12 @@ namespace game {
                 std::unique_ptr<core::gui::PushButton> _prev_class_button;
                 std::unique_ptr<core::gui::TextBox> _name_box;
                 std::unique_ptr<core::gui::CImage> _avatar;
+                std::unique_ptr<core::text::CFont> _font;
 
                 std::vector<raylib::Texture2D*> _avatars;
-                std::vector<std::string> _class_names;
                 uint8_t _avatar_index = 0;
                 uint8_t _class_index = 0;
-                int _temp_text_size = 0;
+                int _temp_text_X_pos = 0;
 
                 entity::Character* _character;
         };

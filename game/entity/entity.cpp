@@ -42,7 +42,12 @@ void Entity::calcExp(int given_exp)
 std::string Entity::getName() const
 {
     return _name;
-}
+};
+
+int Entity::getAvatar() const
+{
+    return _avatar;
+};
 
 int Entity::getMaxHP() const
 {
@@ -107,6 +112,11 @@ int Entity::getCurrExp() const
 void Entity::setName(const std::string name)
 {
     _name = name;
+};
+
+void Entity::setAvatar(const int avatar)
+{
+    _avatar = avatar;
 };
 
 void Entity::setMaxHP(const int max_hp)

@@ -13,11 +13,23 @@ ClassType game::entity::getClassTypeByIndex(int index)
     }
 };
 
+std::string game::entity::getClassNameByType(ClassType type)
+{
+    switch(type) {
+        case ClassType::WARRIOR: return "Warrior";
+        case ClassType::ASSASSIN: return "Assassin";
+        case ClassType::SURA: return "Sura";
+        case ClassType::MAGE: return "Mage";
+        default: throw std::out_of_range("Invalid index");
+    }
+};
+
 Character::Character(ClassType classType)
 {
     _class = classType;
     initChar();
     setName("NO_NAME");
+    setAvatar(0);
 };
 
 void Character::initChar()
@@ -55,3 +67,8 @@ void Character::setStats(int attack, int defense, int max_hp, int max_mana, int 
     setLevel(level);
     setMaxExp(max_exp);
 };
+
+void Character::setClass(ClassType class_type)
+{
+    _class = class_type;
+}

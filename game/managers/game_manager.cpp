@@ -25,6 +25,8 @@ GameManager::~GameManager()
         delete pair.second;
     }
     _players.clear();
+
+    delete _instance;
 };
 
 void GameManager::updatePlayers()
@@ -33,45 +35,47 @@ void GameManager::updatePlayers()
     //either from a database (maybe multiplayer :D)
 };
 
-game::entity::Character* GameManager::getPlayer(PlayerUID pid)
+bool GameManager::createPlayer(PlayerUID pid, entity::ClassType class_type)
 {
-    if (checkPlayer(pid))
-    {
-        return std::any_cast<game::entity::Character*>(_players[pid]);
-    }
-    
-    // game::entity::Character* resource = new game::entity::Character();
-
-    // if (resource)
-    // {
-    //     _players[pid] = resource;
-    // }
-
-    return nullptr;
-};
-
-bool GameManager::setPlayer(PlayerUID pid, entity::ClassType class_type)
-{
-    if (checkPlayer(pid))
-    {
-        return false;
-    }
-    
     game::entity::Character* resource = new game::entity::Character(class_type);
 
     if (resource)
     {
         _players[pid] = resource;
+        return true;
     }
+
+    return false;
+};
+
+game::entity::Character* GameManager::getPlayer(PlayerUID pid)
+{
+    if (!checkPlayer(pid))
+    {
+        if (createPlayer(pid, entity::ClassType::WARRIOR))
+        {
+            std::cout << "Player created!\n";
+            return std::any_cast<game::entity::Character*>(_players[pid]);
+        }
+        else
+        {
+            // could not create player :(
+        }
+    }
+
+    return _players[pid];
 };
 
 bool GameManager::checkPlayer(PlayerUID pid)
 {
+    std::cout << "Checking for PID: " << pid << std::endl;
     if (_players.find(pid) != _players.end())
     {
+        std::cout << "Player with PID: " << pid << " found." << std::endl;
         return true;
     }
 
+    std::cout << "Player with PID: " << pid << " NOT found." << std::endl;
     return false;
 };
 

@@ -14,6 +14,7 @@ namespace game {
                 void Update();
 
                 std::string getName() const;
+                int getAvatar() const;
 
                 int getMaxHP() const;
                 int getMaxMana() const;
@@ -31,6 +32,7 @@ namespace game {
                 int getMaxExp() const;
                 int getCurrExp() const;
                 void setName(const std::string name);
+                void setAvatar(const int avatar);
 
                 void setMaxHP(const int max_hp);
                 void setMaxMana(const int max_mana);
@@ -56,6 +58,7 @@ namespace game {
                 void calcExp(int given_exp);
                 
                 std::string _name;
+                int _avatar;
 
                 int _max_hp;
                 int _max_mana;

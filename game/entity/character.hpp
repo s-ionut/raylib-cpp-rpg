@@ -15,10 +15,12 @@ namespace game {
             COUNT
         };
         ClassType getClassTypeByIndex(int index);
+        std::string getClassNameByType(ClassType type);
 
         class Character : public Entity
         {
             public:
+                Character() = delete;
                 Character(ClassType classType);
                 ~Character() {};
                 
