@@ -5,6 +5,10 @@ using namespace game::scene;
 LoginScene::LoginScene()
 {
     _scene = nullptr;
+
+    _game_manager = game::manager::GameManager::getInstance();
+    _game_manager->updatePlayers();
+
     _username_box = std::make_unique<core::gui::TextBox>("Username");
     _pass_box = std::make_unique<core::gui::TextBox>("Password");
     _login_button = std::make_unique<core::gui::PushButton>("    Login    ");
@@ -18,15 +22,15 @@ LoginScene::LoginScene()
 
 void LoginScene::Update()
 {
-    auto game_manager = game::manager::GameManager::getInstance();
 
     if (_login_button->buttonPressed())
     {
         /// TODO: check login data from database, print for now
         std::cout << "Username: " << _username_box->getText() << std::endl;
         std::cout << "Password: " << _pass_box->getText() << std::endl;
-        if (!game_manager->checkPlayer(1))
+        if (!_game_manager->checkPlayer(1))
         {
+            _game_manager->updatePlayers();
             _scene = std::make_shared<CharCreationScene>();
         }
         else
