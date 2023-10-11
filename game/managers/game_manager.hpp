@@ -19,15 +19,17 @@ namespace game {
                 GameManager();
                 ~GameManager();
 
-                void UpdatePlayers();
 
                 GameManager(const GameManager&) = delete;
                 GameManager& operator=(const GameManager&) = delete;
 
             public:
                 static GameManager* getInstance();
-                entity::Character* GetPlayer(PlayerUID pid);
-                bool DeletePlayer(PlayerUID pid);
+                entity::Character* getPlayer(PlayerUID pid);
+                bool createPlayer(PlayerUID pid, entity::ClassType class_type);
+                bool checkPlayer(PlayerUID pid);
+                bool deletePlayer(PlayerUID pid);
+                void updatePlayers();
         };
     } // namespace manager
 } // namespace game

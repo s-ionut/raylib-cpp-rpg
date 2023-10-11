@@ -32,7 +32,7 @@ CImage::CImage(raylib::Texture2D* image, raylib::Vector2 position, raylib::Vecto
 };
 
 
-void CImage::UpdateImage(raylib::Texture2D* image)
+void CImage::updateImage(raylib::Texture2D* image)
 {
     _image.Load(*image);
 };
@@ -41,5 +41,5 @@ CImage::~CImage() { };
 
 void CImage::Draw()
 {
-    _image.Draw(raylib::Rectangle(0, 0, _image.GetWidth(), _image.GetHeight()) ,_rectangle);
+    _image.Draw(raylib::Rectangle(0, 0, static_cast<float>(_image.GetWidth()), static_cast<float>(_image.GetHeight())) ,_rectangle);
 };

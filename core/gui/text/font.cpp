@@ -26,22 +26,22 @@ CFont::CFont(std::string path)
     _font_spacing = 1;
 };
 
-void CFont::set_font_spacing(const float spacing)
+void CFont::setFontSpacing(const float spacing)
 {
     _font_spacing = spacing;
 };
 
-void CFont::set_font_size(const float size)
+void CFont::setFontSize(const float size)
 {
     _font_size = size;
 };
 
-const float CFont::get_font_spacing()
+const float CFont::getFontSpacing()
 {
     return _font_spacing;
 };
 
-const float CFont::get_font_size()
+const float CFont::getFontSize()
 {
     return _font_size;
 };

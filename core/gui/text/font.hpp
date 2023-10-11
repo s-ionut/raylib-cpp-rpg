@@ -15,10 +15,10 @@ namespace core {
                 CFont(std::string path);
                 ~CFont();
 
-                void set_font_spacing(const float spacing);
-                void set_font_size(const float size);
-                const float get_font_spacing();
-                const float get_font_size();
+                void setFontSpacing(const float spacing);
+                void setFontSize(const float size);
+                const float getFontSpacing();
+                const float getFontSize();
 
             private:
                 std::string _path;

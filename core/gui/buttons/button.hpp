@@ -46,9 +46,9 @@ namespace core {
                 raylib::Rectangle _bounds;      // Button bounds on screen
 
             private:
-                void LoadCommonButtonSettings();
+                void loadCommonButtonSettings();
 
-                raylib::Texture GetDefaultTexture(std::string text);
+                raylib::Texture getDefaultTexture(std::string text);
         };
     } // namespace gui
 } // namespace core

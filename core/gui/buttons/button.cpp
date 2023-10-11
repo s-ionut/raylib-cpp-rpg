@@ -6,18 +6,18 @@ Button::Button()
 {
     _fx = std::make_shared<raylib::Sound>();
     _font = std::make_shared<text::CFont>();
-    _texture = std::make_shared<raylib::Texture>(GetDefaultTexture("BUTTON"));
+    _texture = std::make_shared<raylib::Texture>(getDefaultTexture("BUTTON"));
 
-	LoadCommonButtonSettings();
+	loadCommonButtonSettings();
 };
 
 Button::Button(std::string name)
 {
     _fx = std::make_shared<raylib::Sound>();
     _font = std::make_shared<text::CFont>();
-    _texture = std::make_shared<raylib::Texture>(GetDefaultTexture(name));
+    _texture = std::make_shared<raylib::Texture>(getDefaultTexture(name));
 
-	LoadCommonButtonSettings();
+	loadCommonButtonSettings();
 }
 
 Button::~Button() { };
@@ -43,13 +43,13 @@ Button::Button(std::string texture_path, std::string fx_path, std::string font_p
 
     _font = std::make_shared<text::CFont>(_font_path);
 
-	LoadCommonButtonSettings();
+	loadCommonButtonSettings();
 };
 
-raylib::Texture Button::GetDefaultTexture(std::string text)
+raylib::Texture Button::getDefaultTexture(std::string text)
 {
     // Create basic texture with nothing in it, just to not throw an error
-    Vector2 textSize = _font->MeasureText(text, _font->get_font_size(), _font->get_font_spacing());
+    Vector2 textSize = _font->MeasureText(text, _font->getFontSize(), _font->getFontSpacing());
     const int barHeight = static_cast<int>(textSize.y) + 20;
     const int barWidth = static_cast<int>(textSize.x) + 10;
     std::vector<Color> colors = {DARKGRAY, LIGHTGRAY, WHITE};
@@ -68,7 +68,7 @@ raylib::Texture Button::GetDefaultTexture(std::string text)
     return default_texture;
 };
 
-void Button::LoadCommonButtonSettings()
+void Button::loadCommonButtonSettings()
 {
     _NUM_FRAMES = static_cast<int>(ButtonState::COUNT);
 	_frame_height = _texture->height / static_cast<float>(_NUM_FRAMES);

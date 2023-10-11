@@ -5,31 +5,41 @@ using namespace game::scene;
 LoginScene::LoginScene()
 {
     _scene = nullptr;
+
+    _game_manager = game::manager::GameManager::getInstance();
+    _game_manager->updatePlayers();
+
     _username_box = std::make_unique<core::gui::TextBox>("Username");
     _pass_box = std::make_unique<core::gui::TextBox>("Password");
     _login_button = std::make_unique<core::gui::PushButton>("    Login    ");
     _exit_button = std::make_unique<core::gui::PushButton>("    Exit    ");
 
-    _username_box->Move(raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f - 40));
-    _pass_box->Move(raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f));
-    _login_button->Move(raylib::Vector2(GetScreenWidth() / 2.0f - 40, GetScreenHeight() / 2.0f + 80));
-    _exit_button->Move(raylib::Vector2(GetScreenWidth() / 2.0f + 40, GetScreenHeight() / 2.0f + 80));
+    _username_box->move(raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f - 40));
+    _pass_box->move(raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f));
+    _login_button->move(raylib::Vector2(GetScreenWidth() / 2.0f - 40, GetScreenHeight() / 2.0f + 80));
+    _exit_button->move(raylib::Vector2(GetScreenWidth() / 2.0f + 40, GetScreenHeight() / 2.0f + 80));
 };
 
 void LoginScene::Update()
 {
-    auto game_manager = game::manager::GameManager::getInstance();
 
-    if (_login_button->ButtonPressed())
+    if (_login_button->buttonPressed())
     {
-        _scene = std::make_shared<CharCreationScene>();
         /// TODO: check login data from database, print for now
-        std::cout << "Username: " << _username_box->GetText() << std::endl;
-        std::cout << "Password: " << _pass_box->GetText() << std::endl;
-        game_manager->GetPlayer(1);
+        std::cout << "Username: " << _username_box->getText() << std::endl;
+        std::cout << "Password: " << _pass_box->getText() << std::endl;
+        if (!_game_manager->checkPlayer(1))
+        {
+            _game_manager->updatePlayers();
+            _scene = std::make_shared<CharCreationScene>();
+        }
+        else
+        {
+            _scene = std::make_shared<MainScene>();
+        }
     }
 
-    if(_exit_button->ButtonPressed())
+    if(_exit_button->buttonPressed())
     {
         std::cout << "Exit scene" << std::endl;
         _should_close = true;

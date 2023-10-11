@@ -12,12 +12,12 @@ Timer::~Timer()
 
 };
 
-void Timer::Refresh()
+void Timer::refresh()
 {
     _start_time = std::chrono::system_clock::now();
 }
 
-bool Timer::HasTimePassedMS(double milliseconds)
+bool Timer::hasTimePassedMS(double milliseconds)
 {
     _end_time = std::chrono::system_clock::now();
     

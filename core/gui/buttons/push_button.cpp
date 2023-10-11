@@ -11,7 +11,7 @@ PushButton::PushButton():
     _text_offset = 0;
 
     
-    Move(raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f));
+    move(raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f));
 };
 
 PushButton::PushButton(std::string button_text):
@@ -23,7 +23,7 @@ PushButton::PushButton(std::string button_text):
     _text_offset = 0;
 
     
-    Move(raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f));
+    move(raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f));
 };
 
 
@@ -56,14 +56,14 @@ void PushButton::Draw()
     _texture->Draw(_source_rec, raylib::Vector2(_bounds.x, _bounds.y), raylib::Color::White());
 
 	// Render buttons to H:center / V:center by default
-	text_pos.x = (_bounds.x + (_bounds.width / 2)) - (_font->MeasureText(_text, _font->get_font_size(), _font->get_font_spacing())).x / 2.0f;
-	text_pos.y = (_bounds.y + (_bounds.height / 2)) - (_font->MeasureText(_text, _font->get_font_size(), _font->get_font_spacing())).y / 2.0f;
+	text_pos.x = (_bounds.x + (_bounds.width / 2)) - (_font->MeasureText(_text, _font->getFontSize(), _font->getFontSpacing())).x / 2.0f;
+	text_pos.y = (_bounds.y + (_bounds.height / 2)) - (_font->MeasureText(_text, _font->getFontSize(), _font->getFontSpacing())).y / 2.0f;
 
 	// Draw the text on the button texture
-    _font->DrawText(_text, text_pos, _font->get_font_size(), _font->get_font_spacing(), raylib::Color::Red());
+    _font->DrawText(_text, text_pos, _font->getFontSize(), _font->getFontSpacing(), raylib::Color::Red());
 };
 
-bool PushButton::ButtonPressed()
+bool PushButton::buttonPressed()
 {
     raylib::Mouse mouse;
     raylib::Vector2 position = mouse.GetPosition();
@@ -97,7 +97,7 @@ bool PushButton::ButtonPressed()
     return _action;
 };
 
-void PushButton::Move(raylib::Vector2 updated_position)
+void PushButton::move(raylib::Vector2 updated_position)
 {   
     raylib::Vector2 position_to_update = raylib::Vector2(updated_position.x - _texture->width / 2.0f, updated_position.y - _texture->height / _NUM_FRAMES / 2.0f);
     raylib::Vector2 size = raylib::Vector2(static_cast<float>(_texture->width), _frame_height);
@@ -106,7 +106,7 @@ void PushButton::Move(raylib::Vector2 updated_position)
     _bounds.SetSize(size);
 };
 
-void PushButton::ChangeText(std::string text)
+void PushButton::changeText(std::string text)
 {
     _text = text;
 };

@@ -6,24 +6,24 @@ ResourceManager* ResourceManager::_instance = nullptr;
 
 ResourceManager::ResourceManager(const std::string& dir) : _directory(dir)
 {
-    UpdateFileList();
-    StartPeriodicCheck();
+    updateFileList();
+    startPeriodicCheck();
 };
 
-void ResourceManager::UpdateFileList()
+void ResourceManager::updateFileList()
 {
     _currentFiles.clear();
-    RecursiveScanDirectory(_directory, _currentFiles);
+    recursiveScanDirectory(_directory, _currentFiles);
 };
 
-void ResourceManager::StartPeriodicCheck() {
+void ResourceManager::startPeriodicCheck() {
     std::thread([this]() {
         while (true)
         {
             std::this_thread::sleep_for(std::chrono::seconds(1));
 
             std::set<std::string> newFiles;
-            RecursiveScanDirectory(_directory, newFiles);
+            recursiveScanDirectory(_directory, newFiles);
 
             for (const auto& file : newFiles)
             {
@@ -46,7 +46,7 @@ void ResourceManager::StartPeriodicCheck() {
     }).detach();
 };
 
-void ResourceManager::RecursiveScanDirectory(const std::filesystem::path& directory, std::set<std::string>& files) const {
+void ResourceManager::recursiveScanDirectory(const std::filesystem::path& directory, std::set<std::string>& files) const {
     for (const auto& entry : std::filesystem::recursive_directory_iterator(directory))
     {
         if (std::filesystem::is_regular_file(entry))
@@ -68,7 +68,7 @@ const std::string ResourceManager::findResourceInPaths(const std::string& resour
     return "";
 };
 
-ResourceManager* ResourceManager::GetInstance(const std::string& dir)
+ResourceManager* ResourceManager::getInstance(const std::string& dir)
 {
     if (!_instance)
     {
@@ -77,7 +77,7 @@ ResourceManager* ResourceManager::GetInstance(const std::string& dir)
     return _instance;
 };
 
-ResourceManager* ResourceManager::GetInstance()
+ResourceManager* ResourceManager::getInstance()
 {
     if (!_instance)
     {

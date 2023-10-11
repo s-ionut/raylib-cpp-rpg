@@ -6,6 +6,7 @@
 
 // game includes
 #include "char_creation_scene.hpp"
+#include "main_scene.hpp"
 #include "managers/game_manager.hpp"
 
 // system includes
@@ -29,6 +30,8 @@ namespace game {
 
                 std::unique_ptr<core::gui::PushButton> _login_button;
                 std::unique_ptr<core::gui::PushButton> _exit_button;
+
+                game::manager::GameManager* _game_manager;
         };
     } // namespace scene
 } // namespace game
