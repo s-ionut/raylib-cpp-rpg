@@ -19,7 +19,6 @@ namespace game {
                 GameManager();
                 ~GameManager();
 
-                void updatePlayers();
 
                 GameManager(const GameManager&) = delete;
                 GameManager& operator=(const GameManager&) = delete;
@@ -30,6 +29,7 @@ namespace game {
                 bool createPlayer(PlayerUID pid, entity::ClassType class_type);
                 bool checkPlayer(PlayerUID pid);
                 bool deletePlayer(PlayerUID pid);
+                void updatePlayers();
         };
     } // namespace manager
 } // namespace game

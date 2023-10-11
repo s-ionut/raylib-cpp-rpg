@@ -31,7 +31,7 @@ namespace game {
                 std::unique_ptr<core::gui::PushButton> _login_button;
                 std::unique_ptr<core::gui::PushButton> _exit_button;
 
-                std::unique_ptr<game::manager::GameManager> _game_manager;
+                game::manager::GameManager* _game_manager;
         };
     } // namespace scene
 } // namespace game
