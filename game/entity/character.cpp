@@ -4,7 +4,8 @@ using namespace game::entity;
 
 ClassType game::entity::getClassTypeByIndex(int index)
 {
-    switch(index) {
+    switch(index)
+    {
         case 0: return ClassType::WARRIOR;
         case 1: return ClassType::ASSASSIN;
         case 2: return ClassType::SURA;
@@ -15,7 +16,8 @@ ClassType game::entity::getClassTypeByIndex(int index)
 
 std::string game::entity::getClassNameByType(ClassType type)
 {
-    switch(type) {
+    switch(type)
+    {
         case ClassType::WARRIOR: return "Warrior";
         case ClassType::ASSASSIN: return "Assassin";
         case ClassType::SURA: return "Sura";
