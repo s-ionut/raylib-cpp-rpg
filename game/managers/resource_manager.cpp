@@ -16,8 +16,7 @@ void ResourceManager::updateFileList()
     recursiveScanDirectory(_directory, _currentFiles);
 };
 
-void ResourceManager::startPeriodicCheck()
-{
+void ResourceManager::startPeriodicCheck() {
     std::thread([this]() {
         while (true)
         {
@@ -47,8 +46,7 @@ void ResourceManager::startPeriodicCheck()
     }).detach();
 };
 
-void ResourceManager::recursiveScanDirectory(const std::filesystem::path& directory, std::set<std::string>& files) const
-{
+void ResourceManager::recursiveScanDirectory(const std::filesystem::path& directory, std::set<std::string>& files) const {
     for (const auto& entry : std::filesystem::recursive_directory_iterator(directory))
     {
         if (std::filesystem::is_regular_file(entry))
