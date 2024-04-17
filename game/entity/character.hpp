@@ -5,6 +5,15 @@
 
 namespace game {
     namespace entity {
+
+        enum class ClassType
+        {
+            WARRIOR = 0,
+            ASSASSIN,
+            SURA,
+            MAGE,
+            COUNT
+        };
         ClassType getClassTypeByIndex(int index);
         std::string getClassNameByType(ClassType type);
 
@@ -20,6 +29,8 @@ namespace game {
             private:
                 void initChar();
                 void setStats(int attack, int defense, int max_hp, int max_mana, int str, int intl, int dex, int level, int max_exp);
+
+                ClassType _class = ClassType::WARRIOR;
         };
     } // namespace entity
 } // namespace game

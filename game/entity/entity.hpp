@@ -3,22 +3,9 @@
 // system specific
 #include "etc/system_includes.h"
 
-// core specific
-#include "core/serialization/serializable.hpp"
-
 namespace game {
     namespace entity {
-        enum class ClassType
-        {
-            WARRIOR = 0,
-            ASSASSIN,
-            SURA,
-            MAGE,
-            COUNT,
-            NONE
-        };
-
-        class Entity : public core::serialization::SerializableBase<Entity>
+        class Entity
         {
             public:
                 Entity();
@@ -65,52 +52,10 @@ namespace game {
             protected:
                 void levelUp();
                 
-                ClassType _class = ClassType::NONE;
-
-                void serialize(std::ostream& out) const override
-                {
-                    out.write(reinterpret_cast<const char*>(&_class), sizeof(_class));
-                    out.write(reinterpret_cast<const char*>(&_name), sizeof(_name));
-                    out.write(reinterpret_cast<const char*>(&_avatar), sizeof(_avatar));
-                    out.write(reinterpret_cast<const char*>(&_max_hp), sizeof(_max_hp));
-                    out.write(reinterpret_cast<const char*>(&_max_mana), sizeof(_max_mana));
-                    out.write(reinterpret_cast<const char*>(&_curr_hp), sizeof(_curr_hp));
-                    out.write(reinterpret_cast<const char*>(&_curr_mana), sizeof(_curr_mana));
-                    out.write(reinterpret_cast<const char*>(&_attack), sizeof(_attack));
-                    out.write(reinterpret_cast<const char*>(&_defense), sizeof(_defense));
-                    out.write(reinterpret_cast<const char*>(&_str), sizeof(_str));
-                    out.write(reinterpret_cast<const char*>(&_int), sizeof(_int));
-                    out.write(reinterpret_cast<const char*>(&_dex), sizeof(_dex));
-                    out.write(reinterpret_cast<const char*>(&_level), sizeof(_level));
-                    out.write(reinterpret_cast<const char*>(&_max_exp), sizeof(_max_exp));
-                    out.write(reinterpret_cast<const char*>(&_curr_exp), sizeof(_curr_exp));
-                };
-                void deserialize(std::istream& in) override
-                {
-                    in.read(reinterpret_cast<char*>(&_class), sizeof(_class));
-                    in.read(reinterpret_cast<char*>(&_name), sizeof(_name));
-                    in.read(reinterpret_cast<char*>(&_avatar), sizeof(_avatar));
-                    in.read(reinterpret_cast<char*>(&_max_hp), sizeof(_max_hp));
-                    in.read(reinterpret_cast<char*>(&_max_mana), sizeof(_max_mana));
-                    in.read(reinterpret_cast<char*>(&_curr_hp), sizeof(_curr_hp));
-                    in.read(reinterpret_cast<char*>(&_curr_mana), sizeof(_curr_mana));
-                    in.read(reinterpret_cast<char*>(&_attack), sizeof(_attack));
-                    in.read(reinterpret_cast<char*>(&_defense), sizeof(_defense));
-                    in.read(reinterpret_cast<char*>(&_str), sizeof(_str));
-                    in.read(reinterpret_cast<char*>(&_int), sizeof(_int));
-                    in.read(reinterpret_cast<char*>(&_dex), sizeof(_dex));
-                    in.read(reinterpret_cast<char*>(&_level), sizeof(_level));
-                    in.read(reinterpret_cast<char*>(&_max_exp), sizeof(_max_exp));
-                    in.read(reinterpret_cast<char*>(&_curr_exp), sizeof(_curr_exp));
-                    in.read(reinterpret_cast<char*>(&_curr_exp), sizeof(_curr_exp));
-                    in.read(reinterpret_cast<char*>(&_curr_exp), sizeof(_curr_exp));
-                };
-                
             private:
                 virtual void calcAttack() {};
                 virtual void calcDefense() {};
                 void calcExp(int given_exp);
-                
                 
                 std::string _name;
                 int _avatar;

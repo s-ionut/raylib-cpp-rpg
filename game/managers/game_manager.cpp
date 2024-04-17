@@ -52,7 +52,7 @@ game::entity::Character* GameManager::getPlayer(PlayerUID pid)
 {
     if (!checkPlayer(pid))
     {
-        if (createPlayer(pid, entity::ClassType::NONE))
+        if (createPlayer(pid, entity::ClassType::WARRIOR))
         {
             std::cout << "Player created!\n";
             return std::any_cast<game::entity::Character*>(_players[pid]);
