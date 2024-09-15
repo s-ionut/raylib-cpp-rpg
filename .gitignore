@@ -3,3 +3,5 @@
 
 # Ignore build folder
 build
+.build
+.install
