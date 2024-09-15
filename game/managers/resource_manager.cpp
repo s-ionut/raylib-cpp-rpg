@@ -4,8 +4,20 @@ using namespace game::manager;
 
 ResourceManager* ResourceManager::_instance = nullptr;
 
-ResourceManager::ResourceManager(const std::string& dir) : _directory(dir)
+ResourceManager::ResourceManager(const std::initializer_list<std::filesystem::path> paths)
 {
+    for(const auto& path : paths)
+    {
+        if(_directory.empty())
+        {
+            _directory = path;
+        }
+        else
+        {
+            _directory /= path;
+        }
+    }
+
     updateFileList();
     startPeriodicCheck();
 };
@@ -68,11 +80,11 @@ const std::string ResourceManager::findResourceInPaths(const std::string& resour
     return "";
 };
 
-ResourceManager* ResourceManager::getInstance(const std::string& dir)
+ResourceManager* ResourceManager::getInstance(const std::initializer_list<std::filesystem::path> paths)
 {
     if (!_instance)
     {
-        _instance = new ResourceManager(dir);
+        _instance = new ResourceManager(paths);
     }
     return _instance;
 };

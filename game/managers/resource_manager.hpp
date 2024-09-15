@@ -1,5 +1,8 @@
 #pragma once
 
+// raylib specific
+#include "raylib-cpp.hpp"
+
 // system specific
 #include "core/etc/system_includes.h"
 
@@ -15,7 +18,7 @@ namespace game {
                 std::filesystem::path _directory;
                 std::map<std::string, std::any> _storage;
 
-                ResourceManager(const std::string& dir);
+                ResourceManager(const std::initializer_list<std::filesystem::path> paths);
                 void updateFileList();
                 void startPeriodicCheck();
                 void recursiveScanDirectory(const std::filesystem::path& directory, std::set<std::string>& files) const;
@@ -23,7 +26,7 @@ namespace game {
 
             public:
                 // Singleton get instance method
-                static ResourceManager* getInstance(const std::string& dir);
+                static ResourceManager* getInstance(const std::initializer_list<std::filesystem::path> paths);
                 static ResourceManager* getInstance();
 
                 template <typename T>
