@@ -1,4 +1,4 @@
-#include "app.hpp"
+#include "App.hpp"
 
 using namespace core;
 
@@ -27,7 +27,7 @@ Application::~Application()
 // Main game loop
 void Application::Execute()
 {
-  auto resourceManager = game::manager::ResourceManager::getInstance("..\\game\\resources");
+  auto resourceManager = game::manager::ResourceManager::getInstance({"..","resources"});
   auto gameManager = game::manager::GameManager::getInstance();
 
   while (!_window.ShouldClose())    // Detect window close button
