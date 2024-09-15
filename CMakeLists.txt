@@ -64,3 +64,17 @@ if (${PLATFORM} STREQUAL "Web")
     # Required linker flags for using Raylib with Emscripten
     target_link_options(${PROJECT_NAME} PRIVATE -sEXPORTED_FUNCTIONS=['_main','_malloc'] -sEXPORTED_RUNTIME_METHODS=ccall -sUSE_GLFW=3)
 endif()
+
+set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/.install)
+
+install(
+    TARGETS raylib-rpg
+    PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE
+                GROUP_READ GROUP_EXECUTE
+                WORLD_READ WORLD_EXECUTE
+)
+
+install(
+    DIRECTORY game/resources
+    DESTINATION .
+)
