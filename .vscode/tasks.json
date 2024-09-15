@@ -1,0 +1,136 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Ensure Folders",
+      "type": "shell",
+      "command": "mkdir",
+      "args": [],
+      "problemMatcher": [],
+      "windows": {
+        "command": "powershell",
+        "args": [
+          "-command",
+          "if (-not (Test-Path '${workspaceFolder}/build')) { New-Item -ItemType Directory '${workspaceFolder}/build' };",
+          "if (-not (Test-Path '${workspaceFolder}/.install')) { New-Item -ItemType Directory '${workspaceFolder}/.install' };"
+        ]
+      },
+      "linux": {
+        "command": "mkdir",
+        "args": [
+          "-p",
+          "${workspaceFolder}/build",
+          "${workspaceFolder}/.install"
+        ]
+      },
+      "osx": {
+        "command": "mkdir",
+        "args": [
+          "-p",
+          "${workspaceFolder}/build",
+          "${workspaceFolder}/.install"
+        ]
+      }
+    },
+    {
+      "label": "Configure",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        ".."
+      ],
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}/build"
+      },
+      "dependsOn": "Ensure Folders"
+    },
+    {
+      "label": "Build",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "."
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"],
+      "options": {
+        "cwd": "${workspaceFolder}/build"
+      },
+      "dependsOn": "Configure"
+    },
+    {
+      "label": "Build & Install",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        ".",
+        "--target",
+        "install"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": ["$gcc"],
+      "options": {
+        "cwd": "${workspaceFolder}/build"
+      },
+      "dependsOn": "Configure"
+    },
+    {
+      "label": "Run",
+      "type": "shell",
+      "command": "${workspaceFolder}/.install/bin/raylib-rpg",
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      },
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}/.install/bin"
+      },
+      "windows": {
+        "command": "${workspaceFolder}\\.install\\bin\\raylib-rpg.exe"
+      },
+      "linux": {
+        "command": "${workspaceFolder}/.install/bin/raylib-rpg"
+      },
+      "osx": {
+        "command": "${workspaceFolder}/.install/bin/raylib-rpg"
+      },
+      "dependsOn": "Build & Install"
+    },
+    {
+      "label": "Clean",
+      "type": "shell",
+      "command": "rm",
+      "args": [
+        "-rf",
+        "build",
+        ".install"
+      ],
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": {
+        "kind": "none",
+        "isDefault": false
+      },
+      "windows": {
+        "command": "powershell",
+        "args": [
+          "-command",
+          "Remove-Item -Recurse -Force '${workspaceFolder}/build';",
+          "Remove-Item -Recurse -Force '${workspaceFolder}/.install';"
+        ]
+      }
+    }
+  ]
+}
