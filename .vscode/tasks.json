@@ -1,6 +1,5 @@
 {
   "version": "2.0.0",
-  "tasks": [
     {
       "label": "Ensure Folders",
       "type": "shell",
