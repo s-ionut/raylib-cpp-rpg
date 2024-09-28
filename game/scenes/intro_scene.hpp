@@ -7,9 +7,6 @@
 // game includes
 #include "login_scene.hpp"
 
-// system includes
-#include "core/etc/system_includes.h"
-
 namespace game
 {
   namespace scene

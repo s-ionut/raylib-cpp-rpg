@@ -12,9 +12,6 @@
 #include "managers/game_manager.hpp"
 #include "entity/character.hpp"
 
-// system specific
-#include "core/etc/system_includes.h"
-
 namespace game
 {
   namespace scene

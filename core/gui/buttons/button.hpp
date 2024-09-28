@@ -6,9 +6,6 @@
 // core specific
 #include "gui/text/font.hpp"
 
-// system specific
-#include "etc/system_includes.h"
-
 namespace core
 {
   namespace gui

@@ -9,9 +9,6 @@
 // game specific
 #include "game/scenes/intro_scene.hpp"
 
-// system specific
-#include "etc/system_includes.h"
-
 namespace core
 {
   namespace renderer

@@ -1,8 +1,5 @@
 #pragma once
 
-// system specific
-#include "core/etc/system_includes.h"
-
 // game specific
 #include "game/entity/character.hpp"
 

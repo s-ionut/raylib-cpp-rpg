@@ -24,10 +24,9 @@ namespace core
     raylib::Window      _window;                      // Context window
     raylib::AudioDevice _audio_device;                // Audio device
     std::string         _window_name = "Application"; // Window name
-    renderer::Renderer  _renderer;     // Renderer to display scenes
-    int                 _width  = 800; // Window width
-    int                 _height = 600; // Window height
-
-    int _targeted_fps = 60; // Targeted FPS
+    int                 _width       = 800;           // Window width
+    int                 _height      = 600;           // Window height
+    renderer::Renderer  _renderer;                    // Displays scenes
+    int                 _targeted_fps = 60;           // Targeted FPS
   };
 } // namespace core

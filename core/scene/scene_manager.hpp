@@ -4,9 +4,6 @@
 #include "game/scenes/main_scene.hpp"
 #include "game/scenes/char_creation_scene.hpp"
 
-// system specific
-#include "etc/system_includes.h"
-
 namespace core
 {
   namespace scene

@@ -3,9 +3,6 @@
 // raylib specific
 #include "raylib-cpp.hpp"
 
-// system specific
-#include "core/etc/system_includes.h"
-
 namespace game
 {
   namespace manager

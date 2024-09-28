@@ -7,9 +7,6 @@
 #include "gui/text/font.hpp"
 #include "time/timer.hpp"
 
-// system specific
-#include "etc/system_includes.h"
-
 namespace core
 {
   namespace gui

@@ -1,8 +1,5 @@
 #pragma once
 
-// system specific
-#include "etc/system_includes.h"
-
 namespace game
 {
   namespace entity

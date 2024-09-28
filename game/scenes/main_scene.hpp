@@ -9,9 +9,6 @@
 #include "managers/game_manager.hpp"
 #include "entity/character.hpp"
 
-// system includes
-#include "core/etc/system_includes.h"
-
 namespace game
 {
   namespace scene
