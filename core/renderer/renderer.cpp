@@ -2,42 +2,36 @@
 
 using namespace core::renderer;
 
-Renderer::Renderer()
-{
-    _scene = std::make_shared<game::scene::IntroScene>();
-};
+Renderer::Renderer() { _scene = std::make_shared<game::scene::IntroScene>(); };
 
-Renderer::~Renderer() { };
+Renderer::~Renderer() {};
 
 void Renderer::Update()
 {
-    GetScene();
-    _scene->Update();
+  GetScene();
+  _scene->Update();
 };
 
 void Renderer::Draw()
 {
-    //----------------------------------------------------------------------------------
-    BeginDrawing();
-    ClearBackground(RAYWHITE);
+  //----------------------------------------------------------------------------------
+  BeginDrawing();
+  ClearBackground(RAYWHITE);
 
-    _scene->Draw();
+  _scene->Draw();
 
-    EndDrawing();
-    //----------------------------------------------------------------------------------
+  EndDrawing();
+  //----------------------------------------------------------------------------------
 };
 
-bool Renderer::Shutdown()
-{
-    return _scene->Shutdown();
-}
+bool Renderer::Shutdown() { return _scene->Shutdown(); }
 
 void Renderer::GetScene()
 {
-    std::shared_ptr<scene::Scene> scene = _scene->GetScene();
+  std::shared_ptr<scene::Scene> scene = _scene->GetScene();
 
-    if(scene != nullptr)
-    {
-        _scene = scene;
-    }
+  if(scene != nullptr)
+  {
+    _scene = scene;
+  }
 };

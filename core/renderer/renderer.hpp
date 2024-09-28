@@ -9,24 +9,25 @@
 // game specific
 #include "game/scenes/intro_scene.hpp"
 
-//system specific
+// system specific
 #include "etc/system_includes.h"
 
-namespace core {
-    namespace renderer {
-        class Renderer
-        {
-            public:
-                Renderer();
-                ~Renderer();
-                void Update();
-                void Draw();
-                bool Shutdown();
-            
-            private:
-                std::shared_ptr<scene::Scene> _scene;
-                void GetScene();
+namespace core
+{
+  namespace renderer
+  {
+    class Renderer
+    {
+    public:
+      Renderer();
+      ~Renderer();
+      void Update();
+      void Draw();
+      bool Shutdown();
 
-        };
-    } // namespace renderer
+    private:
+      std::shared_ptr<scene::Scene> _scene;
+      void                          GetScene();
+    };
+  } // namespace renderer
 } // namespace core

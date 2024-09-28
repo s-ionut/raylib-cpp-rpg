@@ -10,20 +10,22 @@
 // system includes
 #include "core/etc/system_includes.h"
 
-namespace game {
-    namespace scene {
-        class IntroScene: public core::scene::Scene
-        {
-            public:
-                IntroScene();
-                virtual ~IntroScene() {};
-                virtual void Update() override;
-                virtual void Draw() override;
-                virtual std::shared_ptr<core::scene::Scene> GetScene() override;
-            
-            private:
-                std::shared_ptr<core::scene::Scene> _scene;
-                core::time::Timer _timer;
-        };
-    } // namespace scene
+namespace game
+{
+  namespace scene
+  {
+    class IntroScene : public core::scene::Scene
+    {
+    public:
+      IntroScene();
+      virtual ~IntroScene() {};
+      virtual void                                Update() override;
+      virtual void                                Draw() override;
+      virtual std::shared_ptr<core::scene::Scene> GetScene() override;
+
+    private:
+      std::shared_ptr<core::scene::Scene> _scene;
+      core::time::Timer                   _timer;
+    };
+  } // namespace scene
 } // namespace game

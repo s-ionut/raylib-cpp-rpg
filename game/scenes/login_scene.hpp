@@ -12,26 +12,28 @@
 // system includes
 #include "core/etc/system_includes.h"
 
-namespace game {
-    namespace scene {
-        class LoginScene: public core::scene::Scene
-        {
-            public:
-                LoginScene();
-                virtual ~LoginScene() {};
-                virtual void Update() override;
-                virtual void Draw() override;
-                virtual std::shared_ptr<core::scene::Scene> GetScene() override;
-            
-            private:
-                std::shared_ptr<core::scene::Scene> _scene;
-                std::unique_ptr<core::gui::TextBox> _username_box;
-                std::unique_ptr<core::gui::TextBox> _pass_box;
+namespace game
+{
+  namespace scene
+  {
+    class LoginScene : public core::scene::Scene
+    {
+    public:
+      LoginScene();
+      virtual ~LoginScene() {};
+      virtual void                                Update() override;
+      virtual void                                Draw() override;
+      virtual std::shared_ptr<core::scene::Scene> GetScene() override;
 
-                std::unique_ptr<core::gui::PushButton> _login_button;
-                std::unique_ptr<core::gui::PushButton> _exit_button;
+    private:
+      std::shared_ptr<core::scene::Scene> _scene;
+      std::unique_ptr<core::gui::TextBox> _username_box;
+      std::unique_ptr<core::gui::TextBox> _pass_box;
 
-                game::manager::GameManager* _game_manager;
-        };
-    } // namespace scene
+      std::unique_ptr<core::gui::PushButton> _login_button;
+      std::unique_ptr<core::gui::PushButton> _exit_button;
+
+      game::manager::GameManager* _game_manager;
+    };
+  } // namespace scene
 } // namespace game
