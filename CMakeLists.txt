@@ -34,6 +34,7 @@ set(HEADER_DIRS
 add_executable(${PROJECT_NAME} main.cpp)
 set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 17)
 target_link_libraries(${PROJECT_NAME} PUBLIC raylib raylib_cpp)
+target_precompile_headers(${PROJECT_NAME} PRIVATE core/etc/system_includes.h)
 
 # Core source files
 aux_source_directory(core/app SOURCE_FILES)
