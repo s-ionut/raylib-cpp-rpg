@@ -56,15 +56,6 @@ target_sources(${PROJECT_NAME} PRIVATE ${SOURCE_FILES})
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${HEADER_DIRS})
 
-# Web Configurations
-if (${PLATFORM} STREQUAL "Web")
-    # Tell Emscripten to build an example.html file.
-    set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".html")
-
-    # Required linker flags for using Raylib with Emscripten
-    target_link_options(${PROJECT_NAME} PRIVATE -sEXPORTED_FUNCTIONS=['_main','_malloc'] -sEXPORTED_RUNTIME_METHODS=ccall -sUSE_GLFW=3)
-endif()
-
 set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/.install)
 
 install(
