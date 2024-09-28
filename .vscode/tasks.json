@@ -1,5 +1,6 @@
 {
   "version": "2.0.0",
+  "tasks": [
     {
       "label": "Ensure Folders",
       "type": "shell",
@@ -56,7 +57,9 @@
         "kind": "build",
         "isDefault": true
       },
-      "problemMatcher": ["$gcc"],
+      "problemMatcher": [
+        "$gcc"
+      ],
       "options": {
         "cwd": "${workspaceFolder}/build"
       },
@@ -76,7 +79,9 @@
         "kind": "build",
         "isDefault": false
       },
-      "problemMatcher": ["$gcc"],
+      "problemMatcher": [
+        "$gcc"
+      ],
       "options": {
         "cwd": "${workspaceFolder}/build"
       },
