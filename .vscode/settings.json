@@ -1,4 +1,9 @@
 {
+    "C_Cpp.clang_format_path": "/usr/bin/clang-format",
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "C_Cpp.clang_format_fallbackStyle": "none",
     "files.associations": {
         "any": "cpp",
         "array": "cpp",

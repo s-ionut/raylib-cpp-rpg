@@ -3,78 +3,81 @@
 // system specific
 #include "etc/system_includes.h"
 
-namespace game {
-    namespace entity {
-        class Entity
-        {
-            public:
-                Entity();
-                ~Entity() {};
+namespace game
+{
+  namespace entity
+  {
+    class Entity
+    {
+    public:
+      Entity();
+      ~Entity() {};
 
-                void Update();
+      void Update();
 
-                std::string getName() const;
-                int getAvatar() const;
+      std::string getName() const;
+      int         getAvatar() const;
 
-                int getMaxHP() const;
-                int getMaxMana() const;
-                int getCurrHP() const;
-                int getCurrMana() const;
+      int getMaxHP() const;
+      int getMaxMana() const;
+      int getCurrHP() const;
+      int getCurrMana() const;
 
-                int getAttack() const;
-                int getDefense() const;
-                
-                int getSTR() const;
-                int getINT() const;
-                int getDEX() const;
-                
-                int getLevel() const;
-                int getMaxExp() const;
-                int getCurrExp() const;
-                void setName(const std::string name);
-                void setAvatar(const int avatar);
+      int getAttack() const;
+      int getDefense() const;
 
-                void setMaxHP(const int max_hp);
-                void setMaxMana(const int max_mana);
-                void setCurrHP(const int curr_hp);
-                void setCurrMana(const int curr_mana);
+      int getSTR() const;
+      int getINT() const;
+      int getDEX() const;
 
-                void setAttack(const int attack);
-                void setDefense(const int defense);
-                
-                void setSTR(const int str);
-                void setINT(const int intl);
-                void setDEX(const int dex);
-                
-                void setLevel(const int level);
-                void setMaxExp(const int max_exp);
-                void setCurrExp(const int curr_exp);
-            protected:
-                void levelUp();
-                
-            private:
-                virtual void calcAttack() {};
-                virtual void calcDefense() {};
-                void calcExp(int given_exp);
-                
-                std::string _name;
-                int _avatar;
+      int  getLevel() const;
+      int  getMaxExp() const;
+      int  getCurrExp() const;
+      void setName(const std::string name);
+      void setAvatar(const int avatar);
 
-                int _max_hp;
-                int _max_mana;
-                int _curr_hp;
-                int _curr_mana;
-                
-                int _attack;
-                int _defense;
+      void setMaxHP(const int max_hp);
+      void setMaxMana(const int max_mana);
+      void setCurrHP(const int curr_hp);
+      void setCurrMana(const int curr_mana);
 
-                int _str;
-                int _int;
-                int _dex;
+      void setAttack(const int attack);
+      void setDefense(const int defense);
 
-                int _level;
-                int _max_exp;
-                int _curr_exp;
-        };
-    } // namespace entity
+      void setSTR(const int str);
+      void setINT(const int intl);
+      void setDEX(const int dex);
+
+      void setLevel(const int level);
+      void setMaxExp(const int max_exp);
+      void setCurrExp(const int curr_exp);
+
+    protected:
+      void levelUp();
+
+    private:
+      virtual void calcAttack() {};
+      virtual void calcDefense() {};
+      void         calcExp(int given_exp);
+
+      std::string _name;
+      int         _avatar;
+
+      int _max_hp;
+      int _max_mana;
+      int _curr_hp;
+      int _curr_mana;
+
+      int _attack;
+      int _defense;
+
+      int _str;
+      int _int;
+      int _dex;
+
+      int _level;
+      int _max_exp;
+      int _curr_exp;
+    };
+  } // namespace entity
 } // namespce game
