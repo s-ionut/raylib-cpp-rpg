@@ -3,7 +3,7 @@
         {
             "name": "Linux",
             "compileCommands": "${workspaceFolder}/build/compile_commands.json",
-            "cppStandard": "c++17", // Make sure this matches your project standard
+            "cppStandard": "c++17",
             "intelliSenseMode": "linux-gcc-x64"
         }
     ],
