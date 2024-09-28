@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 project(raylib-rpg)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 # raylib
 find_package(raylib QUIET)
 if (NOT raylib_FOUND)
