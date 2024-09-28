@@ -9,11 +9,7 @@ Application::Application(std::string window_name, int width, int height):
     _window(width, height, window_name),
     _renderer()
 {
-  #if defined(PLATFORM_WEB)
-    emscripten_set_main_loop(Execute, 0, 1);
-  #else
     SetTargetFPS(_targeted_fps);
-  #endif
 
   // Disable ESC key for exiting the program
   SetExitKey(KEY_NULL);
