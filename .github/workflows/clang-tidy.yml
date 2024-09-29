@@ -19,11 +19,12 @@ jobs:
         git remote add upstream "https://github.com/${{ github.event.pull_request.base.repo.full_name }}"
         git fetch --no-tags --no-recurse-submodules upstream "${{ github.event.pull_request.base.ref }}"
 
-    # Install necessary libraries (including libxrandr)
+    # Install OpenGL and other necessary dependencies
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y clang-tidy libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev
+        sudo apt-get install -y clang-tidy libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev \
+        mesa-common-dev libgl1-mesa-dev
 
     - name: Prepare compile_commands.json
       run: |
