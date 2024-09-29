@@ -4,36 +4,36 @@ using namespace core::text;
 
 CFont::CFont()
 {
-  _font = std::make_shared<raylib::Font>();
+  m_font = std::make_shared<raylib::Font>();
 
-  _font_size    = 10;
-  _font_spacing = 1;
+  m_fontSize    = 10;
+  m_fontSpacing = 1;
 };
 
 CFont::CFont(std::string path)
 {
-  _path = path;
+  m_path = path;
 
   try
   {
-    _font->Load(_path);
+    m_font->Load(m_path);
   }
   catch(const raylib::RaylibException& error)
   {
     TraceLog(LOG_WARNING, "Failed to load font: %s", error.what());
   }
 
-  _font_size    = 10;
-  _font_spacing = 1;
+  m_fontSize    = 10;
+  m_fontSpacing = 1;
 };
 
-void CFont::setFontSpacing(const float spacing) { _font_spacing = spacing; };
+void CFont::setFontSpacing(const float spacing) { m_fontSpacing = spacing; };
 
-void CFont::setFontSize(const float size) { _font_size = size; };
+void CFont::setFontSize(const float size) { m_fontSize = size; };
 
-const float CFont::getFontSpacing() { return _font_spacing; };
+const float CFont::getFontSpacing() { return m_fontSpacing; };
 
-const float CFont::getFontSize() { return _font_size; };
+const float CFont::getFontSize() { return m_fontSize; };
 
 CFont::~CFont() {
 

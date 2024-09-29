@@ -2,14 +2,17 @@
 
 using namespace core::renderer;
 
-Renderer::Renderer() { _scene = std::make_shared<game::scene::IntroScene>(); };
+Renderer::Renderer()
+{
+  m_scene = std::make_shared<game::scene::IntroScene>();
+};
 
 Renderer::~Renderer() {};
 
 void Renderer::Update()
 {
   GetScene();
-  _scene->Update();
+  m_scene->Update();
 };
 
 void Renderer::Draw()
@@ -18,20 +21,20 @@ void Renderer::Draw()
   BeginDrawing();
   ClearBackground(RAYWHITE);
 
-  _scene->Draw();
+  m_scene->Draw();
 
   EndDrawing();
   //----------------------------------------------------------------------------------
 };
 
-bool Renderer::Shutdown() { return _scene->Shutdown(); }
+bool Renderer::Shutdown() { return m_scene->Shutdown(); }
 
 void Renderer::GetScene()
 {
-  std::shared_ptr<scene::Scene> scene = _scene->GetScene();
+  std::shared_ptr<scene::Scene> scene = m_scene->GetScene();
 
   if(scene != nullptr)
   {
-    _scene = scene;
+    m_scene = scene;
   }
 };

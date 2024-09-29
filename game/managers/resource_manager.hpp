@@ -11,12 +11,12 @@ namespace game
     {
     private:
       // Singleton instance
-      static ResourceManager* _instance;
+      static ResourceManager* m_instance;
 
       // Directory tracking
-      std::set<std::string>           _currentFiles;
-      std::filesystem::path           _directory;
-      std::map<std::string, std::any> _storage;
+      std::set<std::string>           m_currentFiles;
+      std::filesystem::path           m_directory;
+      std::map<std::string, std::any> m_storage;
 
       ResourceManager(const std::initializer_list<std::filesystem::path> paths);
       void updateFileList();
@@ -40,9 +40,9 @@ namespace game
           return nullptr;
         }
 
-        if(_storage.find(pathInFiles) != _storage.end())
+        if(m_storage.find(pathInFiles) != m_storage.end())
         {
-          return std::any_cast<T*>(_storage[pathInFiles]);
+          return std::any_cast<T*>(m_storage[pathInFiles]);
         }
 
         T* resource = nullptr;
@@ -62,7 +62,7 @@ namespace game
 
         if(resource)
         {
-          _storage[pathInFiles] = resource;
+          m_storage[pathInFiles] = resource;
         }
 
         return resource;

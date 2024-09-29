@@ -8,7 +8,7 @@ SceneManager::~SceneManager() {};
 
 void SceneManager::InitScene()
 {
-  _scene = std::make_shared<game::scene::CharCreationScene>();
+  m_scene = std::make_shared<game::scene::CharCreationScene>();
 };
 
 std::shared_ptr<Scene> SceneManager::Manage()
@@ -31,8 +31,8 @@ std::shared_ptr<Scene> SceneManager::GetScene()
 
   if(currentScene != nullptr)
   {
-    _scene = currentScene;
+    m_scene = currentScene;
   }
 
-  return _scene;
+  return m_scene;
 };

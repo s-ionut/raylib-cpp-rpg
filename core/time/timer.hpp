@@ -13,8 +13,8 @@ namespace core
       void refresh();
 
     private:
-      std::chrono::time_point<std::chrono::system_clock> _start_time;
-      std::chrono::time_point<std::chrono::system_clock> _end_time;
+      std::chrono::time_point<std::chrono::system_clock> m_startTime;
+      std::chrono::time_point<std::chrono::system_clock> m_endTime;
     };
 
   } // namespace time

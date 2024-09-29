@@ -4,96 +4,96 @@ using namespace game::scene;
 
 CharCreationScene::CharCreationScene()
 {
-  auto resource     = game::manager::ResourceManager::getInstance();
-  auto game_manager = game::manager::GameManager::getInstance();
+  auto resource    = game::manager::ResourceManager::getInstance();
+  auto gameManager = game::manager::GameManager::getInstance();
 
-  _avatars.push_back(
+  m_avatars.push_back(
     resource->getResource<raylib::Texture2D>("00_avatar.png"));
-  _avatars.push_back(
+  m_avatars.push_back(
     resource->getResource<raylib::Texture2D>("01_avatar.png"));
-  _avatars.push_back(
+  m_avatars.push_back(
     resource->getResource<raylib::Texture2D>("02_avatar.png"));
-  _avatars.push_back(
+  m_avatars.push_back(
     resource->getResource<raylib::Texture2D>("03_avatar.png"));
 
-  _confirm_button = std::make_unique<core::gui::PushButton>("Confirm");
-  _confirm_button->move(
+  m_confirmButton = std::make_unique<core::gui::PushButton>("Confirm");
+  m_confirmButton->move(
     raylib::Vector2(GetScreenWidth() / 2.0f - 50, GetScreenHeight() - 50.0f));
 
-  _back_button = std::make_unique<core::gui::PushButton>("Back");
-  _back_button->move(
+  m_backButton = std::make_unique<core::gui::PushButton>("Back");
+  m_backButton->move(
     raylib::Vector2(GetScreenWidth() / 2.0f + 50, GetScreenHeight() - 50.0f));
 
-  _next_avatar_button = std::make_unique<core::gui::PushButton>("  >  ");
-  _next_avatar_button->move(raylib::Vector2(GetScreenWidth() / 2.0f + 70,
-                                            GetScreenHeight() / 2.0f - 70));
+  m_nextAvatarButton = std::make_unique<core::gui::PushButton>("  >  ");
+  m_nextAvatarButton->move(raylib::Vector2(GetScreenWidth() / 2.0f + 70,
+                                           GetScreenHeight() / 2.0f - 70));
 
-  _prev_avatar_button = std::make_unique<core::gui::PushButton>("  <  ");
-  _prev_avatar_button->move(raylib::Vector2(GetScreenWidth() / 2.0f - 70,
-                                            GetScreenHeight() / 2.0f - 70));
+  m_prevAvatarButton = std::make_unique<core::gui::PushButton>("  <  ");
+  m_prevAvatarButton->move(raylib::Vector2(GetScreenWidth() / 2.0f - 70,
+                                           GetScreenHeight() / 2.0f - 70));
 
-  _next_class_button = std::make_unique<core::gui::PushButton>("  >  ");
-  _next_class_button->move(raylib::Vector2(GetScreenWidth() / 2.0f + 70.0f,
-                                           GetScreenHeight() / 2.0f));
+  m_nextClassButton = std::make_unique<core::gui::PushButton>("  >  ");
+  m_nextClassButton->move(raylib::Vector2(GetScreenWidth() / 2.0f + 70.0f,
+                                          GetScreenHeight() / 2.0f));
 
-  _prev_class_button = std::make_unique<core::gui::PushButton>("  <  ");
-  _prev_class_button->move(raylib::Vector2(GetScreenWidth() / 2.0f - 70.0f,
-                                           GetScreenHeight() / 2.0f));
+  m_prevClassButton = std::make_unique<core::gui::PushButton>("  <  ");
+  m_prevClassButton->move(raylib::Vector2(GetScreenWidth() / 2.0f - 70.0f,
+                                          GetScreenHeight() / 2.0f));
 
-  _avatar = std::make_unique<core::gui::CImage>(
-    _avatars.at(0),
+  m_avatar = std::make_unique<core::gui::CImage>(
+    m_avatars.at(0),
     raylib::Vector2(GetScreenWidth() / 2.0f - 50,
                     GetScreenHeight() / 2.0f - 140),
     raylib::Vector2(100, 100));
 
-  _name_box = std::make_unique<core::gui::TextBox>("Char name");
-  _font     = std::make_unique<core::text::CFont>();
-  _name_box->move(
+  m_nameBox = std::make_unique<core::gui::TextBox>("Char name");
+  m_font    = std::make_unique<core::text::CFont>();
+  m_nameBox->move(
     raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f + 60));
 
-  _scene     = nullptr;
-  _character = game_manager->getPlayer(1);
+  m_scene     = nullptr;
+  m_character = gameManager->getPlayer(1);
 };
 
 void CharCreationScene::Update()
 {
-  auto avatar_index = _character->getAvatar();
+  auto avatarIndex = m_character->getAvatar();
 
-  if(_confirm_button->buttonPressed())
+  if(m_confirmButton->buttonPressed())
   {
-    _character->setName(_name_box->getText());
-    _character->setClass(entity::getClassTypeByIndex(_class_index));
-    _character->setAvatar(avatar_index);
-    _scene = std::make_shared<MainScene>();
+    m_character->setName(m_nameBox->getText());
+    m_character->setClass(entity::getClassTypeByIndex(m_classIndex));
+    m_character->setAvatar(avatarIndex);
+    m_scene = std::make_shared<MainScene>();
   }
-  if(_back_button->buttonPressed())
+  if(m_backButton->buttonPressed())
   {
-    _scene = std::make_shared<LoginScene>();
-  }
-
-  if(_next_avatar_button->buttonPressed())
-  {
-    _avatar->updateImage(_avatars.at(++_avatar_index % 4));
-  }
-  if(_prev_avatar_button->buttonPressed())
-  {
-    _avatar->updateImage(_avatars.at(--_avatar_index % 4));
-  }
-  if(_next_class_button->buttonPressed())
-  {
-    _class_index = ++_class_index % static_cast<int>(entity::ClassType::COUNT);
-  }
-  if(_prev_class_button->buttonPressed())
-  {
-    _class_index = --_class_index % static_cast<int>(entity::ClassType::COUNT);
+    m_scene = std::make_shared<LoginScene>();
   }
 
-  _name_box->Update();
+  if(m_nextAvatarButton->buttonPressed())
+  {
+    m_avatar->updateImage(m_avatars.at(++m_avatarIndex % 4));
+  }
+  if(m_prevAvatarButton->buttonPressed())
+  {
+    m_avatar->updateImage(m_avatars.at(--m_avatarIndex % 4));
+  }
+  if(m_nextClassButton->buttonPressed())
+  {
+    m_classIndex = ++m_classIndex % static_cast<int>(entity::ClassType::COUNT);
+  }
+  if(m_prevClassButton->buttonPressed())
+  {
+    m_classIndex = --m_classIndex % static_cast<int>(entity::ClassType::COUNT);
+  }
 
-  _temp_text_X_pos
+  m_nameBox->Update();
+
+  m_tempTextXPos
     = GetScreenWidth() / 2
       - (MeasureText(game::entity::getClassNameByType(
-                       game::entity::getClassTypeByIndex(_class_index))
+                       game::entity::getClassTypeByIndex(m_classIndex))
                        .c_str(),
                      1)
          / 2);
@@ -101,25 +101,25 @@ void CharCreationScene::Update()
 
 void CharCreationScene::Draw()
 {
-  _name_box->Draw();
+  m_nameBox->Draw();
 
-  _confirm_button->Draw();
-  _back_button->Draw();
-  _next_avatar_button->Draw();
-  _prev_avatar_button->Draw();
-  _next_class_button->Draw();
-  _prev_class_button->Draw();
-  _avatar->Draw();
+  m_confirmButton->Draw();
+  m_backButton->Draw();
+  m_nextAvatarButton->Draw();
+  m_prevAvatarButton->Draw();
+  m_nextClassButton->Draw();
+  m_prevClassButton->Draw();
+  m_avatar->Draw();
 
   raylib::DrawText(game::entity::getClassNameByType(
-                     game::entity::getClassTypeByIndex(_class_index)),
-                   _temp_text_X_pos,
+                     game::entity::getClassTypeByIndex(m_classIndex)),
+                   m_tempTextXPos,
                    GetScreenHeight() / 2,
-                   static_cast<int>(_font->getFontSize()),
+                   static_cast<int>(m_font->getFontSize()),
                    BLACK);
 };
 
 std::shared_ptr<core::scene::Scene> CharCreationScene::GetScene()
 {
-  return _scene;
+  return m_scene;
 };

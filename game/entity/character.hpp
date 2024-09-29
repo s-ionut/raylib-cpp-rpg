@@ -32,15 +32,12 @@ namespace game
       void initChar();
       void setStats(int attack,
                     int defense,
-                    int max_hp,
-                    int max_mana,
-                    int str,
-                    int intl,
-                    int dex,
+                    int maxHp,
+                    int maxMana,
                     int level,
-                    int max_exp);
+                    int maxExp);
 
-      ClassType _class = ClassType::WARRIOR;
+      ClassType m_class = ClassType::WARRIOR;
     };
   } // namespace entity
 } // namespace game

@@ -4,64 +4,64 @@ using namespace game::scene;
 
 LoginScene::LoginScene()
 {
-  _scene = nullptr;
+  m_scene = nullptr;
 
-  _game_manager = game::manager::GameManager::getInstance();
-  _game_manager->updatePlayers();
+  m_gameManager = game::manager::GameManager::getInstance();
+  m_gameManager->updatePlayers();
 
-  _username_box = std::make_unique<core::gui::TextBox>("Username");
-  _pass_box     = std::make_unique<core::gui::TextBox>("Password");
-  _login_button = std::make_unique<core::gui::PushButton>("    Login    ");
-  _exit_button  = std::make_unique<core::gui::PushButton>("    Exit    ");
+  m_usernameBox = std::make_unique<core::gui::TextBox>("Username");
+  m_passBox     = std::make_unique<core::gui::TextBox>("Password");
+  m_loginButton = std::make_unique<core::gui::PushButton>("    Login    ");
+  m_exitButton  = std::make_unique<core::gui::PushButton>("    Exit    ");
 
-  _username_box->move(
+  m_usernameBox->move(
     raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f - 40));
-  _pass_box->move(
+  m_passBox->move(
     raylib::Vector2(GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f));
-  _login_button->move(raylib::Vector2(GetScreenWidth() / 2.0f - 40,
+  m_loginButton->move(raylib::Vector2(GetScreenWidth() / 2.0f - 40,
                                       GetScreenHeight() / 2.0f + 80));
-  _exit_button->move(raylib::Vector2(GetScreenWidth() / 2.0f + 40,
+  m_exitButton->move(raylib::Vector2(GetScreenWidth() / 2.0f + 40,
                                      GetScreenHeight() / 2.0f + 80));
 };
 
 void LoginScene::Update()
 {
 
-  if(_login_button->buttonPressed())
+  if(m_loginButton->buttonPressed())
   {
     /// TODO: check login data from database, print for now
-    std::cout << "Username: " << _username_box->getText() << std::endl;
-    std::cout << "Password: " << _pass_box->getText() << std::endl;
-    if(!_game_manager->checkPlayer(1))
+    std::cout << "Username: " << m_usernameBox->getText() << std::endl;
+    std::cout << "Password: " << m_passBox->getText() << std::endl;
+    if(!m_gameManager->checkPlayer(1))
     {
-      _game_manager->updatePlayers();
-      _scene = std::make_shared<CharCreationScene>();
+      m_gameManager->updatePlayers();
+      m_scene = std::make_shared<CharCreationScene>();
     }
     else
     {
-      _scene = std::make_shared<MainScene>();
+      m_scene = std::make_shared<MainScene>();
     }
   }
 
-  if(_exit_button->buttonPressed())
+  if(m_exitButton->buttonPressed())
   {
     std::cout << "Exit scene" << std::endl;
-    _should_close = true;
+    m_shouldClose = true;
   }
 
-  _username_box->Update();
-  _pass_box->Update();
-  _login_button->Update();
-  _exit_button->Update();
+  m_usernameBox->Update();
+  m_passBox->Update();
+  m_loginButton->Update();
+  m_exitButton->Update();
 };
 
 void LoginScene::Draw()
 {
-  _username_box->Draw();
-  _pass_box->Draw();
+  m_usernameBox->Draw();
+  m_passBox->Draw();
 
-  _login_button->Draw();
-  _exit_button->Draw();
+  m_loginButton->Draw();
+  m_exitButton->Draw();
 };
 
-std::shared_ptr<core::scene::Scene> LoginScene::GetScene() { return _scene; };
+std::shared_ptr<core::scene::Scene> LoginScene::GetScene() { return m_scene; };

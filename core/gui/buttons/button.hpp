@@ -23,29 +23,28 @@ namespace core
     public:
       Button();
       Button(std::string name);
-      Button(std::string texture_path,
-             std::string fx_path,
-             std::string font_path);
+      Button(std::string texturePath,
+             std::string fxPath,
+             std::string fontPath);
       virtual ~Button();
       virtual void Update() {};
       virtual void Draw() {};
 
     protected:
-      std::string _texture_path; // Button texture file path
-      std::string _fx_path;      // Button sound file path
-      std::string _font_path;    // Button font file path
+      std::string m_texturePath; // Button texture file path
+      std::string m_fxPath;      // Button sound file path
+      std::string m_fontPath;    // Button font file path
 
-      std::shared_ptr<raylib::Texture> _texture; // Button texture
-      std::shared_ptr<raylib::Sound>   _fx;      // Button sound
-      std::shared_ptr<text::CFont>     _font;    // Button font
+      std::shared_ptr<raylib::Texture> m_texture; // Button texture
+      std::shared_ptr<raylib::Sound>   m_fx;      // Button sound
+      std::shared_ptr<text::CFont>     m_font;    // Button font
 
-      ButtonState
-            _state; // Button state: 0-NOT_PRESSED, 1-MOUSE_HOVER, 2-PRESSED
-      int   _NUM_FRAMES;   // Number of frames in the texture
-      float _frame_height; // Height of current texture frame
+      ButtonState m_state;       // 0-NOT_PRESSED, 1-MOUSE_HOVER, 2-PRESSED
+      int         m_numFrames;   // Number of frames in the texture
+      float       m_frameHeight; // Height of current texture frame
 
-      raylib::Rectangle _source_rec; // Button frame rectangle for drawing
-      raylib::Rectangle _bounds;     // Button bounds on screen
+      raylib::Rectangle m_sourceRec; // Button frame rectangle for drawing
+      raylib::Rectangle m_bounds;    // Button bounds on screen
 
     private:
       void loadCommonButtonSettings();

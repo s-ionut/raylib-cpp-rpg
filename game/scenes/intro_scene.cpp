@@ -3,17 +3,17 @@
 using namespace game::scene;
 
 IntroScene::IntroScene()
-    : _timer()
+    : m_timer()
 {
-  _scene = nullptr;
+  m_scene = nullptr;
 };
 
 void IntroScene::Update()
 {
   // Do something interesting in the intro
-  if(_timer.hasTimePassedMS(2000))
+  if(m_timer.hasTimePassedMS(2000))
   {
-    _scene = std::make_shared<LoginScene>();
+    m_scene = std::make_shared<LoginScene>();
   }
 };
 
@@ -22,4 +22,4 @@ void IntroScene::Draw()
   raylib::DrawText("raylib-rpg IntroScene!", 160, 200, 20, LIGHTGRAY);
 };
 
-std::shared_ptr<core::scene::Scene> IntroScene::GetScene() { return _scene; };
+std::shared_ptr<core::scene::Scene> IntroScene::GetScene() { return m_scene; };

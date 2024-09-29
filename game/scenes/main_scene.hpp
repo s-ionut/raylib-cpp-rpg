@@ -23,10 +23,10 @@ namespace game
       virtual std::shared_ptr<core::scene::Scene> GetScene() override;
 
     private:
-      std::shared_ptr<core::scene::Scene> _scene;
-      std::unique_ptr<core::gui::TextBox> _textbox;
+      std::shared_ptr<core::scene::Scene> m_scene;
+      std::unique_ptr<core::gui::TextBox> m_textbox;
 
-      entity::Character* _character;
+      entity::Character* m_character;
     };
   } // namespace scene
 } // namespace game

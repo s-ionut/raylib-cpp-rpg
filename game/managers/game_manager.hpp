@@ -12,10 +12,10 @@ namespace game
     class GameManager
     {
     private:
-      static GameManager* _instance;
+      static GameManager* m_instance;
 
       /// TODO: map a UID to a Character object
-      std::map<PlayerUID, entity::Character*> _players;
+      std::map<PlayerUID, entity::Character*> m_players;
       GameManager();
       ~GameManager();
 

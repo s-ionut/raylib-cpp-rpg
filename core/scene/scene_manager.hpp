@@ -18,7 +18,7 @@ namespace core
     private:
       std::shared_ptr<Scene> Manage();
       void                   InitScene();
-      std::shared_ptr<Scene> _scene = nullptr; // Current scene to display
+      std::shared_ptr<Scene> m_scene = nullptr; // Current scene to display
     };
   } // mamespace scene
 } // namespace core

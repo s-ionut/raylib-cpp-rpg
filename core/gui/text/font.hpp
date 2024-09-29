@@ -20,11 +20,11 @@ namespace core
       const float getFontSize();
 
     private:
-      std::string                   _path;
-      std::shared_ptr<raylib::Font> _font;
+      std::string                   m_path;
+      std::shared_ptr<raylib::Font> m_font;
 
-      float _font_spacing;
-      float _font_size;
+      float m_fontSpacing;
+      float m_fontSize;
     };
   } // namespace text
 } // namespace core
