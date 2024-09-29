@@ -1,0 +1,47 @@
+name: Static analysis
+
+on: pull_request
+
+jobs:
+  clang-tidy:
+    runs-on: ubuntu-22.04
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+        fetch-depth: 0
+
+    - name: Fetch base branch
+      run: |
+        git remote add upstream "https://github.com/${{ github.event.pull_request.base.repo.full_name }}"
+        git fetch --no-tags --no-recurse-submodules upstream "${{ github.event.pull_request.base.ref }}"
+
+    # Install OpenGL and other necessary dependencies
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y clang-tidy libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev \
+        mesa-common-dev libgl1-mesa-dev
+
+    - name: Prepare compile_commands.json
+      run: |
+        cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
+    - name: Create results directory
+      run: |
+        mkdir clang-tidy-result
+
+    - name: Analyze
+      run: |
+        git diff -U0 "$(git merge-base HEAD "upstream/${{ github.event.pull_request.base.ref }}")" | clang-tidy-diff -p1 -path build -export-fixes clang-tidy-result/fixes.yml
+
+    - name: Run clang-tidy-pr-comments action
+      uses: platisd/clang-tidy-pr-comments@v1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        clang_tidy_fixes: clang-tidy-result/fixes.yml
+        request_changes: true
+        suggestions_per_comment: 10
