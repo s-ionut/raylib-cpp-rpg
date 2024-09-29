@@ -2,28 +2,29 @@
 
 using namespace game::manager;
 
-GameManager* GameManager::_instance = nullptr;
+GameManager* GameManager::m_instance = nullptr;
 
 GameManager::GameManager() { updatePlayers(); };
 
 GameManager* GameManager::getInstance()
 {
-  if(_instance == nullptr)
+  if(m_instance == nullptr)
   {
-    _instance = new GameManager();
+    m_instance = new GameManager();
   }
-  return _instance;
+  return m_instance;
 };
 
 GameManager::~GameManager()
 {
-  for(auto& pair : _players)
+  for(auto& pair : m_players)
   {
     delete pair.second;
   }
-  _players.clear();
+  m_players.clear();
 
-  delete _instance;
+  delete m_instance;
+  m_instance = nullptr;
 };
 
 void GameManager::updatePlayers() {
@@ -37,7 +38,7 @@ bool GameManager::createPlayer(PlayerUID pid, entity::ClassType class_type)
 
   if(resource)
   {
-    _players[pid] = resource;
+    m_players[pid] = resource;
     return true;
   }
 
@@ -51,7 +52,7 @@ game::entity::Character* GameManager::getPlayer(PlayerUID pid)
     if(createPlayer(pid, entity::ClassType::WARRIOR))
     {
       std::cout << "Player created!\n";
-      return std::any_cast<game::entity::Character*>(_players[pid]);
+      return std::any_cast<game::entity::Character*>(m_players[pid]);
     }
     else
     {
@@ -59,13 +60,13 @@ game::entity::Character* GameManager::getPlayer(PlayerUID pid)
     }
   }
 
-  return _players[pid];
+  return m_players[pid];
 };
 
 bool GameManager::checkPlayer(PlayerUID pid)
 {
   std::cout << "Checking for PID: " << pid << std::endl;
-  if(_players.find(pid) != _players.end())
+  if(m_players.find(pid) != m_players.end())
   {
     std::cout << "Player with PID: " << pid << " found." << std::endl;
     return true;
@@ -77,11 +78,11 @@ bool GameManager::checkPlayer(PlayerUID pid)
 
 bool GameManager::deletePlayer(PlayerUID pid)
 {
-  auto it = _players.find(pid);
-  if(it != _players.end())
+  auto it = m_players.find(pid);
+  if(it != m_players.end())
   {
-    delete _players[pid];
-    _players.erase(it);
+    delete m_players[pid];
+    m_players.erase(it);
     return true;
   }
 

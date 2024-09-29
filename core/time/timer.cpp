@@ -2,23 +2,23 @@
 
 using namespace core::time;
 
-Timer::Timer() { _start_time = std::chrono::system_clock::now(); };
+Timer::Timer() { m_startTime = std::chrono::system_clock::now(); };
 
 Timer::~Timer() {
 
 };
 
-void Timer::refresh() { _start_time = std::chrono::system_clock::now(); }
+void Timer::refresh() { m_startTime = std::chrono::system_clock::now(); }
 
 bool Timer::hasTimePassedMS(double milliseconds)
 {
-  _end_time = std::chrono::system_clock::now();
+  m_endTime = std::chrono::system_clock::now();
 
-  std::chrono::duration<double, std::milli> time_passed
-    = std::chrono::duration_cast<std::chrono::milliseconds>(_end_time
-                                                            - _start_time);
+  std::chrono::duration<double, std::milli> timePassed
+    = std::chrono::duration_cast<std::chrono::milliseconds>(m_endTime
+                                                            - m_startTime);
 
-  if(time_passed.count() >= milliseconds)
+  if(timePassed.count() >= milliseconds)
   {
     return true;
   }

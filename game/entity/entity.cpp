@@ -4,10 +4,10 @@ using namespace game::entity;
 
 Entity::Entity()
 {
-  _level     = 1;
-  _curr_exp  = 0;
-  _curr_hp   = _max_hp;
-  _curr_mana = _max_mana;
+  m_level   = 1;
+  m_currExp = 0;
+  m_maxHp   = 100;
+  m_maxMana = 50;
 };
 
 void Entity::Update() {
@@ -16,78 +16,58 @@ void Entity::Update() {
 
 void Entity::levelUp()
 {
-  _level += 1;
-  _curr_exp = 0;
+  m_level += 1;
+  m_currExp = 0;
 
-  if(_curr_exp > _max_exp)
+  if(m_currExp > m_maxExp)
   {
-    _curr_exp = (_curr_exp - _max_exp);
+    m_currExp = (m_currExp - m_maxExp);
   }
 
-  _max_exp = 10 * _level;
+  m_maxExp = 10 * m_level;
 };
 
-void Entity::calcExp(int given_exp)
+void Entity::calcExp(int givenExp)
 {
-  _curr_exp += given_exp;
+  m_currExp += givenExp;
 
-  if(_curr_exp >= _max_exp)
+  if(m_currExp >= m_maxExp)
   {
     levelUp();
   }
 };
 
-std::string Entity::getName() const { return _name; };
+std::string Entity::getName() const { return m_name; };
 
-int Entity::getAvatar() const { return _avatar; };
+int Entity::getAvatar() const { return m_avatar; };
 
-int Entity::getMaxHP() const { return _max_hp; };
+int Entity::getMaxHP() const { return m_maxHp; };
 
-int Entity::getMaxMana() const { return _max_mana; };
+int Entity::getMaxMana() const { return m_maxMana; };
 
-int Entity::getCurrHP() const { return _curr_hp; };
+int Entity::getAttack() const { return m_attack; };
 
-int Entity::getCurrMana() const { return _curr_mana; };
+int Entity::getDefense() const { return m_defense; };
 
-int Entity::getAttack() const { return _attack; };
+int Entity::getLevel() const { return m_level; };
 
-int Entity::getDefense() const { return _defense; };
+int Entity::getMaxExp() const { return m_maxExp; };
 
-int Entity::getSTR() const { return _str; };
+int Entity::getCurrExp() const { return m_currExp; };
 
-int Entity::getINT() const { return _int; };
+void Entity::setName(const std::string name) { m_name = name; };
 
-int Entity::getDEX() const { return _dex; };
+void Entity::setAvatar(const int avatar) { m_avatar = avatar; };
 
-int Entity::getLevel() const { return _level; };
+void Entity::setMaxHP(const int maxHp) { m_maxHp = maxHp; };
+void Entity::setMaxMana(const int maxMana) { m_maxMana = maxMana; };
 
-int Entity::getMaxExp() const { return _max_exp; };
+void Entity::setAttack(const int attack) { m_attack = attack; };
 
-int Entity::getCurrExp() const { return _curr_exp; };
+void Entity::setDefense(const int defense) { m_defense = defense; };
 
-void Entity::setName(const std::string name) { _name = name; };
+void Entity::setLevel(const int level) { m_level = level; };
 
-void Entity::setAvatar(const int avatar) { _avatar = avatar; };
+void Entity::setMaxExp(const int maxExp) { m_maxExp = maxExp; };
 
-void Entity::setMaxHP(const int max_hp) { _max_hp = max_hp; };
-void Entity::setMaxMana(const int max_mana) { _max_mana = max_mana; };
-
-void Entity::setCurrHP(const int curr_hp) { _curr_hp = curr_hp; };
-
-void Entity::setCurrMana(const int curr_mana) { _curr_mana = curr_mana; };
-
-void Entity::setAttack(const int attack) { _attack = attack; };
-
-void Entity::setDefense(const int defense) { _defense = defense; };
-
-void Entity::setSTR(const int str) { _str = str; };
-
-void Entity::setINT(const int intl) { _int = intl; };
-
-void Entity::setDEX(const int dex) { _dex = dex; };
-
-void Entity::setLevel(const int level) { _level = level; };
-
-void Entity::setMaxExp(const int max_exp) { _max_exp = max_exp; };
-
-void Entity::setCurrExp(const int curr_exp) { _curr_exp = curr_exp; };
+void Entity::setCurrExp(const int currExp) { m_currExp = currExp; };

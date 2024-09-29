@@ -23,14 +23,14 @@ namespace game
       virtual std::shared_ptr<core::scene::Scene> GetScene() override;
 
     private:
-      std::shared_ptr<core::scene::Scene> _scene;
-      std::unique_ptr<core::gui::TextBox> _username_box;
-      std::unique_ptr<core::gui::TextBox> _pass_box;
+      std::shared_ptr<core::scene::Scene> m_scene;
+      std::unique_ptr<core::gui::TextBox> m_usernameBox;
+      std::unique_ptr<core::gui::TextBox> m_passBox;
 
-      std::unique_ptr<core::gui::PushButton> _login_button;
-      std::unique_ptr<core::gui::PushButton> _exit_button;
+      std::unique_ptr<core::gui::PushButton> m_loginButton;
+      std::unique_ptr<core::gui::PushButton> m_exitButton;
 
-      game::manager::GameManager* _game_manager;
+      game::manager::GameManager* m_gameManager;
     };
   } // namespace scene
 } // namespace game

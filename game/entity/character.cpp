@@ -28,7 +28,7 @@ std::string game::entity::getClassNameByType(ClassType type)
 
 Character::Character(ClassType classType)
 {
-  _class = classType;
+  m_class = classType;
   initChar();
   setName("NO_NAME");
   setAvatar(0);
@@ -36,46 +36,35 @@ Character::Character(ClassType classType)
 
 void Character::initChar()
 {
-  if(_class == ClassType::WARRIOR)
+  if(m_class == ClassType::WARRIOR)
   {
-    setStats(150, 150, 100, 50, 15, 5, 10, 1, 10);
+    setStats(150, 150, 100, 50, 1, 10);
   }
-  else if(_class == ClassType::ASSASSIN)
+  else if(m_class == ClassType::ASSASSIN)
   {
-    setStats(200, 50, 100, 50, 10, 5, 15, 1, 10);
+    setStats(200, 50, 100, 50, 1, 10);
   }
-  else if(_class == ClassType::SURA)
+  else if(m_class == ClassType::SURA)
   {
-    setStats(150, 100, 100, 50, 10, 10, 5, 1, 10);
+    setStats(150, 100, 100, 50, 1, 10);
   }
-  else if(_class == ClassType::MAGE)
+  else if(m_class == ClassType::MAGE)
   {
-    setStats(100, 30, 100, 50, 5, 20, 5, 1, 10);
+    setStats(100, 30, 100, 50, 1, 10);
   }
 };
 
-void Character::setStats(int attack,
-                         int defense,
-                         int max_hp,
-                         int max_mana,
-                         int str,
-                         int intl,
-                         int dex,
-                         int level,
-                         int max_exp)
+void Character::setStats(
+  int attack, int defense, int maxHp, int maxMana, int level, int maxExp)
 {
-  setMaxHP(max_hp);
-  setMaxMana(max_mana);
+  setMaxHP(maxHp);
+  setMaxMana(maxMana);
 
   setAttack(attack);
   setDefense(defense);
 
-  setSTR(str);
-  setINT(intl);
-  setDEX(dex);
-
   setLevel(level);
-  setMaxExp(max_exp);
+  setMaxExp(maxExp);
 };
 
-void Character::setClass(ClassType class_type) { _class = class_type; }
+void Character::setClass(ClassType classType) { m_class = classType; }

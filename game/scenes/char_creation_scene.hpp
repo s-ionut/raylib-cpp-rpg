@@ -26,23 +26,23 @@ namespace game
       virtual std::shared_ptr<core::scene::Scene> GetScene() override;
 
     private:
-      std::shared_ptr<core::scene::Scene>    _scene;
-      std::unique_ptr<core::gui::PushButton> _confirm_button;
-      std::unique_ptr<core::gui::PushButton> _back_button;
-      std::unique_ptr<core::gui::PushButton> _next_avatar_button;
-      std::unique_ptr<core::gui::PushButton> _prev_avatar_button;
-      std::unique_ptr<core::gui::PushButton> _next_class_button;
-      std::unique_ptr<core::gui::PushButton> _prev_class_button;
-      std::unique_ptr<core::gui::TextBox>    _name_box;
-      std::unique_ptr<core::gui::CImage>     _avatar;
-      std::unique_ptr<core::text::CFont>     _font;
+      std::shared_ptr<core::scene::Scene>    m_scene;
+      std::unique_ptr<core::gui::PushButton> m_confirmButton;
+      std::unique_ptr<core::gui::PushButton> m_backButton;
+      std::unique_ptr<core::gui::PushButton> m_nextAvatarButton;
+      std::unique_ptr<core::gui::PushButton> m_prevAvatarButton;
+      std::unique_ptr<core::gui::PushButton> m_nextClassButton;
+      std::unique_ptr<core::gui::PushButton> m_prevClassButton;
+      std::unique_ptr<core::gui::TextBox>    m_nameBox;
+      std::unique_ptr<core::gui::CImage>     m_avatar;
+      std::unique_ptr<core::text::CFont>     m_font;
 
-      std::vector<raylib::Texture2D*> _avatars;
-      uint8_t                         _avatar_index    = 0;
-      uint8_t                         _class_index     = 0;
-      int                             _temp_text_X_pos = 0;
+      std::vector<raylib::Texture2D*> m_avatars;
+      uint8_t                         m_avatarIndex  = 0;
+      uint8_t                         m_classIndex   = 0;
+      int                             m_tempTextXPos = 0;
 
-      entity::Character* _character;
+      entity::Character* m_character;
     };
   } // namespace scene
 } // namespace game

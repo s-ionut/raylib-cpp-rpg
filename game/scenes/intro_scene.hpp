@@ -21,8 +21,8 @@ namespace game
       virtual std::shared_ptr<core::scene::Scene> GetScene() override;
 
     private:
-      std::shared_ptr<core::scene::Scene> _scene;
-      core::time::Timer                   _timer;
+      std::shared_ptr<core::scene::Scene> m_scene;
+      core::time::Timer                   m_timer;
     };
   } // namespace scene
 } // namespace game

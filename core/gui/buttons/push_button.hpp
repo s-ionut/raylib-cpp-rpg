@@ -12,22 +12,22 @@ namespace core
     {
     public:
       PushButton();
-      PushButton(std::string button_text);
-      PushButton(std::string texture_path,
-                 std::string fx_path,
-                 std::string font_path);
+      PushButton(std::string buttonText);
+      PushButton(std::string texturePath,
+                 std::string fxPath,
+                 std::string fontPath);
       virtual ~PushButton() override;
       virtual void Update() override;
       virtual void Draw() override;
       bool         buttonPressed();
       void         changeText(std::string text);
-      void         move(raylib::Vector2 updated_position);
+      void         move(raylib::Vector2 updatedPosition);
 
     private:
-      bool        _action;      // Button action should be activated
-      std::string _text;        // Button display text
-      int         _text_offset; // Text Y offset of the button
-      time::Timer _timer;       // Basic timer
+      bool        m_action;     // Button action should be activated
+      std::string m_text;       // Button display text
+      int         m_textOffset; // Text Y offset of the button
+      time::Timer m_timer;      // Basic timer
     };
   } // namespace gui
 } // namespace core

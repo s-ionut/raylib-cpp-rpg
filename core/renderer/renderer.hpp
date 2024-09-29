@@ -23,7 +23,7 @@ namespace core
       bool Shutdown();
 
     private:
-      std::shared_ptr<scene::Scene> _scene;
+      std::shared_ptr<scene::Scene> m_scene;
       void                          GetScene();
     };
   } // namespace renderer
