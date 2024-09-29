@@ -24,6 +24,7 @@ GameManager::~GameManager()
   m_players.clear();
 
   delete m_instance;
+  m_instance = nullptr;
 };
 
 void GameManager::updatePlayers() {
