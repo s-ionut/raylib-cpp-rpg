@@ -23,6 +23,12 @@ namespace game
     private:
       std::shared_ptr<core::scene::Scene> m_scene;
       core::time::Timer                   m_timer;
+      raylib::Rectangle                   m_foreground;
+      raylib::Rectangle                   m_background;
+
+      uint8_t       m_colorAlpha = 255;
+      uint8_t       m_switcher   = -1;
+      raylib::Color m_fgColor    = raylib::Color(255, 255, 255, m_colorAlpha);
     };
   } // namespace scene
 } // namespace game
