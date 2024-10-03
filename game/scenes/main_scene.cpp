@@ -5,8 +5,7 @@ using namespace game::scene;
 
 MainScene::MainScene()
 {
-  m_scene   = nullptr;
-  m_textbox = std::make_unique<core::gui::TextBox>();
+  m_scene = nullptr;
 
   auto gameManager = game::manager::GameManager::getInstance();
   m_character      = gameManager->getPlayer(1);
@@ -20,15 +19,12 @@ void MainScene::Update()
   {
     m_scene = std::make_shared<CharCreationScene>();
   }
-
-  m_textbox->Update();
 };
 
 void MainScene::Draw()
 {
   raylib::DrawText("raylib-rpg MainScene!", 160, 200, 20, LIGHTGRAY);
   raylib::DrawText(m_character->getName(), 160, 230, 20, LIGHTGRAY);
-  m_textbox->Draw();
 };
 
 std::shared_ptr<core::scene::Scene> MainScene::GetScene() { return m_scene; };
