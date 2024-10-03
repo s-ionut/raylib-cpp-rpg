@@ -2,7 +2,7 @@
 
 using namespace game::entity;
 
-ClassType getClassTypeByIndex(int index)
+ClassType game::entity::getClassTypeByIndex(int index)
 {
   switch(index)
   {
@@ -14,7 +14,7 @@ ClassType getClassTypeByIndex(int index)
   }
 };
 
-std::string getClassNameByType(ClassType type)
+std::string game::entity::getClassNameByType(ClassType type)
 {
   switch(type)
   {
