@@ -11,9 +11,6 @@ MainScene::MainScene()
   m_bagButton   = std::make_unique<core::gui::PushButton>("      BAG       ");
   m_forgeButton = std::make_unique<core::gui::PushButton>("    FORGE     ");
 
-  auto screenHeight = GetScreenHeight();
-  auto screenWidth  = GetScreenWidth();
-
   auto baseHeight = 20;
   auto baseWidth  = 50;
 
