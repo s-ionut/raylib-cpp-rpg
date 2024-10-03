@@ -2,12 +2,14 @@
 
 // core includes
 #include "core/scene/scene.hpp"
-#include "core/gui/textbox/text_box.hpp"
+#include "core/gui/core_gui.hpp"
 
 // game includes
-#include "char_creation_scene.hpp"
 #include "managers/game_manager.hpp"
 #include "entity/character.hpp"
+
+#include "menu_scenes/map.hpp"
+#include "menu_scenes/bag.hpp"
 
 namespace game
 {
@@ -23,8 +25,16 @@ namespace game
       virtual std::shared_ptr<core::scene::Scene> GetScene() override;
 
     private:
+      void updateMainScene();
+
+    private:
       std::shared_ptr<core::scene::Scene> m_scene;
-      std::unique_ptr<core::gui::TextBox> m_textbox;
+      std::shared_ptr<core::scene::Scene> m_menuScene;
+
+      std::unique_ptr<core::gui::PushButton> m_characterButton;
+      std::unique_ptr<core::gui::PushButton> m_mapButton;
+      std::unique_ptr<core::gui::PushButton> m_bagButton;
+      std::unique_ptr<core::gui::PushButton> m_forgeButton;
 
       entity::Character* m_character;
     };
