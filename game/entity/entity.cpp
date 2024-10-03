@@ -14,29 +14,6 @@ void Entity::Update() {
 
 };
 
-void Entity::levelUp()
-{
-  m_level += 1;
-  m_currExp = 0;
-
-  if(m_currExp > m_maxExp)
-  {
-    m_currExp = (m_currExp - m_maxExp);
-  }
-
-  m_maxExp = 10 * m_level;
-};
-
-void Entity::calcExp(int givenExp)
-{
-  m_currExp += givenExp;
-
-  if(m_currExp >= m_maxExp)
-  {
-    levelUp();
-  }
-};
-
 std::string Entity::getName() const { return m_name; };
 
 int Entity::getAvatar() const { return m_avatar; };
@@ -60,6 +37,7 @@ void Entity::setName(const std::string name) { m_name = name; };
 void Entity::setAvatar(const int avatar) { m_avatar = avatar; };
 
 void Entity::setMaxHP(const int maxHp) { m_maxHp = maxHp; };
+
 void Entity::setMaxMana(const int maxMana) { m_maxMana = maxMana; };
 
 void Entity::setAttack(const int attack) { m_attack = attack; };

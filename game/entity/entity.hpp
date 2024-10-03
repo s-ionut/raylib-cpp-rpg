@@ -37,13 +37,9 @@ namespace game
       void setMaxExp(const int maxExp);
       void setCurrExp(const int currExp);
 
-    protected:
-      void levelUp();
-
     private:
       virtual void calcAttack() {};
       virtual void calcDefense() {};
-      void         calcExp(int givenExp);
 
       std::string m_name;
       int         m_avatar;

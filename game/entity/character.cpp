@@ -2,7 +2,7 @@
 
 using namespace game::entity;
 
-ClassType game::entity::getClassTypeByIndex(int index)
+ClassType getClassTypeByIndex(int index)
 {
   switch(index)
   {
@@ -14,7 +14,7 @@ ClassType game::entity::getClassTypeByIndex(int index)
   }
 };
 
-std::string game::entity::getClassNameByType(ClassType type)
+std::string getClassNameByType(ClassType type)
 {
   switch(type)
   {
@@ -68,3 +68,35 @@ void Character::setStats(
 };
 
 void Character::setClass(ClassType classType) { m_class = classType; }
+
+void Character::calcExp(int givenExp)
+{
+  auto currExp = getCurrExp();
+  auto maxExp  = getMaxExp();
+
+  currExp += givenExp;
+
+  if(currExp >= maxExp)
+  {
+    levelUp();
+  }
+};
+
+void Character::levelUp()
+{
+  auto currLevel = getLevel();
+  auto currExp   = getCurrExp();
+  auto maxExp    = getMaxExp();
+
+  if(currExp > maxExp)
+  {
+    setCurrExp(abs(currExp - maxExp));
+  }
+
+  setStats(getAttack() + 3,
+           getDefense() + 2,
+           getMaxHP() + 20,
+           getMaxMana() + 5,
+           currLevel + 1,
+           10 * (currLevel + 1));
+};
