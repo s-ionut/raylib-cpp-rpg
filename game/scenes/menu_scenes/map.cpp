@@ -1,5 +1,4 @@
 #include "map.hpp"
-#include <iostream>
 
 using namespace game::scene;
 

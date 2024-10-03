@@ -1,5 +1,4 @@
 #include "main_scene.hpp"
-#include <iostream>
 
 using namespace game::scene;
 

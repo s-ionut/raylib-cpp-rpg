@@ -1,5 +1,4 @@
 #include "bag.hpp"
-#include <iostream>
 
 using namespace game::scene;
 
