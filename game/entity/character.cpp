@@ -67,7 +67,11 @@ void Character::setStats(
   setMaxExp(maxExp);
 };
 
-void Character::setClass(ClassType classType) { m_class = classType; }
+void Character::setClass(ClassType classType)
+{
+  m_class = classType;
+  initChar();
+}
 
 void Character::calcExp(int givenExp)
 {

@@ -29,9 +29,7 @@ MainScene::MainScene()
   m_forgeButton->setFixedSize(raylib::Vector2(100, 50));
   m_settingsButton->setFixedSize(raylib::Vector2(100, 50));
 
-  auto gameManager = game::manager::GameManager::getInstance();
-  m_character      = gameManager->getPlayer(1);
-  m_menuScene      = std::make_shared<MapScene>();
+  m_menuScene = std::make_shared<CharacterScene>();
 }
 
 MainScene::~MainScene() { std::cout << "Destroyed main scene" << std::endl; }
@@ -86,9 +84,6 @@ void MainScene::Draw()
 
   if(m_menuScene->Shutdown())
     m_shouldClose = true;
-
-  raylib::DrawText("raylib-rpg MainScene!", 160, 200, 20, LIGHTGRAY);
-  raylib::DrawText(m_character->getName(), 160, 230, 20, LIGHTGRAY);
 };
 
 void game::scene::MainScene::updateMainScene()

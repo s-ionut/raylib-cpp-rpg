@@ -7,8 +7,8 @@ def get_active_window_relative_mouse_pos():
     if hwnd:
         rect = win32gui.GetWindowRect(hwnd)
         x, y = pyautogui.position()
-        relative_x = x - rect[0]
-        relative_y = y - rect[1]
+        relative_x = x - rect[0] - 30
+        relative_y = y - rect[1] - 30
         return relative_x, relative_y
     else:
         return None

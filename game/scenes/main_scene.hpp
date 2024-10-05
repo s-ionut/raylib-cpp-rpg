@@ -4,10 +4,6 @@
 #include "core/scene/scene.hpp"
 #include "core/gui/core_gui.hpp"
 
-// game includes
-#include "managers/game_manager.hpp"
-#include "entity/character.hpp"
-
 #include "menu_scenes/character.hpp"
 #include "menu_scenes/map.hpp"
 #include "menu_scenes/bag.hpp"
@@ -44,8 +40,6 @@ namespace game
       std::unique_ptr<core::gui::PushButton> m_bagButton;
       std::unique_ptr<core::gui::PushButton> m_forgeButton;
       std::unique_ptr<core::gui::PushButton> m_settingsButton;
-
-      entity::Character* m_character;
     };
   } // namespace scene
 } // namespace game

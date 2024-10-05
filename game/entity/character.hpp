@@ -26,9 +26,10 @@ namespace game
       Character(ClassType classType);
       ~Character() {};
 
-      void setClass(ClassType classType);
-      void calcExp(int givenExp);
-      void levelUp();
+      void      setClass(ClassType classType);
+      ClassType getClass() { return m_class; };
+      void      calcExp(int givenExp);
+      void      levelUp();
 
     private:
       void initChar();

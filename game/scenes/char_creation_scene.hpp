@@ -38,9 +38,8 @@ namespace game
       std::unique_ptr<core::text::CFont>     m_font;
 
       std::vector<raylib::Texture2D*> m_avatars;
-      uint8_t                         m_avatarIndex  = 0;
-      uint8_t                         m_classIndex   = 0;
-      int                             m_tempTextXPos = 0;
+      uint8_t                         m_avatarIndex = 0;
+      uint8_t                         m_classIndex  = 0;
 
       entity::Character* m_character;
     };
