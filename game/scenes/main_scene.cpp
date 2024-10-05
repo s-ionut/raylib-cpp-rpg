@@ -38,27 +38,27 @@ MainScene::~MainScene() { std::cout << "Destroyed main scene" << std::endl; }
 
 void MainScene::Update()
 {
-  if(m_characterButton->buttonPressed())
+  if(m_characterButton->buttonPressed() && !isCurrentScene<CharacterScene>())
   {
     m_menuScene = std::make_shared<CharacterScene>();
   }
 
-  if(m_mapButton->buttonPressed())
+  if(m_mapButton->buttonPressed() && !isCurrentScene<MapScene>())
   {
     m_menuScene = std::make_shared<MapScene>();
   }
 
-  if(m_bagButton->buttonPressed())
+  if(m_bagButton->buttonPressed() && !isCurrentScene<BagScene>())
   {
     m_menuScene = std::make_shared<BagScene>();
   }
 
-  if(m_forgeButton->buttonPressed())
+  if(m_forgeButton->buttonPressed() && !isCurrentScene<ForgeScene>())
   {
     m_menuScene = std::make_shared<ForgeScene>();
   }
 
-  if(m_settingsButton->buttonPressed())
+  if(m_settingsButton->buttonPressed() && !isCurrentScene<SettingsScene>())
   {
     m_menuScene = std::make_shared<SettingsScene>();
   }
@@ -95,7 +95,7 @@ void game::scene::MainScene::updateMainScene()
 {
   std::shared_ptr<core::scene::Scene> scene = m_menuScene->GetScene();
 
-  if(scene != nullptr)
+  if(scene != nullptr && scene != m_menuScene)
   {
     m_menuScene = scene;
   }

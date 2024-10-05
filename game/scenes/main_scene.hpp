@@ -30,6 +30,11 @@ namespace game
     private:
       void updateMainScene();
 
+      template <typename SceneType> bool isCurrentScene()
+      {
+        return std::dynamic_pointer_cast<SceneType>(m_menuScene) != nullptr;
+      }
+
     private:
       std::shared_ptr<core::scene::Scene> m_scene;
       std::shared_ptr<core::scene::Scene> m_menuScene;
