@@ -63,7 +63,7 @@ void CharCreationScene::Update()
   {
     m_character->setName(m_nameBox->getText());
     m_character->setClass(entity::getClassTypeByIndex(m_classIndex));
-    m_character->setAvatar(avatarIndex);
+    m_character->setAvatar(m_avatarIndex);
     m_scene = std::make_shared<MainScene>();
   }
   if(m_backButton->buttonPressed())
@@ -89,14 +89,6 @@ void CharCreationScene::Update()
   }
 
   m_nameBox->Update();
-
-  m_tempTextXPos
-    = GetScreenWidth() / 2
-      - (MeasureText(game::entity::getClassNameByType(
-                       game::entity::getClassTypeByIndex(m_classIndex))
-                       .c_str(),
-                     1)
-         / 2);
 };
 
 void CharCreationScene::Draw()
@@ -111,9 +103,11 @@ void CharCreationScene::Draw()
   m_prevClassButton->Draw();
   m_avatar->Draw();
 
-  raylib::DrawText(game::entity::getClassNameByType(
-                     game::entity::getClassTypeByIndex(m_classIndex)),
-                   m_tempTextXPos,
+  std::string className = game::entity::getClassNameByType(
+    game::entity::getClassTypeByIndex(m_classIndex));
+
+  raylib::DrawText(className,
+                   core::text::centerTextToMiddleScreen(className, 1),
                    GetScreenHeight() / 2,
                    static_cast<int>(m_font->getFontSize()),
                    BLACK);

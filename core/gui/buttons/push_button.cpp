@@ -48,10 +48,12 @@ void PushButton::Draw()
   // Get the button texture source coordinates
   m_sourceRec.y = static_cast<int>(m_state) * m_frameHeight;
 
-  // Draw the button texture
-  m_texture->Draw(m_sourceRec,
-                  raylib::Vector2(m_bounds.x, m_bounds.y),
-                  raylib::Color::White());
+  m_texture->Draw(
+    m_sourceRec,
+    raylib::Rectangle(m_bounds.x, m_bounds.y, m_size.x, m_size.y),
+    {0, 0},
+    0,
+    raylib::Color::White());
 
   // Render buttons to H:center / V:center by default
   textPos.x = (m_bounds.x + (m_bounds.width / 2))
@@ -110,14 +112,34 @@ bool PushButton::buttonPressed()
 
 void PushButton::move(raylib::Vector2 updatedPosition)
 {
-  raylib::Vector2 positionToUpdate = raylib::Vector2(
-    updatedPosition.x - m_texture->width / 2.0f,
-    updatedPosition.y - m_texture->height / m_numFrames / 2.0f);
-  raylib::Vector2 size
+  if(m_fixedPosition && m_fixedSize)
+    return;
+
+  m_position = raylib::Vector2(updatedPosition.x - m_texture->width / 2.0f,
+                               updatedPosition.y
+                                 - m_texture->height / m_numFrames / 2.0f);
+
+  m_size
     = raylib::Vector2(static_cast<float>(m_texture->width), m_frameHeight);
 
-  m_bounds.SetPosition(positionToUpdate);
-  m_bounds.SetSize(size);
+  m_bounds.SetPosition(m_position);
+  m_bounds.SetSize(m_size);
+};
+
+void PushButton::setFixedPosition(Vector2 position)
+{
+  m_position      = position;
+  m_fixedPosition = true;
+
+  m_bounds.SetPosition(m_position);
+}
+
+void PushButton::setFixedSize(Vector2 size)
+{
+  m_size      = size;
+  m_fixedSize = true;
+
+  m_bounds.SetSize(m_size);
 };
 
 void PushButton::changeText(std::string text) { m_text = text; };

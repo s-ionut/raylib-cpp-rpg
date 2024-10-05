@@ -67,4 +67,40 @@ void Character::setStats(
   setMaxExp(maxExp);
 };
 
-void Character::setClass(ClassType classType) { m_class = classType; }
+void Character::setClass(ClassType classType)
+{
+  m_class = classType;
+  initChar();
+}
+
+void Character::calcExp(int givenExp)
+{
+  auto currExp = getCurrExp();
+  auto maxExp  = getMaxExp();
+
+  currExp += givenExp;
+
+  if(currExp >= maxExp)
+  {
+    levelUp();
+  }
+};
+
+void Character::levelUp()
+{
+  auto currLevel = getLevel();
+  auto currExp   = getCurrExp();
+  auto maxExp    = getMaxExp();
+
+  if(currExp > maxExp)
+  {
+    setCurrExp(abs(currExp - maxExp));
+  }
+
+  setStats(getAttack() + 3,
+           getDefense() + 2,
+           getMaxHP() + 20,
+           getMaxMana() + 5,
+           currLevel + 1,
+           10 * (currLevel + 1));
+};
