@@ -8,8 +8,10 @@
 #include "managers/game_manager.hpp"
 #include "entity/character.hpp"
 
+#include "menu_scenes/character.hpp"
 #include "menu_scenes/map.hpp"
 #include "menu_scenes/bag.hpp"
+#include "menu_scenes/forge.hpp"
 #include "menu_scenes/settings.hpp"
 
 namespace game

@@ -38,6 +38,11 @@ MainScene::~MainScene() { std::cout << "Destroyed main scene" << std::endl; }
 
 void MainScene::Update()
 {
+  if(m_characterButton->buttonPressed())
+  {
+    m_menuScene = std::make_shared<CharacterScene>();
+  }
+
   if(m_mapButton->buttonPressed())
   {
     m_menuScene = std::make_shared<MapScene>();
@@ -46,6 +51,11 @@ void MainScene::Update()
   if(m_bagButton->buttonPressed())
   {
     m_menuScene = std::make_shared<BagScene>();
+  }
+
+  if(m_forgeButton->buttonPressed())
+  {
+    m_menuScene = std::make_shared<ForgeScene>();
   }
 
   if(m_settingsButton->buttonPressed())
