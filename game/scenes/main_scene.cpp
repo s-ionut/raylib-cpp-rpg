@@ -6,20 +6,28 @@ MainScene::MainScene()
 {
   m_scene = nullptr;
 
-  m_characterButton = std::make_unique<core::gui::PushButton>(" CHARACTER ");
-  m_mapButton   = std::make_unique<core::gui::PushButton>("      MAP      ");
-  m_bagButton   = std::make_unique<core::gui::PushButton>("      BAG       ");
-  m_forgeButton = std::make_unique<core::gui::PushButton>("    FORGE     ");
-  m_settingsButton = std::make_unique<core::gui::PushButton>("   SETTINGS   ");
+  m_characterButton = std::make_unique<core::gui::PushButton>("CHARACTER");
+  m_mapButton       = std::make_unique<core::gui::PushButton>("MAP");
+  m_bagButton       = std::make_unique<core::gui::PushButton>("BAG");
+  m_forgeButton     = std::make_unique<core::gui::PushButton>("FORGE");
+  m_settingsButton  = std::make_unique<core::gui::PushButton>("SETTINGS");
 
-  auto baseHeight = 20;
-  auto baseWidth  = 50;
+  auto baseHeight = GetScreenHeight() / 2 - 125;
+  auto baseWidth  = 0;
 
-  m_characterButton->move(raylib::Vector2(baseWidth, baseHeight));
-  m_mapButton->move(raylib::Vector2(baseWidth, baseHeight + 40));
-  m_bagButton->move(raylib::Vector2(baseWidth, baseHeight + 80));
-  m_forgeButton->move(raylib::Vector2(baseWidth, baseHeight + 120));
-  m_settingsButton->move(raylib::Vector2(baseWidth, baseHeight + 160));
+  m_characterButton->setFixedPosition(raylib::Vector2(baseWidth, baseHeight));
+  m_mapButton->setFixedPosition(raylib::Vector2(baseWidth, baseHeight + 50));
+  m_bagButton->setFixedPosition(raylib::Vector2(baseWidth, baseHeight + 100));
+  m_forgeButton->setFixedPosition(
+    raylib::Vector2(baseWidth, baseHeight + 150));
+  m_settingsButton->setFixedPosition(
+    raylib::Vector2(baseWidth, baseHeight + 200));
+
+  m_characterButton->setFixedSize(raylib::Vector2(100, 50));
+  m_mapButton->setFixedSize(raylib::Vector2(100, 50));
+  m_bagButton->setFixedSize(raylib::Vector2(100, 50));
+  m_forgeButton->setFixedSize(raylib::Vector2(100, 50));
+  m_settingsButton->setFixedSize(raylib::Vector2(100, 50));
 
   auto gameManager = game::manager::GameManager::getInstance();
   m_character      = gameManager->getPlayer(1);
