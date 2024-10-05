@@ -13,7 +13,7 @@ MainScene::MainScene()
   m_settingsButton  = std::make_unique<core::gui::PushButton>("SETTINGS");
 
   auto baseHeight = GetScreenHeight() / 2 - 125;
-  auto baseWidth  = 0;
+  auto baseWidth  = 1;
 
   m_characterButton->setFixedPosition(raylib::Vector2(baseWidth, baseHeight));
   m_mapButton->setFixedPosition(raylib::Vector2(baseWidth, baseHeight + 50));
