@@ -13,15 +13,12 @@ MainScene::MainScene()
   m_settingsButton  = std::make_unique<core::gui::PushButton>("SETTINGS");
 
   auto baseHeight = GetScreenHeight() / 2 - 125;
-  auto baseWidth  = 0;
 
-  m_characterButton->setFixedPosition(raylib::Vector2(baseWidth, baseHeight));
-  m_mapButton->setFixedPosition(raylib::Vector2(baseWidth, baseHeight + 50));
-  m_bagButton->setFixedPosition(raylib::Vector2(baseWidth, baseHeight + 100));
-  m_forgeButton->setFixedPosition(
-    raylib::Vector2(baseWidth, baseHeight + 150));
-  m_settingsButton->setFixedPosition(
-    raylib::Vector2(baseWidth, baseHeight + 200));
+  m_characterButton->setFixedPosition(raylib::Vector2(0, baseHeight));
+  m_mapButton->setFixedPosition(raylib::Vector2(0, baseHeight + 50));
+  m_bagButton->setFixedPosition(raylib::Vector2(0, baseHeight + 100));
+  m_forgeButton->setFixedPosition(raylib::Vector2(0, baseHeight + 150));
+  m_settingsButton->setFixedPosition(raylib::Vector2(0, baseHeight + 200));
 
   m_characterButton->setFixedSize(raylib::Vector2(100, 50));
   m_mapButton->setFixedSize(raylib::Vector2(100, 50));
