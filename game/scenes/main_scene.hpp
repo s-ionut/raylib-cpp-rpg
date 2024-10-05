@@ -10,6 +10,7 @@
 
 #include "menu_scenes/map.hpp"
 #include "menu_scenes/bag.hpp"
+#include "menu_scenes/settings.hpp"
 
 namespace game
 {
@@ -35,6 +36,7 @@ namespace game
       std::unique_ptr<core::gui::PushButton> m_mapButton;
       std::unique_ptr<core::gui::PushButton> m_bagButton;
       std::unique_ptr<core::gui::PushButton> m_forgeButton;
+      std::unique_ptr<core::gui::PushButton> m_settingsButton;
 
       entity::Character* m_character;
     };
